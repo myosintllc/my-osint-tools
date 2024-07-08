@@ -1,12 +1,18 @@
 /*
-This bookmarklet is used on Telegram user profile pages to extract user data
-and display in a pop-up window.
+This bookmarklet is used on Telegram user profile pages like https://t.me/khanglobalstudies
+when that page shows a "..." at the bottom. This script extracts user data
+and displays in a pop-up window.
 */
 
 // Copy and paste the data below
 
-
+javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
+javascript:
+	(function () {
+		var a = document.getElementsByClassName('tgme_page_description')[0];
+		alert(a.innerText);
+	}());
