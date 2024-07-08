@@ -1,11 +1,36 @@
 /*
 This bookmarklet is used on any page to extract JSON data.
+You can try it social media and other pages like https://en.wikipedia.org/wiki/Bookmarklet.
 */
 
 // Copy and paste the data below
 
-
+javascript:(function() {  var scripts = document.querySelectorAll('script');  var jsonStrings = [];  for (var i = 0; i < scripts.length; i++) {    var script = scripts[i];    if (script.type === 'application/json' || script.innerText.trim().startsWith('{') || script.innerText.trim().startsWith('[')) {      try {        jsonStrings.push(JSON.stringify(JSON.parse(script.innerText), null, 2));      } catch(e) {        console.error('Failed to parse JSON:', script.innerText);      }    }  }  if (jsonStrings.length) {    var jsonWindow = window.open("", "JsonPopup", "width=600,height=400,scrollbars=1,resizable=1");    var pre = jsonWindow.document.createElement('pre');    pre.textContent = jsonStrings.join('\n\n');    jsonWindow.document.body.innerHTML = '';    jsonWindow.document.body.appendChild(pre);  } else {    alert('No JSON found.');  }})();
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
+javascript:
+	(function () {
+		var scripts = document.querySelectorAll('script');
+		var jsonStrings = [];
+		for (var i = 0; i < scripts.length; i) {
+			var script = scripts[i];
+			if (script.type === 'application/json' || script.innerText.trim().startsWith('{') || script.innerText.trim().startsWith('[')) {
+				try {
+					jsonStrings.push(JSON.stringify(JSON.parse(script.innerText), null, 2));
+				} catch (e) {
+					console.error('Failed to parse JSON:', script.innerText);
+				}
+			}
+		}
+		if (jsonStrings.length) {
+			var jsonWindow = window.open('', 'JsonPopup', 'width=600,height=400,scrollbars=1,resizable=1');
+			var pre = jsonWindow.document.createElement('pre');
+			pre.textContent = jsonStrings.join('\n\n');
+			jsonWindow.document.body.innerHTML = '';
+			jsonWindow.document.body.appendChild(pre);
+		} else {
+			alert('No JSON found.');
+		}
+	}());
