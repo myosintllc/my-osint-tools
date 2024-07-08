@@ -17,3 +17,7 @@ Yup. That pretty much sums it up.
 ## Are there limits on what I can do with these tools?
 
 There is a [LICENSE](https://github.com/myosintllc/mot-osint-tools/blob/main/LICENSE) file you should check out for details on what you can do with the tools in here.
+
+---
+
+These tools are provided by the instructors and authors at [My OSINT Training](https://www.myosint.training). Check out our huge number of OSINT courses including our **FREE** [Introduction to OSINT](https://www.myosint.training/courses/introduction-to-osint) course and our [bundles of classes](https://www.myosint.training/pages/bundles)

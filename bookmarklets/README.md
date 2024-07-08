@@ -15,3 +15,8 @@
 7. Save the bookmark/bookmarklet.
 8. Now you are set to run or use the bookmarklet. Some you need to be on a certain web page to use (like the Facebook ID one needs to be on a Facebook page like https://www.facebook.com/zuck). Navigate to the correct page or, for those that do not need a certain page, just click the bookmark.
 9. **WARNING:** Some of these bookmarklets open one or more browser tabs. You may need to **ALLOW POP-UPS** in your web browser to get those tabs to show.
+
+
+---
+
+These tools are provided by the instructors and authors at [My OSINT Training](https://www.myosint.training). Check out our huge number of OSINT courses including our **FREE** [Introduction to OSINT](https://www.myosint.training/courses/introduction-to-osint) course and our [bundles of classes](https://www.myosint.training/pages/bundles)
