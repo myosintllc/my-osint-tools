@@ -1,0 +1,47 @@
+/*
+
+This bookmarklet is used on Threads.net user profile pages to extract Threads
+user data and display in an overlay (have to due to the secure writing of data.)
+
+And example URL to try it on is https://www.threads.net/@techchatchelsea.
+
+You may need to SHIFT - RELOAD the Threads page for the bookmarklet to work.
+
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
+*/
+
+// Copy and paste the data below
+
+javascript:(function()%7Bfor(var e=document.querySelectorAll('script%5Btype="application/json"%5D'),r=null,t=0;t<e.length;t++)%7Bvar o=e%5Bt%5D.textContent.trim();if(o.includes('"hd_profile_pic_versions"'))try%7Bvar i=JSON.parse(o);if(i&&i.require&&i.require%5B0%5D&&i.require%5B0%5D%5B3%5D&&i.require%5B0%5D%5B3%5D%5B0%5D&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D.__bbox&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D.__bbox.result&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D.__bbox.result.data&&i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D.__bbox.result.data.user)%7Br=i.require%5B0%5D%5B3%5D%5B0%5D.__bbox.require%5B0%5D%5B3%5D%5B1%5D.__bbox.result.data.user;break%7D%7Dcatch(e)%7Bconsole.error("Error parsing JSON:",e)%7D%7Dif(r)%7Bvar l=JSON.stringify(r,null,2),u=document.createElement("div");u.style.position="fixed",u.style.top="0",u.style.left="0",u.style.width="100%25",u.style.height="100%25",u.style.backgroundColor="rgba(0, 0, 0, 0.8)",u.style.zIndex="9999",u.style.overflow="auto",u.style.color="#fff",u.style.padding="20px",u.style.boxSizing="border-box";var n=document.createElement("button");n.textContent="Close",n.style.position="absolute",n.style.top="20px",n.style.right="20px",n.style.padding="10px 20px",n.style.backgroundColor="#333",n.style.color="#fff",n.style.border="none",n.style.cursor="pointer",n.style.borderRadius="5px",n.addEventListener("click",(function()%7Bdocument.body.removeChild(u)%7D));var s=document.createElement("pre");s.textContent=l,s.style.whiteSpace="pre-wrap",u.appendChild(n),u.appendChild(s),document.body.appendChild(u)%7Delse alert("No user data found on the current page.")%7D)();
+
+// Do not copy the raw javascript below. It is for understanding what is happening.
+
+javascript:
+	(function () {
+		for (var e = document.querySelectorAll('script[type="application/json"]'), r = null, t = 0; t < e.length; t) {
+			var o = e[t].textContent.trim();
+			if (o.includes('"hd_profile_pic_versions"'))
+				try {
+					var i = JSON.parse(o);
+					if (i && i.require && i.require[0] && i.require[0][3] && i.require[0][3][0] && i.require[0][3][0].__bbox && i.require[0][3][0].__bbox.require && i.require[0][3][0].__bbox.require[0] && i.require[0][3][0].__bbox.require[0][3] && i.require[0][3][0].__bbox.require[0][3][1] && i.require[0][3][0].__bbox.require[0][3][1].__bbox && i.require[0][3][0].__bbox.require[0][3][1].__bbox.result && i.require[0][3][0].__bbox.require[0][3][1].__bbox.result.data && i.require[0][3][0].__bbox.require[0][3][1].__bbox.result.data.user) {
+						r = i.require[0][3][0].__bbox.require[0][3][1].__bbox.result.data.user;
+						break;
+					}
+				} catch (e) {
+					console.error('Error parsing JSON:', e);
+				}
+		}
+		if (r) {
+			var l = JSON.stringify(r, null, 2), u = document.createElement('div');
+			u.style.position = 'fixed', u.style.top = '0', u.style.left = '0', u.style.width = '100%', u.style.height = '100%', u.style.backgroundColor = 'rgba(0, 0, 0, 0.8)', u.style.zIndex = '9999', u.style.overflow = 'auto', u.style.color = '#fff', u.style.padding = '20px', u.style.boxSizing = 'border-box';
+			var n = document.createElement('button');
+			n.textContent = 'Close', n.style.position = 'absolute', n.style.top = '20px', n.style.right = '20px', n.style.padding = '10px 20px', n.style.backgroundColor = '#333', n.style.color = '#fff', n.style.border = 'none', n.style.cursor = 'pointer', n.style.borderRadius = '5px', n.addEventListener('click', function () {
+				document.body.removeChild(u);
+			});
+			var s = document.createElement('pre');
+			s.textContent = l, s.style.whiteSpace = 'pre-wrap', u.appendChild(n), u.appendChild(s), document.body.appendChild(u);
+		} else
+			alert('No user data found on the current page.');
+	}());
