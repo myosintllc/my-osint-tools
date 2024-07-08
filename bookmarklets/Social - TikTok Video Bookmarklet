@@ -1,12 +1,38 @@
 /*
-This bookmarklet is used on TikTok video pages to extract JSON content
-and display in a pop-up window.
+This bookmarklet is used on TikTok video pages like https://www.tiktok.com/@mrbeast/video/7364804047850884398
+to extract JSON content and display in a pop-up window.
 */
 
 // Copy and paste the data below
 
-
+javascript:(function() %7B%0A    try %7B%0A        // Get the script content by ID%0A        var scriptContent = document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__').text;%0A        %0A        // Parse the JSON data%0A        var jsonData = JSON.parse(scriptContent);%0A        %0A        // Extract user details and video details from __DEFAULT_SCOPE__%0A        var defaultScope = jsonData?.__DEFAULT_SCOPE__;%0A        var userDetails = defaultScope?.%5B"webapp.user-detail"%5D;%0A        var videoDetails = defaultScope?.%5B"webapp.video-detail"%5D;%0A        %0A        // Create a new window to display the details%0A        var newWindow = window.open(%27%27, %27%27, %27width=600,height=400%27);%0A        %0A        // Write the details to the new window%0A        newWindow.document.write(%27<html><head><title>Extracted Data</title></head><body>%27);%0A        newWindow.document.write(%27<h2>User Details</h2><pre>%27 + JSON.stringify(userDetails, null, 2) + %27</pre>%27);%0A        newWindow.document.write(%27<h2>Video Details</h2><pre>%27 + JSON.stringify(videoDetails, null, 2) + %27</pre>%27);%0A        newWindow.document.write(%27</body></html>%27);%0A        newWindow.document.close();%0A    %7D catch (e) %7B%0A        alert(%27An error occurred: %27 + e.message);%0A    %7D%0A%7D)();
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
+javascript:(function() {
+    try {
+        // Get the script content by ID
+        var scriptContent = document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__').text;
+
+        // Parse the JSON data
+        var jsonData = JSON.parse(scriptContent);
+
+        // Extract user details and video details from __DEFAULT_SCOPE__
+        var defaultScope = jsonData?.__DEFAULT_SCOPE__;
+        var userDetails = defaultScope?.["webapp.user-detail"];
+        var videoDetails = defaultScope?.["webapp.video-detail"];
+
+        // Create a new window to display the details
+        var newWindow = window.open('', '', 'width=600,height=400');
+
+        // Write the details to the new window
+        newWindow.document.write('<html><head><title>Extracted Data</title></head><body>');
+        newWindow.document.write('<h2>User Details</h2><pre>'   JSON.stringify(userDetails, null, 2)   '</pre>');
+        newWindow.document.write('<h2>Video Details</h2><pre>'   JSON.stringify(videoDetails, null, 2)   '</pre>');
+        newWindow.document.write('</body></html>');
+        newWindow.document.close();
+    } catch (e) {
+        alert('An error occurred: '   e.message);
+    }
+})();
