@@ -20,4 +20,4 @@ There is a [LICENSE](https://github.com/myosintllc/mot-osint-tools/blob/main/LIC
 
 ---
 
-These tools are provided by the instructors and authors at [My OSINT Training](https://www.myosint.training). Check out our huge number of OSINT courses including our **FREE** [Introduction to OSINT](https://www.myosint.training/courses/introduction-to-osint) course and our [bundles of classes](https://www.myosint.training/pages/bundles)
+_These tools are provided by the instructors and authors at [My OSINT Training](https://www.myosint.training). Check out our huge number of OSINT courses including our **FREE** [Introduction to OSINT](https://www.myosint.training/courses/introduction-to-osint) course and our [bundles of classes](https://www.myosint.training/pages/bundles)_
