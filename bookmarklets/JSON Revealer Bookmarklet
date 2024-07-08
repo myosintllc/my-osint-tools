@@ -2,6 +2,7 @@
 
 This bookmarklet is used on any page to extract JSON data.
 You can try it social media and other pages like https://en.wikipedia.org/wiki/Bookmarklet.
+It will display the JSON (if there is any) in an 800x800 pixel window.
 
 Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
 Want some OSINT learning? https://www.myosint.training has courses for you.
@@ -10,32 +11,34 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function() {  var scripts = document.querySelectorAll('script');  var jsonStrings = [];  for (var i = 0; i < scripts.length; i++) {    var script = scripts[i];    if (script.type === 'application/json' || script.innerText.trim().startsWith('{') || script.innerText.trim().startsWith('[')) {      try {        jsonStrings.push(JSON.stringify(JSON.parse(script.innerText), null, 2));      } catch(e) {        console.error('Failed to parse JSON:', script.innerText);      }    }  }  if (jsonStrings.length) {    var jsonWindow = window.open("", "JsonPopup", "width=600,height=400,scrollbars=1,resizable=1");    var pre = jsonWindow.document.createElement('pre');    pre.textContent = jsonStrings.join('\n\n');    jsonWindow.document.body.innerHTML = '';    jsonWindow.document.body.appendChild(pre);  } else {    alert('No JSON found.');  }})();
+javascript:(function()%7B%0D%0A%20%20%20%20var%20scripts%20=%20document.querySelectorAll('script');%0D%0A%20%20%20%20var%20jsonStrings%20=%20%5B%5D;%0D%0A%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20if%20(script.type%20===%20'application/json'%20%7C%7C%20script.innerText.trim().startsWith('%7B')%20%7C%7C%20script.innerText.trim().startsWith('%5B'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20jsonStrings.push(JSON.stringify(JSON.parse(script.innerText),%20null,%202));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(e)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Failed%20to%20parse%20JSON:',%20script.innerText);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20if%20(jsonStrings.length)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20jsonWindow%20=%20window.open('',%20'JsonPopup',%20'width=800,height=800,scrollbars=1,resizable=1');%0D%0A%20%20%20%20%20%20%20%20var%20pre%20=%20jsonWindow.document.createElement('pre');%0D%0A%20%20%20%20%20%20%20%20pre.style.width%20=%20'800';%20//%20Set%20the%20width%20of%20the%20%3Cpre%3E%20element%20to%20800%0D%0A%20%20%20%20%20%20%20%20pre.style.margin%20=%20'auto';%20//%20Center%20align%20the%20%3Cpre%3E%20element%0D%0A%20%20%20%20%20%20%20%20pre.style.whiteSpace%20=%20'pre-wrap';%20//%20Allow%20wrapping%20of%20text%20within%20%3Cpre%3E%0D%0A%20%20%20%20%20%20%20%20pre.textContent%20=%20jsonStrings.join('%5Cn%5Cn');%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.innerHTML%20=%20'';%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.appendChild(pre);%0D%0A%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20alert('No%20JSON%20found.');%0D%0A%20%20%20%20%7D%0D%0A%7D)();
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
-javascript:
-	(function () {
-		var scripts = document.querySelectorAll('script');
-		var jsonStrings = [];
-		for (var i = 0; i < scripts.length; i) {
-			var script = scripts[i];
-			if (script.type === 'application/json' || script.innerText.trim().startsWith('{') || script.innerText.trim().startsWith('[')) {
-				try {
-					jsonStrings.push(JSON.stringify(JSON.parse(script.innerText), null, 2));
-				} catch (e) {
-					console.error('Failed to parse JSON:', script.innerText);
-				}
-			}
-		}
-		if (jsonStrings.length) {
-			var jsonWindow = window.open('', 'JsonPopup', 'width=600,height=400,scrollbars=1,resizable=1');
-			var pre = jsonWindow.document.createElement('pre');
-			pre.textContent = jsonStrings.join('\n\n');
-			jsonWindow.document.body.innerHTML = '';
-			jsonWindow.document.body.appendChild(pre);
-		} else {
-			alert('No JSON found.');
-		}
-	}());
+javascript:(function(){
+    var scripts = document.querySelectorAll('script');
+    var jsonStrings = [];
+    for (var i = 0; i < scripts.length; i++) {
+        var script = scripts[i];
+        if (script.type === 'application/json' || script.innerText.trim().startsWith('{') || script.innerText.trim().startsWith('[')) {
+            try {
+                jsonStrings.push(JSON.stringify(JSON.parse(script.innerText), null, 2));
+            } catch (e) {
+                console.error('Failed to parse JSON:', script.innerText);
+            }
+        }
+    }
+    if (jsonStrings.length) {
+        var jsonWindow = window.open('', 'JsonPopup', 'width=800,height=800,scrollbars=1,resizable=1');
+        var pre = jsonWindow.document.createElement('pre');
+        pre.style.width = '800'; // Set the width of the <pre> element to 800
+        pre.style.margin = 'auto'; // Center align the <pre> element
+        pre.style.whiteSpace = 'pre-wrap'; // Allow wrapping of text within <pre>
+        pre.textContent = jsonStrings.join('\n\n');
+        jsonWindow.document.body.innerHTML = '';
+        jsonWindow.document.body.appendChild(pre);
+    } else {
+        alert('No JSON found.');
+    }
+})();
