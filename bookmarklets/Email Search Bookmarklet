@@ -5,6 +5,9 @@ This bookmarklet is for searching for the owner of an email. It pops up 1 window
 asking you to input the email (include the @domain.com portion in your search).
 It queries different email search sites in one click.
 
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
 */
 
 // Copy and paste the data below

@@ -1,9 +1,13 @@
 /*
+
 Originally from https://hatless1der.com/4-simple-useful-osint-search-bookmarklets/
 
 It pops up 3 windows in succession asking you to input the first name, then last name,
 then a US State you’re searching. It queries 9 different people search sites in one
 click.
+
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
 
 */
 

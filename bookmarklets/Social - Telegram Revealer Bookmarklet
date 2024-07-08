@@ -1,7 +1,12 @@
 /*
+
 This bookmarklet is used on Telegram user profile pages like https://t.me/khanglobalstudies
 when that page shows a "..." at the bottom. This script extracts user data
 and displays in a pop-up window.
+
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
 */
 
 // Copy and paste the data below

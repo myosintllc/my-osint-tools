@@ -4,6 +4,9 @@ Originally from https://hatless1der.com/4-simple-useful-osint-search-bookmarklet
 It pops up 1 window asking you to input the domain (do not include the www or https
 in your search). It queries different domain info search sites in one click.
 
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
 */
 
 // Copy and paste the data below
