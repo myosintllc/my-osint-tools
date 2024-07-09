@@ -1,4 +1,6 @@
-<center><img src="my osint tools.png" alt="My OSINT Tools logo" width="250"></center>
+<p align="center">
+    <img src="my osint tools.png" alt="My OSINT Tools logo" width="250">
+</p>
 
 # Welcome to My OSINT Tools by: My OSINT Training
 
