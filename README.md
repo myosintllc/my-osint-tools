@@ -2,15 +2,19 @@
     <img src="myosinttools1.png" alt="My OSINT Tools logo" width="250">
 </p>
 
-# Welcome to My OSINT Tools by: My OSINT Training
+# Welcome to My OSINT Tools by: [My OSINT Training](https://www.myosint.training)
 
 ## What is this place?
 
-In the course of our OSINT work, sometimes we need to make a specific tool that does a thing better/faster/more efficiently than we could do it manually. This is a collection of such things that focus on OSINT tasks.
+In the course of our OSINT work, sometimes we need to make a specific tool that does a task better/faster/more efficiently than we could do it manually. This is a collection of such tools that focus on OSINT tasks.
+
+The goal is to put these tools in your hands so that you can do tasks better/faster/more effectively, which, we guess you kinda figured out.
 
 ## So you made OSINT tools and I get them free?
 
 Yup. That pretty much sums it up.
+
+We have a bunch of bookmarklets over in the [Bookmarklet directory](https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets) and more tools may be coming.
 
 ## What do I do if the tools don't work for me?
 
