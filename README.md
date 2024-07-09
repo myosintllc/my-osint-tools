@@ -1,4 +1,6 @@
-# Public OSINT Tools from My OSINT Training
+<center><img src="my osint tools.png" alt="My OSINT Tools logo" width="250"></center>
+
+# Welcome to My OSINT Tools by: My OSINT Training
 
 ## What is this place?
 
