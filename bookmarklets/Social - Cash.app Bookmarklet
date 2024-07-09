@@ -1,0 +1,120 @@
+/*
+
+This bookmarklet is used on Cash.app user profile pages to extract profile
+data and profile image and display in an overlay.
+
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
+*/
+
+// Copy and paste the data below
+
+javascript:(function()%20%7B%0D%0A%20%20%20%20//%20Function%20to%20find%20and%20extract%20profile%20data%0D%0A%20%20%20%20function%20extractProfileData()%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20profileData%20=%20null;%0D%0A%20%20%20%20%20%20%20%20var%20scripts%20=%20document.getElementsByTagName('script');%0D%0A%20%20%20%20%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20scriptContent%20=%20script.textContent%20%7C%7C%20script.innerText;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(scriptContent.includes('var%20profile%20=%20%7B%22display_name%22'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Extract%20JSON%20from%20script%20content%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20startIndex%20=%20scriptContent.indexOf('var%20profile%20=%20%7B%22display_name%22');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20endIndex%20=%20scriptContent.indexOf('%7D;',%20startIndex)%20+%201;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20profileJSON%20=%20scriptContent.substring(startIndex,%20endIndex);%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Parse%20JSON%20string%20to%20object%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20profileData%20=%20JSON.parse(profileJSON.replace('var%20profile%20=%20',%20''));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(error)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Error%20parsing%20profile%20JSON:',%20error);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20return%20profileData;%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Function%20to%20display%20profile%20data%20in%20an%20alert-like%20modal%0D%0A%20%20%20%20function%20displayProfileData(profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20if%20(!profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20alert('Profile%20data%20not%20found!');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return;%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Extract%20avatar%20image%20URL%20from%20existing%20img%20tag%0D%0A%20%20%20%20%20%20%20%20var%20avatarImg%20=%20document.querySelector('img%5Balt=%22profile%20avatar%22%5D');%0D%0A%20%20%20%20%20%20%20%20var%20imageUrl%20=%20avatarImg%20?%20avatarImg.src%20:%20null;%0D%0A%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20//%20Replace%20'width=96'%20with%20'width=400'%20in%20the%20URL%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20imageUrl%20=%20imageUrl.replace('width=96',%20'width=400');%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20container%0D%0A%20%20%20%20%20%20%20%20var%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.display%20=%20'flex';%0D%0A%20%20%20%20%20%20%20%20overlay.style.alignItems%20=%20'left';%0D%0A%20%20%20%20%20%20%20%20overlay.style.justifyContent%20=%20'left';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20var%20modalContent%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20modalContent.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.color%20=%20'#000';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.borderRadius%20=%20'8px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.boxShadow%20=%20'0%200%2010px%20rgba(0,%200,%200,%200.3)';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxWidth%20=%20'80%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxHeight%20=%20'70%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Build%20HTML%20content%20for%20profile%20data%0D%0A%20%20%20%20%20%20%20%20var%20htmlContent%20=%20'%3Ch2%20style=%22color:%20#000;%22%3E'%20+%20profile.display_name%20+%20'%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EFormatted%20Cashtag:%3C/strong%3E%20'%20+%20profile.formatted_cashtag%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EAccount%20Verified?%3C/strong%3E%20'%20+%20profile.is_verified_account%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ERate%20Plan:%3C/strong%3E%20'%20+%20profile.rate_plan%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ECountry%20Code:%3C/strong%3E%20'%20+%20profile.country_code%20+%20'%3C/p%3E';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Check%20if%20avatar%20image%20URL%20was%20found%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20img%20=%20document.createElement('img');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.maxWidth%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.height%20=%20'auto';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.src%20=%20imageUrl;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20modalContent.appendChild(img);%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Set%20HTML%20content%20to%20the%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20modalContent.innerHTML%20+=%20htmlContent;%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20modal%20content%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(modalContent);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Close%20overlay%20on%20click%20outside%20content%0D%0A%20%20%20%20%20%20%20%20overlay.addEventListener('click',%20function(event)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(event.target%20===%20overlay)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Main%20execution%0D%0A%20%20%20%20var%20profile%20=%20extractProfileData();%0D%0A%20%20%20%20displayProfileData(profile);%0D%0A%7D)();
+
+
+// Do not copy the raw javascript below. It is for understanding what is happening.
+
+javascript:(function() {
+    // Function to find and extract profile data
+    function extractProfileData() {
+        var profileData = null;
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var script = scripts[i];
+            var scriptContent = script.textContent || script.innerText;
+            if (scriptContent.includes('var profile = {"display_name"')) {
+                // Extract JSON from script content
+                var startIndex = scriptContent.indexOf('var profile = {"display_name"');
+                var endIndex = scriptContent.indexOf('};', startIndex) + 1;
+                var profileJSON = scriptContent.substring(startIndex, endIndex);
+
+                // Parse JSON string to object
+                try {
+                    profileData = JSON.parse(profileJSON.replace('var profile = ', ''));
+                } catch (error) {
+                    console.error('Error parsing profile JSON:', error);
+                }
+                break;
+            }
+        }
+        return profileData;
+    }
+
+    // Function to display profile data in an alert-like modal
+    function displayProfileData(profile) {
+        if (!profile) {
+            alert('Profile data not found!');
+            return;
+        }
+
+        // Extract avatar image URL from existing img tag
+        var avatarImg = document.querySelector('img[alt="profile avatar"]');
+        var imageUrl = avatarImg ? avatarImg.src : null;
+
+        if (imageUrl) {
+            // Replace 'width=96' with 'width=400' in the URL
+            imageUrl = imageUrl.replace('width=96', 'width=400');
+        }
+
+        // Create overlay container
+        var overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.background = 'rgba(0, 0, 0, 0.7)';
+        overlay.style.zIndex = '9999';
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'left';
+        overlay.style.justifyContent = 'left';
+
+        // Create modal content container
+        var modalContent = document.createElement('div');
+        modalContent.style.background = '#fff';
+        modalContent.style.color = '#000';
+        modalContent.style.padding = '20px';
+        modalContent.style.borderRadius = '8px';
+        modalContent.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';
+        modalContent.style.maxWidth = '80%';
+        modalContent.style.maxHeight = 'auto';
+        modalContent.style.overflow = 'auto';
+
+        // Build HTML content for profile data
+        var htmlContent = '<h2 style="color: #000;">' + profile.display_name + '</h2>';
+        htmlContent += '<p><strong>Formatted Cashtag:</strong> ' + profile.formatted_cashtag + '</p>';
+        htmlContent += '<p><strong>Account Verified?</strong> ' + profile.is_verified_account + '</p>';
+        htmlContent += '<p><strong>Rate Plan:</strong> ' + profile.rate_plan + '</p>';
+        htmlContent += '<p><strong>Country Code:</strong> ' + profile.country_code + '</p>';
+
+        // Check if avatar image URL was found
+        if (imageUrl) {
+            var img = document.createElement('img');
+            img.style.maxWidth = '100%';
+            img.style.height = 'auto';
+            img.src = imageUrl;
+            modalContent.appendChild(img);
+        }
+
+        // Set HTML content to the modal content container
+        modalContent.innerHTML += htmlContent;
+
+        // Append modal content to overlay
+        overlay.appendChild(modalContent);
+
+        // Append overlay to body
+        document.body.appendChild(overlay);
+
+        // Close overlay on click outside content
+        overlay.addEventListener('click', function(event) {
+            if (event.target === overlay) {
+                document.body.removeChild(overlay);
+            }
+        });
+    }
+
+    // Main execution
+    var profile = extractProfileData();
+    displayProfileData(profile);
+})();
