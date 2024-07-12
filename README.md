@@ -14,7 +14,7 @@ The goal is to put these tools in your hands so that you can do tasks better/fas
 
 Yup. That pretty much sums it up.
 
-We have a bunch of bookmarklets over in the [Bookmarklet directory](https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets) and more tools may be coming.
+We have a bunch of bookmarklets over in the [Bookmarklet directory](https://tools.myosint.training/bookmarklets/) and more tools may be coming.
 
 ## What do I do if the tools don't work for me?
 
