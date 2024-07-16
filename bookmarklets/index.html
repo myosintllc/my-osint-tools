@@ -132,27 +132,6 @@
                 }
             }
 
-            .header__school-name {
-                display: inline-block;
-                min-width: 12rem;
-                margin-bottom: 0;
-                font-size: 1.5rem;
-                font-weight: 300;
-                line-height: 1
-            }
-
-            .header__school-name a {
-                color: #fff
-            }
-
-            [data-menu-style="floating"] .header__school-name a {
-                color: #fff
-            }
-
-            [data-menu-style="floating"] .header__school-name a:active,[data-menu-style="floating"] .header__school-name a:hover {
-                color: #e6e6e6
-            }
-
             .header__nav {
                 width: 100%
             }
@@ -229,6 +208,104 @@
                     margin-left:0
                 }
             }
+            @media all and (max-width: 767px) {
+                [data-menu-type="header__nav--dropdown"].header[data-menu="open"] .header__nav {
+                    -webkit-transition:opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    -moz-transition: opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    transition: opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    opacity: 1;
+                    visibility: visible;
+                    z-index: 302
+                }
+
+                [data-menu-type="header__nav--dropdown"].header .header__nav {
+                    -webkit-transition: opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    -moz-transition: opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    transition: opacity 400ms ease,visibility 400ms ease,z-index 400ms ease
+                }
+            }
+
+            @media all and (max-width: 767px) {
+                [data-menu-type="header__nav--overlay"].header[data-menu="open"] {
+                    -webkit-transition:background-color 200ms ease,opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    -moz-transition: background-color 200ms ease,opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    transition: background-color 200ms ease,opacity 400ms ease,visibility 400ms ease,z-index 400ms ease;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #00b4fa !important;
+                    z-index: 302
+                }
+
+                [data-menu-type="header__nav--overlay"].header[data-menu="open"] .header__nav {
+                    padding-top: 2rem;
+                    box-shadow: none;
+                    opacity: 1;
+                    visibility: visible
+                }
+
+                [data-menu-type="header__nav--overlay"].header[data-menu="open"] .header__school-name a {
+                    color: #fff
+                }
+
+                [data-menu-type="header__nav--overlay"].header[data-menu="open"] .header__mobile-button {
+                    z-index: 303
+                }
+
+                [data-menu-type="header__nav--overlay"].header[data-menu="open"] .header__mobile-button span:before,[data-menu-type="header__nav--overlay"].header[data-menu="open"] .header__mobile-button span:after {
+                    background-color: #fff
+                }
+            }
+
+            .header__nav-item {
+                display: inline-block;
+                font-size: 0.8em;
+                letter-spacing: 1px;
+                text-align: center;
+                text-transform: uppercase
+            }
+
+            @media all and (min-width: 768px) {
+                .header__nav-item {
+                    margin-left:2rem
+                }
+
+                .header__nav-item.dropdown {
+                    margin-right: 10px
+                }
+
+                .header__nav-item>a,.header__nav-item>button {
+                    color: #fff;
+                    font-weight: 500;
+                    text-decoration: none
+                }
+            }
+
+            @media all and (min-width: 768px) and (max-width: 767px) {
+                .header__nav-item>a,.header__nav-item>button {
+                    display:inline-block;
+                    background-color: transparent;
+                    font-family: "Roboto Slab",sans-serif;
+                    font-size: 1.25em;
+                    text-transform: none
+                }
+
+                .header__nav-item>a:after,.header__nav-item>button:after {
+                    display: block;
+                    position: relative;
+                    top: -5px;
+                    width: 100%;
+                    height: 2px;
+                    background-color: transparent;
+                    content: "";
+                    opacity: 0.6
+                }
+
+                .header__nav-item>a:active:after,.header__nav-item>a:hover:after,.header__nav-item>button:active:after,.header__nav-item>button:hover:after {
+                    background-color: #fff
+                }
+            }
     </style>
     <script>
       function allowDrop(ev) {
@@ -251,7 +328,7 @@
       <div class="header__wrapper">
         <section class="header__logo header__logo___2909e">
             <a href="/">
-              <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive" loading="lazy">
+              <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=144&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=144&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=144&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive" loading="lazy">
               <h1 class="sr-only">
                 My OSINT Tools
               </h1>
