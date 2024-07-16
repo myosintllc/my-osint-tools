@@ -1,4 +1,7 @@
 <link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-56ee3e445afd11deaa93a33f91cf56d1f274e1c5119c9b12911b31b1c069fc6e.css">
+<script src="https://assets.thinkific.com/assets/application-themes-v2-c709a110baebe1a179f2aadb060b9e2ba211b1d2bfe66c5515f2ad3976eff263.js"></script>
+<link rel="apple-touch-icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
+<link rel="icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
 <div class="header__container">
   <div class="header__wrapper">
     <section class="header__logo header__logo___2909e">
