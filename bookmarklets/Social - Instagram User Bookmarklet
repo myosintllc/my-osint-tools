@@ -10,13 +10,10 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function(){var e=null,t=/"profile_id":"(\d+)"/.exec(document.documentElement.innerHTML);t&&(e=t[1]),null!==e?alert("Profile ID: "+e):alert("No profile_id found on the current page.")})();
+javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert('Profile%20ID%3A%20'%20%2B%20e)%20%3A%20alert('No%20profile_id%20found%20on%20the%20current%20page.')%7D)()
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
-javascript:
-	(function () {
-		var e = null, t = /"profile_id":"(\d+)"/.exec(document.documentElement.innerHTML);
-		t && (e = t[1]), null !== e ? alert('Profile ID: ' + e) : alert('No profile_id found on the current page.');
-	}());
+var e = null, t = /"profile_id":"(\d+)"/.exec(document.documentElement.innerHTML);
+t && (e = t[1]), null !== e ? alert('Profile ID: ' + e) : alert('No profile_id found on the current page.');

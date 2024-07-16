@@ -10,11 +10,11 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function()%7Bvar regexp %3D %2FuserID%5C"%5C%3A%5C"%5B0-9%5D%2B%5C"%2F%3Bvar indexreg %3D document.documentElement.outerHTML.match(regexp)%3Balert("Facebook ID%3A " %2B indexreg%5B0%5D.split("%3A")%5B1%5D.replace(%2F%5C"%2Fg%2C""))%7D)()
+javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
-var regexp = /userID\"\:\"[0-9]+\"/;
+var regexp = /userID.\:.[0-9]+/;
 var indexreg = document.documentElement.outerHTML.match(regexp);
 alert('Facebook ID: ' + indexreg[0].split(':')[1].replace(/\"/g, ''));
