@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="logo.png" alt="My OSINT Tools logo" width="300">
+    <img src="/images/logo.png" alt="My OSINT Tools logo" width="300">
 </p>
 
 # Welcome to My OSINT Tools by: [My OSINT Training](https://www.myosint.training)
