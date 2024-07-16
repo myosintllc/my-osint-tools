@@ -49,10 +49,11 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-lg-2">
+          <div class="col-lg-1">
+            <!-- empty -->
           </div>
-          <div class="col-lg-8">
-            <table class="table table-hover table-striped table-bordered">
+          <div class="col-lg-10">
+            <table class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>Bookmarklet</th>
@@ -61,7 +62,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
+                  <td class="text-nowrap">
                     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
                       <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20DOMAIN%3Dprompt(%22Enter%20DOMAIN-%20no%20www%3A%20%22)%2CWHO%3D%22https%3A%2F%2Fwhoisology.com%2F%22%2BDOMAIN%2CBW%3D%22https%3A%2F%2Fbuiltwith.com%2F%22%2BDOMAIN%2CDNSL%3D%22https%3A%2F%2Fdnslytics.com%2Fdomain%2F%22%2BDOMAIN%2CHOST%3D%22https%3A%2F%2Fhost.io%2F%22%2BDOMAIN%2CDT%3D%22https%3A%2F%2Fwhois.domaintools.com%2F%22%2BDOMAIN%2CVDNS%3D%22https%3A%2F%2Fviewdns.info%2Fwhois%2F%3Fdomain%3D%22%2BDOMAIN%2CREVIP%3D%22https%3A%2F%2Fviewdns.info%2Freverseip%2F%3Fhost%3D%22%2BDOMAIN%2B%22%26t%3D1%22%2CIPHIS%3D%22https%3A%2F%2Fviewdns.info%2Fiphistory%2F%3Fdomain%3D%22%2BDOMAIN%3Bwindow.open(DBD%2C%22_blank%22)%2Cwindow.open(WHO%2C%22_blank%22)%2Cwindow.open(BW%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(DNSL%2C%22_blank%22)%2Cwindow.open(HOST%2C%22_blank%22)%2Cwindow.open(DT%2C%22_blank%22)%2Cwindow.open(VDNS%2C%22_blank%22)%2Cwindow.open(REVIP%2C%22_blank%22)%2Cwindow.open(IPHIS%2C%22_blank%22)%7D)()">Domain Bookmarklet</a>
                      </div>
@@ -69,24 +70,28 @@
                   <td>Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.</td>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="text-nowrap">
                     <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
                       <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%2CTRUM%3D%22https%3A%2F%2Fapi.trumail.io%2Fv2%2Flookups%2Fjson%3Femail%3D%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%2Cwindow.open(TRUM%2C%22_blank%22)%7D)()">Email Bookmarklet</a>
                     </div>
                   </td>
-                  <td>This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.</td>
+                  <td>
+                    This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.
+                  </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="text-nowrap">
                     <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
                       <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7B%0D%0A%20%20%20%20var%20scripts%20=%20document.querySelectorAll('script');%0D%0A%20%20%20%20var%20jsonStrings%20=%20%5B%5D;%0D%0A%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20if%20(script.type%20===%20'application/json'%20%7C%7C%20script.innerText.trim().startsWith('%7B')%20%7C%7C%20script.innerText.trim().startsWith('%5B'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20jsonStrings.push(JSON.stringify(JSON.parse(script.innerText),%20null,%202));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(e)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Failed%20to%20parse%20JSON:',%20script.innerText);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20if%20(jsonStrings.length)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20jsonWindow%20=%20window.open('',%20'JsonPopup',%20'width=800,height=800,scrollbars=1,resizable=1');%0D%0A%20%20%20%20%20%20%20%20var%20pre%20=%20jsonWindow.document.createElement('pre');%0D%0A%20%20%20%20%20%20%20%20pre.style.width%20=%20'800';%20//%20Set%20the%20width%20of%20the%20%3Cpre%3E%20element%20to%20800%0D%0A%20%20%20%20%20%20%20%20pre.style.margin%20=%20'auto';%20//%20Center%20align%20the%20%3Cpre%3E%20element%0D%0A%20%20%20%20%20%20%20%20pre.style.whiteSpace%20=%20'pre-wrap';%20//%20Allow%20wrapping%20of%20text%20within%20%3Cpre%3E%0D%0A%20%20%20%20%20%20%20%20pre.textContent%20=%20jsonStrings.join('%5Cn%5Cn');%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.innerHTML%20=%20'';%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.appendChild(pre);%0D%0A%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20alert('No%20JSON%20found.');%0D%0A%20%20%20%20%7D%0D%0A%7D)();">JSON Revealer Bookmarklet</a>
                     </div>
                   </td>
-                  <td>Dooley</td>
+                  <td>
+                    This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://en.wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.
+                  </td>
                 </tr>
               </tbody>
             </table>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
             </div>
           </div>
         </div>
