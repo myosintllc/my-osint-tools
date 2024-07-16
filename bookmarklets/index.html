@@ -1,17 +1,15 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=df3bd711af777a47795fffc60e4942722308e75d">
     <link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-56ee3e445afd11deaa93a33f91cf56d1f274e1c5119c9b12911b31b1c069fc6e.css">
     <script src="https://assets.thinkific.com/assets/application-themes-v2-c709a110baebe1a179f2aadb060b9e2ba211b1d2bfe66c5515f2ad3976eff263.js"></script>
-    <link rel="apple-touch-icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
-    <link rel="icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=df3bd711af777a47795fffc60e4942722308e75d">
     <meta property="og:title" content="MOT Bookmarklets" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
     <meta property="og:description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
-    <link rel="canonical" href="https://tools.myosint.training/" />
-    <meta property="og:url" content="https://tools.myosint.training/" />
-    <meta property="og:site_name" content="My OSINT Training’s Tools" />
+    <link rel="canonical" href="https://tools.myosint.training/bookmarklets/" />
+    <meta property="og:url" content="https://tools.myosint.training/bookmarklets/" />
+    <meta property="og:site_name" content="My OSINT Training's Bookmarklets" />
     <style>
       .button {
           font: bold 16px Arial;
@@ -35,6 +33,202 @@
           border-bottom: 1px solid #333333;
           border-left: 1px solid #00e6f0;
       }
+      .header__container {
+                position: relative;
+                width: 100%;
+                margin: 0 auto;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                padding: 1.6rem 1rem
+      }
+      .header__wrapper {
+                display: -webkit-box;
+                display: -moz-box;
+                display: box;
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-lines: multiple;
+                -moz-box-lines: multiple;
+                -spec-box-lines: multiple;
+                box-lines: multiple;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -spec-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-box-align: center;
+                -moz-box-align: center;
+                -spec-box-align: center;
+                box-align: center;
+                -webkit-align-items: center;
+                -moz-align-items: center;
+                -ms-align-items: center;
+                -o-align-items: center;
+                -spec-align-items: center;
+                align-items: center;
+                -ms-flex-align: center;
+                -webkit-box-lines: single;
+                -moz-box-lines: single;
+                -spec-box-lines: single;
+                box-lines: single;
+                -webkit-flex-wrap: nowrap;
+                -moz-flex-wrap: nowrap;
+                -ms-flex-wrap: nowrap;
+                -spec-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                -webkit-box-pack: justify;
+                -moz-box-pack: justify;
+                -spec-box-pack: justify;
+                box-pack: justify;
+                -webkit-justify-content: space-between;
+                -moz-justify-content: space-between;
+                -ms-justify-content: space-between;
+                -o-justify-content: space-between;
+                -spec-justify-content: space-between;
+                justify-content: space-between;
+                -ms-flex-pack: justify;
+                position: relative;
+                margin: 0
+            }
+
+            .header__wrapper:after,.header__wrapper:before {
+                -webkit-flex-basis: 0;
+                -moz-flex-basis: 0;
+                -spec-flex-basis: 0;
+                flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                order: 1
+            }
+
+            .header__logo {
+                padding-right: 1rem;
+                line-height: 1
+            }
+
+            @media all and (max-width: 767px) {
+                .header__logo {
+                    max-width:12rem
+                }
+            }
+
+            .header__logo a {
+                display: inline-block;
+                text-decoration: none
+            }
+
+            .header__logo img {
+                width: auto;
+                max-width: initial;
+                max-height: 35px
+            }
+
+            @media all and (max-width: 767px) {
+                .header__logo img {
+                    display:block;
+                    max-width: 100%;
+                    max-height: 60px
+                }
+            }
+
+            .header__school-name {
+                display: inline-block;
+                min-width: 12rem;
+                margin-bottom: 0;
+                font-size: 1.5rem;
+                font-weight: 300;
+                line-height: 1
+            }
+
+            .header__school-name a {
+                color: #fff
+            }
+
+            [data-menu-style="floating"] .header__school-name a {
+                color: #fff
+            }
+
+            [data-menu-style="floating"] .header__school-name a:active,[data-menu-style="floating"] .header__school-name a:hover {
+                color: #e6e6e6
+            }
+
+            .header__nav {
+                width: 100%
+            }
+
+            @media all and (max-width: 767px) {
+                .header__nav {
+                    display:block;
+                    position: absolute;
+                    top: 160%;
+                    left: 0;
+                    width: 100%;
+                    margin: 0;
+                    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.1);
+                    opacity: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+                    z-index: -9999
+                }
+
+                .header__nav .header__nav-item {
+                    display: block
+                }
+
+                .header__nav .header__nav-item a,.header__nav .header__nav-item button {
+                    display: block;
+                    padding: 8px 16px;
+                    color: #fff;
+                    font-weight: 500;
+                    text-align: center;
+                    text-decoration: none
+                }
+
+                .header__nav .header__nav-item a:active,.header__nav .header__nav-item a:hover,.header__nav .header__nav-item button:active,.header__nav .header__nav-item button:hover {
+                    background-color: #00a2e1;
+                    color: #fff
+                }
+
+                .header__nav .header__nav-item .dropdown__toggle-button {
+                    display: none
+                }
+            }
+
+            @media all and (min-width: 768px) {
+                .header__nav.header__nav--left>ul {
+                    text-align:left
+                }
+
+                .header__nav.header__nav--left .header__logo {
+                    padding-right: 3rem
+                }
+
+                .header__nav.header__nav--left .dropdown,.header__nav.header__nav--left .header__nav-sign-in {
+                    float: right
+                }
+
+                .header__nav.header__nav--left .dropdown__menu {
+                    right: -10px
+                }
+            }
+
+            @media all and (min-width: 992px) {
+                .header__nav.header__nav--left.header__nav--has-cta .header__nav-sign-in {
+                    position:relative;
+                    top: 0.5rem
+                }
+            }
+
+            .header__nav>ul {
+                text-align: right
+            }
+
+            @media all and (min-width: 768px) {
+                .header__nav>ul>li:first-child {
+                    margin-left:0
+                }
+            }
     </style>
     <script>
       function allowDrop(ev) {
