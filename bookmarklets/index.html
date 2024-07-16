@@ -144,6 +144,32 @@
                     This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.
                   </td>
                 </tr>
+                <tr>
+                  <td style="white-space:nowrap;">
+                    <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%20%7B%0D%0A%20%20%20%20function%20extractMetaTags()%20%7B%0D%0A%20%20%20%20%20%20%20%20//%20Function%20to%20find%20meta%20tags%20and%20image%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaTags%20=%20document.querySelectorAll('meta%5Bproperty=%22og:title%22%5D,%20meta%5Bproperty=%22og:image%22%5D,%20meta%5Bname=%22description%22%5D,%20meta%5Bname=%22twitter:description%22%5D,%20meta%5Bname=%22twitter:title%22%5D');%0D%0A%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20div%0D%0A%20%20%20%20%20%20%20%20const%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.color%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.boxSizing%20=%20'border-box';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20close%20button%0D%0A%20%20%20%20%20%20%20%20const%20closeButton%20=%20document.createElement('button');%0D%0A%20%20%20%20%20%20%20%20closeButton.textContent%20=%20'Close';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.top%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.right%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.padding%20=%20'10px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.cursor%20=%20'pointer';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.border%20=%20'none';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.borderRadius%20=%20'5px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.zIndex%20=%20'10000';%0D%0A%20%20%20%20%20%20%20%20closeButton.addEventListener('click',%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20close%20button%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(closeButton);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Display%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaInfo%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20metaInfo.style.marginBottom%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20metaInfo.innerHTML%20=%20'%3Ch2%3EMeta%20Tags:%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20metaTags.forEach(tag%20=%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagName%20=%20tag.getAttribute('property')%20%7C%7C%20tag.getAttribute('name');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagContent%20=%20tag.getAttribute('content');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(tagName%20===%20'og:image')%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Create%20img%20tag%20for%20og:image%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20%3Cimg%20src=%22$%7BtagContent%7D%22%20alt=%22Image%22%3E%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Display%20other%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20$%7BtagContent%7D%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20meta%20information%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(metaInfo);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20extractMetaTags();%0D%0A%7D)();%0D%0A">Instagram User Unauthenticated Bookmarklet</a>
+                     </div>
+                  </td>
+                  <td>Ever get that "Something Went Wrong" error when visiting an Instagram user profile page (for example: <code>https://instagram.com/not.a.real.username/</code>) and not logged in to their site? This bookmarklet will extract user data and display in an overlay when you get this message.</td>
+                </tr>
+                <tr>
+                  <td style="white-space:nowrap;">
+                    <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()">Telegram Revealer Bookmarklet</a>
+                    </div>
+                  </td>
+                  <td>
+                    This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a "..." at the bottom. This script extracts user data and displays in a pop-up window.
+                  </td>
+                </tr>
+                <tr>
+                  <td style="white-space:nowrap;">Threads User Bookmarklet
+                    </div>
+                  </td>
+                  <td>
+                    Unfortunately, due to the complexity of the Threads User Bookmarklet code, we cannot post it here for you to use the <a href="#easyway">"Easy Way"</a> (see below). If you want that, please visit <a htef="https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet" target="_blank">https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet</a> and use the <a href="#hardway">"More Manual Method</a>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -154,14 +180,14 @@
     <h2>What do I do with this stuff?</h2>
 These bookmarks live in your browser (or you can use some of them right on this page!). You use them in certain situations. If you want them in your browser's bookmarks bar, you have 2 ways of adding them:
 
-    <h3>⭐Easy Method⭐</h3>
+    <h3 id="easyway">⭐Easy Method⭐</h3>
     <ol>
       <li>Find the bookmarklet you want</li>
       <li>Click and drag the bookmarklet's name (left column in table above) it into your bookmarks bar.</li>
       <li>Click that bookmark to use the tool</li>
       <li>Done!</li>
     </ol>
-    <h3>🔨The "More Manual Method"🔧</h3>
+    <h3 id="hardway">🔨The "More Manual Method"🔧</h3>
       <ol>
         <li>Visit <a href="https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets" target="_blank">https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets</a></li>
         <li>Open the bookmarklet you wish to use.</li>
