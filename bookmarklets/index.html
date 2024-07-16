@@ -1,261 +1,263 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=df3bd711af777a47795fffc60e4942722308e75d">
-  <link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-56ee3e445afd11deaa93a33f91cf56d1f274e1c5119c9b12911b31b1c069fc6e.css">
-  <script src="https://assets.thinkific.com/assets/application-themes-v2-c709a110baebe1a179f2aadb060b9e2ba211b1d2bfe66c5515f2ad3976eff263.js"></script>
-  <link rel="apple-touch-icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
-  <link rel="icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
-  <meta property="og:title" content="MOT Bookmarklets" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
-  <meta property="og:description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
-  <link rel="canonical" href="https://tools.myosint.training/" />
-  <meta property="og:url" content="https://tools.myosint.training/" />
-  <meta property="og:site_name" content="My OSINT Training’s Tools" />
-  <style>
-    .button {
-        font: bold 16px Arial;
-        text-decoration: none;
-        background-color: #EEEEEE;
-        color: #333333;
-        padding: 2px 6px 2px 6px;
-        border-top: 1px solid #CCCCCC;
-        border-right: 1px solid #333333;
-        border-bottom: 1px solid #333333;
-        border-left: 1px solid #CCCCCC;
-    }
-    .button-social {
-        font: bold 16px Arial;
-        text-decoration: none;
-        background-color: #008bc4;
-        color: #fff;
-        padding: 2px 6px 2px 6px;
-        border-top: 1px solid #00e6f0;
-        border-right: 1px solid #333333;
-        border-bottom: 1px solid #333333;
-        border-left: 1px solid #00e6f0;
-    }
-  </style>
-  <script>
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=df3bd711af777a47795fffc60e4942722308e75d">
+    <link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-56ee3e445afd11deaa93a33f91cf56d1f274e1c5119c9b12911b31b1c069fc6e.css">
+    <script src="https://assets.thinkific.com/assets/application-themes-v2-c709a110baebe1a179f2aadb060b9e2ba211b1d2bfe66c5515f2ad3976eff263.js"></script>
+    <link rel="apple-touch-icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
+    <link rel="icon" type="image/png" href="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2F2HC6RTG1RnGJ5fxjDCwc_favicon-96x96.png">
+    <meta property="og:title" content="MOT Bookmarklets" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
+    <meta property="og:description" content="Great place to come for free OSINT tools made by My OSINT Training people!" />
+    <link rel="canonical" href="https://tools.myosint.training/" />
+    <meta property="og:url" content="https://tools.myosint.training/" />
+    <meta property="og:site_name" content="My OSINT Training’s Tools" />
+    <style>
+      .button {
+          font: bold 16px Arial;
+          text-decoration: none;
+          background-color: #EEEEEE;
+          color: #333333;
+          padding: 2px 6px 2px 6px;
+          border-top: 1px solid #CCCCCC;
+          border-right: 1px solid #333333;
+          border-bottom: 1px solid #333333;
+          border-left: 1px solid #CCCCCC;
+      }
+      .button-social {
+          font: bold 16px Arial;
+          text-decoration: none;
+          background-color: #008bc4;
+          color: #fff;
+          padding: 2px 6px 2px 6px;
+          border-top: 1px solid #00e6f0;
+          border-right: 1px solid #333333;
+          border-bottom: 1px solid #333333;
+          border-left: 1px solid #00e6f0;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
 
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-    }
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
 
-    function drop(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
-    }
-  </script>
-</head>
-<body>
-  <div class="header__container">
-    <div class="header__wrapper">
-      <section class="header__logo header__logo___2909e">
-          <a href="/">
-            <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive" loading="lazy">
-            <h1 class="sr-only">
-              My OSINT Tools
-            </h1>
-          </a>
-      </section>
-      <nav class="header__nav hidden-print">
-        <ul>
-          <li class="header__nav-item">
-            <a href="https://www.myosint.training/courses" target="_self">All Courses</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="https://www.myosint.training/pages/bundles" target="_self">Bundles</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="https://www.myosint.training/pages/group-trainings-and-events" target="_self">For Groups</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="https://www.myosint.training/pages/instructors" target="_self">Instructors</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="https://www.myosint.training/pages/free-resources" target="_self">Free Resources</a>
-          </li>
-          <li class="header__nav-item header__nav-sign-in">
-            <a href="https://www.myosint.training/users/sign_in" target="_self"> Sign In</a>
-          </li>
-        </ul>
-      </nav>
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header__container">
+      <div class="header__wrapper">
+        <section class="header__logo header__logo___2909e">
+            <a href="/">
+              <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive" loading="lazy">
+              <h1 class="sr-only">
+                My OSINT Tools
+              </h1>
+            </a>
+        </section>
+        <nav class="header__nav hidden-print">
+          <ul>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/courses" target="_self">All Courses</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/bundles" target="_self">Bundles</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/group-trainings-and-events" target="_self">For Groups</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/instructors" target="_self">Instructors</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/free-resources" target="_self">Free Resources</a>
+            </li>
+            <li class="header__nav-item header__nav-sign-in">
+              <a href="https://www.myosint.training/users/sign_in" target="_self"> Sign In</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </div>
-  <div class="container-lg px-3 my-5 markdown-body">
-    <h1>MOT Bookmarklets</h1>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1>MOT Bookmarklets</h1>
 
-    <h2>What is a Bookmarklet?</h2>
-    <blockquote>
-      "A bookmarklet is a bookmark stored in a web browser that contains JavaScript commands that add new features to the browser. They are stored as the URL of a bookmark in a web browser or as a hyperlink on a web page. Bookmarklets are usually small snippets of JavaScript executed when user clicks on them. When clicked, bookmarklets can perform a wide variety of operations, such as running a search query from selected text or extracting data from a table." - <i><a href="https://en.wikipedia.org/wiki/Bookmarklet" target="_blank">Wikipedia</a></i>
-    </blockquote>
+      <h2>What is a Bookmarklet?</h2>
+      <blockquote>
+        "A bookmarklet is a bookmark stored in a web browser that contains JavaScript commands that add new features to the browser. They are stored as the URL of a bookmark in a web browser or as a hyperlink on a web page. Bookmarklets are usually small snippets of JavaScript executed when user clicks on them. When clicked, bookmarklets can perform a wide variety of operations, such as running a search query from selected text or extracting data from a table." - <i><a href="https://en.wikipedia.org/wiki/Bookmarklet" target="_blank">Wikipedia</a></i>
+      </blockquote>
 
 
-    <h2>The Bookmarklets!!</h2>
-    <h3>General Bookmarklets</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Bookmarklet</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20DOMAIN%3Dprompt(%22Enter%20DOMAIN-%20no%20www%3A%20%22)%2CWHO%3D%22https%3A%2F%2Fwhoisology.com%2F%22%2BDOMAIN%2CBW%3D%22https%3A%2F%2Fbuiltwith.com%2F%22%2BDOMAIN%2CDNSL%3D%22https%3A%2F%2Fdnslytics.com%2Fdomain%2F%22%2BDOMAIN%2CHOST%3D%22https%3A%2F%2Fhost.io%2F%22%2BDOMAIN%2CDT%3D%22https%3A%2F%2Fwhois.domaintools.com%2F%22%2BDOMAIN%2CVDNS%3D%22https%3A%2F%2Fviewdns.info%2Fwhois%2F%3Fdomain%3D%22%2BDOMAIN%2CREVIP%3D%22https%3A%2F%2Fviewdns.info%2Freverseip%2F%3Fhost%3D%22%2BDOMAIN%2B%22%26t%3D1%22%2CIPHIS%3D%22https%3A%2F%2Fviewdns.info%2Fiphistory%2F%3Fdomain%3D%22%2BDOMAIN%3Bwindow.open(DBD%2C%22_blank%22)%2Cwindow.open(WHO%2C%22_blank%22)%2Cwindow.open(BW%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(DNSL%2C%22_blank%22)%2Cwindow.open(HOST%2C%22_blank%22)%2Cwindow.open(DT%2C%22_blank%22)%2Cwindow.open(VDNS%2C%22_blank%22)%2Cwindow.open(REVIP%2C%22_blank%22)%2Cwindow.open(IPHIS%2C%22_blank%22)%7D)()">Domain Bookmarklet</a>
-                     </div><img src="/images/domain.png">
-                  </td>
-                  <td>
-                    Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.</td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%2CTRUM%3D%22https%3A%2F%2Fapi.trumail.io%2Fv2%2Flookups%2Fjson%3Femail%3D%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%2Cwindow.open(TRUM%2C%22_blank%22)%7D)()">Email Bookmarklet</a>
-                    </div><img src="/images/email.png">
-                  </td>
-                  <td>
-                    This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7B%0D%0A%20%20%20%20var%20scripts%20=%20document.querySelectorAll('script');%0D%0A%20%20%20%20var%20jsonStrings%20=%20%5B%5D;%0D%0A%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20if%20(script.type%20===%20'application/json'%20%7C%7C%20script.innerText.trim().startsWith('%7B')%20%7C%7C%20script.innerText.trim().startsWith('%5B'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20jsonStrings.push(JSON.stringify(JSON.parse(script.innerText),%20null,%202));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(e)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Failed%20to%20parse%20JSON:',%20script.innerText);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20if%20(jsonStrings.length)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20jsonWindow%20=%20window.open('',%20'JsonPopup',%20'width=800,height=800,scrollbars=1,resizable=1');%0D%0A%20%20%20%20%20%20%20%20var%20pre%20=%20jsonWindow.document.createElement('pre');%0D%0A%20%20%20%20%20%20%20%20pre.style.width%20=%20'800';%20//%20Set%20the%20width%20of%20the%20%3Cpre%3E%20element%20to%20800%0D%0A%20%20%20%20%20%20%20%20pre.style.margin%20=%20'auto';%20//%20Center%20align%20the%20%3Cpre%3E%20element%0D%0A%20%20%20%20%20%20%20%20pre.style.whiteSpace%20=%20'pre-wrap';%20//%20Allow%20wrapping%20of%20text%20within%20%3Cpre%3E%0D%0A%20%20%20%20%20%20%20%20pre.textContent%20=%20jsonStrings.join('%5Cn%5Cn');%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.innerHTML%20=%20'';%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.appendChild(pre);%0D%0A%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20alert('No%20JSON%20found.');%0D%0A%20%20%20%20%7D%0D%0A%7D)();">JSON Revealer Bookmarklet</a>
-                    </div><img src="/images/json.png">
-                  </td>
-                  <td>
-                    This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://en.wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <h2>The Bookmarklets!!</h2>
+      <h3>General Bookmarklets</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Bookmarklet</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20DOMAIN%3Dprompt(%22Enter%20DOMAIN-%20no%20www%3A%20%22)%2CWHO%3D%22https%3A%2F%2Fwhoisology.com%2F%22%2BDOMAIN%2CBW%3D%22https%3A%2F%2Fbuiltwith.com%2F%22%2BDOMAIN%2CDNSL%3D%22https%3A%2F%2Fdnslytics.com%2Fdomain%2F%22%2BDOMAIN%2CHOST%3D%22https%3A%2F%2Fhost.io%2F%22%2BDOMAIN%2CDT%3D%22https%3A%2F%2Fwhois.domaintools.com%2F%22%2BDOMAIN%2CVDNS%3D%22https%3A%2F%2Fviewdns.info%2Fwhois%2F%3Fdomain%3D%22%2BDOMAIN%2CREVIP%3D%22https%3A%2F%2Fviewdns.info%2Freverseip%2F%3Fhost%3D%22%2BDOMAIN%2B%22%26t%3D1%22%2CIPHIS%3D%22https%3A%2F%2Fviewdns.info%2Fiphistory%2F%3Fdomain%3D%22%2BDOMAIN%3Bwindow.open(DBD%2C%22_blank%22)%2Cwindow.open(WHO%2C%22_blank%22)%2Cwindow.open(BW%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(DNSL%2C%22_blank%22)%2Cwindow.open(HOST%2C%22_blank%22)%2Cwindow.open(DT%2C%22_blank%22)%2Cwindow.open(VDNS%2C%22_blank%22)%2Cwindow.open(REVIP%2C%22_blank%22)%2Cwindow.open(IPHIS%2C%22_blank%22)%7D)()">Domain Bookmarklet</a>
+                      </div><img src="/images/domain.png">
+                    </td>
+                    <td>
+                      Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.</td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%2CTRUM%3D%22https%3A%2F%2Fapi.trumail.io%2Fv2%2Flookups%2Fjson%3Femail%3D%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%2Cwindow.open(TRUM%2C%22_blank%22)%7D)()">Email Bookmarklet</a>
+                      </div><img src="/images/email.png">
+                    </td>
+                    <td>
+                      This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7B%0D%0A%20%20%20%20var%20scripts%20=%20document.querySelectorAll('script');%0D%0A%20%20%20%20var%20jsonStrings%20=%20%5B%5D;%0D%0A%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20if%20(script.type%20===%20'application/json'%20%7C%7C%20script.innerText.trim().startsWith('%7B')%20%7C%7C%20script.innerText.trim().startsWith('%5B'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20jsonStrings.push(JSON.stringify(JSON.parse(script.innerText),%20null,%202));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(e)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Failed%20to%20parse%20JSON:',%20script.innerText);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20if%20(jsonStrings.length)%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20jsonWindow%20=%20window.open('',%20'JsonPopup',%20'width=800,height=800,scrollbars=1,resizable=1');%0D%0A%20%20%20%20%20%20%20%20var%20pre%20=%20jsonWindow.document.createElement('pre');%0D%0A%20%20%20%20%20%20%20%20pre.style.width%20=%20'800';%20//%20Set%20the%20width%20of%20the%20%3Cpre%3E%20element%20to%20800%0D%0A%20%20%20%20%20%20%20%20pre.style.margin%20=%20'auto';%20//%20Center%20align%20the%20%3Cpre%3E%20element%0D%0A%20%20%20%20%20%20%20%20pre.style.whiteSpace%20=%20'pre-wrap';%20//%20Allow%20wrapping%20of%20text%20within%20%3Cpre%3E%0D%0A%20%20%20%20%20%20%20%20pre.textContent%20=%20jsonStrings.join('%5Cn%5Cn');%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.innerHTML%20=%20'';%0D%0A%20%20%20%20%20%20%20%20jsonWindow.document.body.appendChild(pre);%0D%0A%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20alert('No%20JSON%20found.');%0D%0A%20%20%20%20%7D%0D%0A%7D)();">JSON Revealer Bookmarklet</a>
+                      </div><img src="/images/json.png">
+                    </td>
+                    <td>
+                      This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://en.wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
 
-      <h3>Social Media Bookmarklets</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Bookmarklet</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%20%7B%0D%0A%20%20%20%20//%20Function%20to%20find%20and%20extract%20profile%20data%0D%0A%20%20%20%20function%20extractProfileData()%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20profileData%20=%20null;%0D%0A%20%20%20%20%20%20%20%20var%20scripts%20=%20document.getElementsByTagName('script');%0D%0A%20%20%20%20%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20scriptContent%20=%20script.textContent%20%7C%7C%20script.innerText;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(scriptContent.includes('var%20profile%20=%20%7B%22display_name%22'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Extract%20JSON%20from%20script%20content%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20startIndex%20=%20scriptContent.indexOf('var%20profile%20=%20%7B%22display_name%22');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20endIndex%20=%20scriptContent.indexOf('%7D;',%20startIndex)%20+%201;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20profileJSON%20=%20scriptContent.substring(startIndex,%20endIndex);%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Parse%20JSON%20string%20to%20object%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20profileData%20=%20JSON.parse(profileJSON.replace('var%20profile%20=%20',%20''));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(error)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Error%20parsing%20profile%20JSON:',%20error);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20return%20profileData;%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Function%20to%20display%20profile%20data%20in%20an%20alert-like%20modal%0D%0A%20%20%20%20function%20displayProfileData(profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20if%20(!profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20alert('Profile%20data%20not%20found!');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return;%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Extract%20avatar%20image%20URL%20from%20existing%20img%20tag%0D%0A%20%20%20%20%20%20%20%20var%20avatarImg%20=%20document.querySelector('img%5Balt=%22profile%20avatar%22%5D');%0D%0A%20%20%20%20%20%20%20%20var%20imageUrl%20=%20avatarImg%20?%20avatarImg.src%20:%20null;%0D%0A%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20//%20Replace%20'width=96'%20with%20'width=400'%20in%20the%20URL%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20imageUrl%20=%20imageUrl.replace('width=96',%20'width=400');%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20container%0D%0A%20%20%20%20%20%20%20%20var%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.display%20=%20'flex';%0D%0A%20%20%20%20%20%20%20%20overlay.style.alignItems%20=%20'left';%0D%0A%20%20%20%20%20%20%20%20overlay.style.justifyContent%20=%20'left';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20var%20modalContent%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20modalContent.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.color%20=%20'#000';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.borderRadius%20=%20'8px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.boxShadow%20=%20'0%200%2010px%20rgba(0,%200,%200,%200.3)';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxWidth%20=%20'80%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxHeight%20=%20'70%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Build%20HTML%20content%20for%20profile%20data%0D%0A%20%20%20%20%20%20%20%20var%20htmlContent%20=%20'%3Ch2%20style=%22color:%20#000;%22%3E'%20+%20profile.display_name%20+%20'%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EFormatted%20Cashtag:%3C/strong%3E%20'%20+%20profile.formatted_cashtag%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EAccount%20Verified?%3C/strong%3E%20'%20+%20profile.is_verified_account%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ERate%20Plan:%3C/strong%3E%20'%20+%20profile.rate_plan%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ECountry%20Code:%3C/strong%3E%20'%20+%20profile.country_code%20+%20'%3C/p%3E';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Check%20if%20avatar%20image%20URL%20was%20found%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20img%20=%20document.createElement('img');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.maxWidth%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.height%20=%20'auto';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.src%20=%20imageUrl;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20modalContent.appendChild(img);%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Set%20HTML%20content%20to%20the%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20modalContent.innerHTML%20+=%20htmlContent;%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20modal%20content%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(modalContent);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Close%20overlay%20on%20click%20outside%20content%0D%0A%20%20%20%20%20%20%20%20overlay.addEventListener('click',%20function(event)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(event.target%20===%20overlay)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Main%20execution%0D%0A%20%20%20%20var%20profile%20=%20extractProfileData();%0D%0A%20%20%20%20displayProfileData(profile);%0D%0A%7D)();">Cash.app Bookmarklet</a>
-                     </div>
-                  </td>
-                  <td>
-                    <img src="/images/ca.png">This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()">Facebook ID Bookmarklet</a>
-                    </div>
-                  </td>
-                  <td>
-                    <img src="/images/fb.png">This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert('Profile%20ID%3A%20'%20%2B%20e)%20%3A%20alert('No%20profile_id%20found%20on%20the%20current%20page.')%7D)()">Instagram User Bookmarklet</a>
-                    </div>
-                  </td>
-                  <td>
-                    <img src="/images/ig.png">This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%20%7B%0D%0A%20%20%20%20function%20extractMetaTags()%20%7B%0D%0A%20%20%20%20%20%20%20%20//%20Function%20to%20find%20meta%20tags%20and%20image%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaTags%20=%20document.querySelectorAll('meta%5Bproperty=%22og:title%22%5D,%20meta%5Bproperty=%22og:image%22%5D,%20meta%5Bname=%22description%22%5D,%20meta%5Bname=%22twitter:description%22%5D,%20meta%5Bname=%22twitter:title%22%5D');%0D%0A%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20div%0D%0A%20%20%20%20%20%20%20%20const%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.color%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.boxSizing%20=%20'border-box';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20close%20button%0D%0A%20%20%20%20%20%20%20%20const%20closeButton%20=%20document.createElement('button');%0D%0A%20%20%20%20%20%20%20%20closeButton.textContent%20=%20'Close';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.top%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.right%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.padding%20=%20'10px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.cursor%20=%20'pointer';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.border%20=%20'none';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.borderRadius%20=%20'5px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.zIndex%20=%20'10000';%0D%0A%20%20%20%20%20%20%20%20closeButton.addEventListener('click',%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20close%20button%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(closeButton);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Display%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaInfo%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20metaInfo.style.marginBottom%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20metaInfo.innerHTML%20=%20'%3Ch2%3EMeta%20Tags:%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20metaTags.forEach(tag%20=%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagName%20=%20tag.getAttribute('property')%20%7C%7C%20tag.getAttribute('name');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagContent%20=%20tag.getAttribute('content');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(tagName%20===%20'og:image')%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Create%20img%20tag%20for%20og:image%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20%3Cimg%20src=%22$%7BtagContent%7D%22%20alt=%22Image%22%3E%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Display%20other%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20$%7BtagContent%7D%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20meta%20information%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(metaInfo);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20extractMetaTags();%0D%0A%7D)();%0D%0A">Instagram User Unauthenticated Bookmarklet</a>
-                     </div>
-                  </td>
-                  <td>
-                    <img src="/images/ig.png">Ever get that "Something Went Wrong" error when visiting an Instagram user profile page (for example: <code>https://instagram.com/not.a.real.username/</code>) and not logged in to their site? This bookmarklet will extract user data and display in an overlay when you get this message.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()">Telegram Revealer Bookmarklet</a>
-                    </div>
-                  </td>
-                  <td>
-                    <img src="/images/tg.png">This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a "..." at the bottom. This script extracts user data and displays in a pop-up window.
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">Threads User Bookmarklet
-                    </div>
-                  </td>
-                  <td>
-                    <img src="/images/th.png">Unfortunately, due to the complexity of the Threads User Bookmarklet code, we cannot post it here for you to use the <a href="#easyway">"Easy Way"</a> (see below). If you want that, please visit <a href="https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet" target="_blank">https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet</a> and use the <a href="#hardway">"More Manual Method".</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="white-space:nowrap;">
-                    <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
-                      <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function() %7B%0A    try %7B%0A        // Get the script content by ID%0A        var scriptContent = document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__').text;%0A        %0A        // Parse the JSON data%0A        var jsonData = JSON.parse(scriptContent);%0A        %0A        // Extract user details and video details from __DEFAULT_SCOPE__%0A        var defaultScope = jsonData?.__DEFAULT_SCOPE__;%0A%20%20%20%20%20%20%20%20var%20userDetails%20=%20defaultScope?.%5B%22webapp.user-detail%22%5D;%0A%20%20%20%20%20%20%20%20var%20videoDetails%20=%20defaultScope?.%5B%22webapp.video-detail%22%5D;%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20//%20Create%20a%20new%20window%20to%20display%20the%20details%0A%20%20%20%20%20%20%20%20var%20newWindow%20=%20window.open(%27%27,%20%27%27,%20%27width=600,height=400%27);%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20//%20Write%20the%20details%20to%20the%20new%20window%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Chtml%3E%3Chead%3E%3Ctitle%3EExtracted%20Data%3C/title%3E%3C/head%3E%3Cbody%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Ch2%3EUser%20Details%3C/h2%3E%3Cpre%3E%27%20+%20JSON.stringify(userDetails,%20null,%202)%20+%20%27%3C/pre%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Ch2%3EVideo%20Details%3C/h2%3E%3Cpre%3E%27%20+%20JSON.stringify(videoDetails,%20null,%202)%20+%20%27%3C/pre%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3C/body%3E%3C/html%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.close();%0A%20%20%20%20%7D%20catch%20(e)%20%7B%0A%20%20%20%20%20%20%20%20alert(%27An%20error%20occurred:%20%27%20+%20e.message);%0A%20%20%20%20%7D%0A%7D)();">TikTok User/Video Bookmarklet</a>
-                     </div>
-                  </td>
-                  <td>
-                    <img src="/images/tt.png">This bookmarklet is used on TikTok user profile pages like <code>https://www.tiktok.com/@mrbeast</code> or on video pages to extract JSON content and display in a pop-up window.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <h3>Social Media Bookmarklets</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Bookmarklet</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%20%7B%0D%0A%20%20%20%20//%20Function%20to%20find%20and%20extract%20profile%20data%0D%0A%20%20%20%20function%20extractProfileData()%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20profileData%20=%20null;%0D%0A%20%20%20%20%20%20%20%20var%20scripts%20=%20document.getElementsByTagName('script');%0D%0A%20%20%20%20%20%20%20%20for%20(var%20i%20=%200;%20i%20%3C%20scripts.length;%20i++)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20script%20=%20scripts%5Bi%5D;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20scriptContent%20=%20script.textContent%20%7C%7C%20script.innerText;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(scriptContent.includes('var%20profile%20=%20%7B%22display_name%22'))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Extract%20JSON%20from%20script%20content%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20startIndex%20=%20scriptContent.indexOf('var%20profile%20=%20%7B%22display_name%22');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20endIndex%20=%20scriptContent.indexOf('%7D;',%20startIndex)%20+%201;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20profileJSON%20=%20scriptContent.substring(startIndex,%20endIndex);%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Parse%20JSON%20string%20to%20object%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20profileData%20=%20JSON.parse(profileJSON.replace('var%20profile%20=%20',%20''));%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20(error)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error('Error%20parsing%20profile%20JSON:',%20error);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20return%20profileData;%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Function%20to%20display%20profile%20data%20in%20an%20alert-like%20modal%0D%0A%20%20%20%20function%20displayProfileData(profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20if%20(!profile)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20alert('Profile%20data%20not%20found!');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return;%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Extract%20avatar%20image%20URL%20from%20existing%20img%20tag%0D%0A%20%20%20%20%20%20%20%20var%20avatarImg%20=%20document.querySelector('img%5Balt=%22profile%20avatar%22%5D');%0D%0A%20%20%20%20%20%20%20%20var%20imageUrl%20=%20avatarImg%20?%20avatarImg.src%20:%20null;%0D%0A%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20//%20Replace%20'width=96'%20with%20'width=400'%20in%20the%20URL%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20imageUrl%20=%20imageUrl.replace('width=96',%20'width=400');%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20container%0D%0A%20%20%20%20%20%20%20%20var%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.display%20=%20'flex';%0D%0A%20%20%20%20%20%20%20%20overlay.style.alignItems%20=%20'left';%0D%0A%20%20%20%20%20%20%20%20overlay.style.justifyContent%20=%20'left';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20var%20modalContent%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20modalContent.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.color%20=%20'#000';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.borderRadius%20=%20'8px';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.boxShadow%20=%20'0%200%2010px%20rgba(0,%200,%200,%200.3)';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxWidth%20=%20'80%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.maxHeight%20=%20'70%25';%0D%0A%20%20%20%20%20%20%20%20modalContent.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Build%20HTML%20content%20for%20profile%20data%0D%0A%20%20%20%20%20%20%20%20var%20htmlContent%20=%20'%3Ch2%20style=%22color:%20#000;%22%3E'%20+%20profile.display_name%20+%20'%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EFormatted%20Cashtag:%3C/strong%3E%20'%20+%20profile.formatted_cashtag%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3EAccount%20Verified?%3C/strong%3E%20'%20+%20profile.is_verified_account%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ERate%20Plan:%3C/strong%3E%20'%20+%20profile.rate_plan%20+%20'%3C/p%3E';%0D%0A%20%20%20%20%20%20%20%20htmlContent%20+=%20'%3Cp%3E%3Cstrong%3ECountry%20Code:%3C/strong%3E%20'%20+%20profile.country_code%20+%20'%3C/p%3E';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Check%20if%20avatar%20image%20URL%20was%20found%0D%0A%20%20%20%20%20%20%20%20if%20(imageUrl)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20img%20=%20document.createElement('img');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.maxWidth%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.style.height%20=%20'auto';%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20img.src%20=%20imageUrl;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20modalContent.appendChild(img);%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Set%20HTML%20content%20to%20the%20modal%20content%20container%0D%0A%20%20%20%20%20%20%20%20modalContent.innerHTML%20+=%20htmlContent;%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20modal%20content%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(modalContent);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Close%20overlay%20on%20click%20outside%20content%0D%0A%20%20%20%20%20%20%20%20overlay.addEventListener('click',%20function(event)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(event.target%20===%20overlay)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20//%20Main%20execution%0D%0A%20%20%20%20var%20profile%20=%20extractProfileData();%0D%0A%20%20%20%20displayProfileData(profile);%0D%0A%7D)();">Cash.app Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/ca.png">This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()">Facebook ID Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/fb.png">This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert('Profile%20ID%3A%20'%20%2B%20e)%20%3A%20alert('No%20profile_id%20found%20on%20the%20current%20page.')%7D)()">Instagram User Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/ig.png">This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%20%7B%0D%0A%20%20%20%20function%20extractMetaTags()%20%7B%0D%0A%20%20%20%20%20%20%20%20//%20Function%20to%20find%20meta%20tags%20and%20image%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaTags%20=%20document.querySelectorAll('meta%5Bproperty=%22og:title%22%5D,%20meta%5Bproperty=%22og:image%22%5D,%20meta%5Bname=%22description%22%5D,%20meta%5Bname=%22twitter:description%22%5D,%20meta%5Bname=%22twitter:title%22%5D');%0D%0A%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20//%20Create%20overlay%20div%0D%0A%20%20%20%20%20%20%20%20const%20overlay%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20overlay.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20overlay.style.top%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.left%20=%20'0';%0D%0A%20%20%20%20%20%20%20%20overlay.style.width%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.height%20=%20'100%25';%0D%0A%20%20%20%20%20%20%20%20overlay.style.background%20=%20'rgba(0,%200,%200,%200.7)';%0D%0A%20%20%20%20%20%20%20%20overlay.style.color%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20overlay.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.padding%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20overlay.style.boxSizing%20=%20'border-box';%0D%0A%20%20%20%20%20%20%20%20overlay.style.zIndex%20=%20'9999';%0D%0A%20%20%20%20%20%20%20%20overlay.style.overflow%20=%20'auto';%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Create%20close%20button%0D%0A%20%20%20%20%20%20%20%20const%20closeButton%20=%20document.createElement('button');%0D%0A%20%20%20%20%20%20%20%20closeButton.textContent%20=%20'Close';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.position%20=%20'fixed';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.top%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.right%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.padding%20=%20'10px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.cursor%20=%20'pointer';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.background%20=%20'#fff';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.border%20=%20'none';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.borderRadius%20=%20'5px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontFamily%20=%20'Arial,%20sans-serif';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.fontSize%20=%20'16px';%0D%0A%20%20%20%20%20%20%20%20closeButton.style.zIndex%20=%20'10000';%0D%0A%20%20%20%20%20%20%20%20closeButton.addEventListener('click',%20function()%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20document.body.removeChild(overlay);%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20close%20button%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(closeButton);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Display%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20const%20metaInfo%20=%20document.createElement('div');%0D%0A%20%20%20%20%20%20%20%20metaInfo.style.marginBottom%20=%20'20px';%0D%0A%20%20%20%20%20%20%20%20metaInfo.innerHTML%20=%20'%3Ch2%3EMeta%20Tags:%3C/h2%3E';%0D%0A%20%20%20%20%20%20%20%20metaTags.forEach(tag%20=%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagName%20=%20tag.getAttribute('property')%20%7C%7C%20tag.getAttribute('name');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20tagContent%20=%20tag.getAttribute('content');%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(tagName%20===%20'og:image')%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Create%20img%20tag%20for%20og:image%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20%3Cimg%20src=%22$%7BtagContent%7D%22%20alt=%22Image%22%3E%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Display%20other%20meta%20tags%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20metaInfo.innerHTML%20+=%20%60%3Cp%3E%3Cstrong%3E$%7BtagName%7D:%3C/strong%3E%20$%7BtagContent%7D%3C/p%3E%60;%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%7D);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20meta%20information%20to%20overlay%0D%0A%20%20%20%20%20%20%20%20overlay.appendChild(metaInfo);%0D%0A%0D%0A%20%20%20%20%20%20%20%20//%20Append%20overlay%20to%20body%0D%0A%20%20%20%20%20%20%20%20document.body.appendChild(overlay);%0D%0A%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20extractMetaTags();%0D%0A%7D)();%0D%0A">Instagram User Unauthenticated Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/ig.png">Ever get that "Something Went Wrong" error when visiting an Instagram user profile page (for example: <code>https://instagram.com/not.a.real.username/</code>) and not logged in to their site? This bookmarklet will extract user data and display in an overlay when you get this message.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()">Telegram Revealer Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/tg.png">This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a "..." at the bottom. This script extracts user data and displays in a pop-up window.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">Threads User Bookmarklet
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/th.png">Unfortunately, due to the complexity of the Threads User Bookmarklet code, we cannot post it here for you to use the <a href="#easyway">"Easy Way"</a> (see below). If you want that, please visit <a href="https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet" target="_blank">https://github.com/myosintllc/my-osint-tools/blob/main/bookmarklets/Social%20-%20Threads%20User%20Bookmarklet</a> and use the <a href="#hardway">"More Manual Method".</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function() %7B%0A    try %7B%0A        // Get the script content by ID%0A        var scriptContent = document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__').text;%0A        %0A        // Parse the JSON data%0A        var jsonData = JSON.parse(scriptContent);%0A        %0A        // Extract user details and video details from __DEFAULT_SCOPE__%0A        var defaultScope = jsonData?.__DEFAULT_SCOPE__;%0A%20%20%20%20%20%20%20%20var%20userDetails%20=%20defaultScope?.%5B%22webapp.user-detail%22%5D;%0A%20%20%20%20%20%20%20%20var%20videoDetails%20=%20defaultScope?.%5B%22webapp.video-detail%22%5D;%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20//%20Create%20a%20new%20window%20to%20display%20the%20details%0A%20%20%20%20%20%20%20%20var%20newWindow%20=%20window.open(%27%27,%20%27%27,%20%27width=600,height=400%27);%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20//%20Write%20the%20details%20to%20the%20new%20window%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Chtml%3E%3Chead%3E%3Ctitle%3EExtracted%20Data%3C/title%3E%3C/head%3E%3Cbody%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Ch2%3EUser%20Details%3C/h2%3E%3Cpre%3E%27%20+%20JSON.stringify(userDetails,%20null,%202)%20+%20%27%3C/pre%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3Ch2%3EVideo%20Details%3C/h2%3E%3Cpre%3E%27%20+%20JSON.stringify(videoDetails,%20null,%202)%20+%20%27%3C/pre%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.write(%27%3C/body%3E%3C/html%3E%27);%0A%20%20%20%20%20%20%20%20newWindow.document.close();%0A%20%20%20%20%7D%20catch%20(e)%20%7B%0A%20%20%20%20%20%20%20%20alert(%27An%20error%20occurred:%20%27%20+%20e.message);%0A%20%20%20%20%7D%0A%7D)();">TikTok User/Video Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td>
+                      <img src="/images/tt.png">This bookmarklet is used on TikTok user profile pages like <code>https://www.tiktok.com/@mrbeast</code> or on video pages to extract JSON content and display in a pop-up window.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
 
 
-    <h2>What do I do with this stuff?</h2>
-These bookmarks live in your browser (or you can use some of them right on this page!). You use them in certain situations. If you want them in your browser's bookmarks bar, you have 2 ways of adding them:
+      <h2>What do I do with this stuff?</h2>
+  These bookmarks live in your browser (or you can use some of them right on this page!). You use them in certain situations. If you want them in your browser's bookmarks bar, you have 2 ways of adding them:
 
-    <h3 id="easyway">⭐Easy Method⭐</h3>
-    <ol>
-      <li>Find the bookmarklet you want</li>
-      <li>Click and drag the bookmarklet's name (left column in table above) it into your bookmarks bar.</li>
-      <li>Click that bookmark to use the tool</li>
-      <li>Done!</li>
-    </ol>
-    <h3 id="hardway">🔨The "More Manual Method"🔧</h3>
+      <h3 id="easyway">⭐Easy Method⭐</h3>
       <ol>
-        <li>Visit <a href="https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets" target="_blank">https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets</a></li>
-        <li>Open the bookmarklet you wish to use.</li>
-        <li>Scroll down to the <code>// Copy and paste the data below</code> section.</li>
-        <li>Copy the text starting with <code>javascript:</code> and ending with <code>()</code></li>
-        <li>Go to your favorite browser and make a new bookmark. We like doing this in our Bookmarks Bar but you can do it wherever.</li>
-        <li>Name it whatever you wish.</li>
-        <li>In the <code>URL</code> section, paste the code your copied. You need to paste everything from the <code>javascript:</code> all the way to the ending <code>()</code>.</li>
-        <li>Save the bookmark/bookmarklet.</li>
-        <li>Now you are set to run or use the bookmarklet. Some you need to be on a certain web page to use (like the Facebook ID one needs to be on a Facebook page like <code>https://www.facebook.com/zuck</code>). Navigate to the correct page or, for those that do not need a certain page, just click the bookmark.</li>
-        <li><strong>WARNING:</strong> Some of these bookmarklets open one or more browser tabs. You may need to <strong>ALLOW POP-UPS</strong> in your web browser to get those tabs to show.</li>
-    </ol>
+        <li>Find the bookmarklet you want</li>
+        <li>Click and drag the bookmarklet's name (left column in table above) it into your bookmarks bar.</li>
+        <li>Click that bookmark to use the tool</li>
+        <li>Done!</li>
+      </ol>
+      <h3 id="hardway">🔨The "More Manual Method"🔧</h3>
+        <ol>
+          <li>Visit <a href="https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets" target="_blank">https://github.com/myosintllc/my-osint-tools/tree/main/bookmarklets</a></li>
+          <li>Open the bookmarklet you wish to use.</li>
+          <li>Scroll down to the <code>// Copy and paste the data below</code> section.</li>
+          <li>Copy the text starting with <code>javascript:</code> and ending with <code>()</code></li>
+          <li>Go to your favorite browser and make a new bookmark. We like doing this in our Bookmarks Bar but you can do it wherever.</li>
+          <li>Name it whatever you wish.</li>
+          <li>In the <code>URL</code> section, paste the code your copied. You need to paste everything from the <code>javascript:</code> all the way to the ending <code>()</code>.</li>
+          <li>Save the bookmark/bookmarklet.</li>
+          <li>Now you are set to run or use the bookmarklet. Some you need to be on a certain web page to use (like the Facebook ID one needs to be on a Facebook page like <code>https://www.facebook.com/zuck</code>). Navigate to the correct page or, for those that do not need a certain page, just click the bookmark.</li>
+          <li><strong>WARNING:</strong> Some of these bookmarklets open one or more browser tabs. You may need to <strong>ALLOW POP-UPS</strong> in your web browser to get those tabs to show.</li>
+      </ol>
 
-    <hr>
+      <hr>
 
-    <i>These tools are provided by the instructors and authors at <a target="_blank" href="https://www.myosint.training">My OSINT Training</a>. Check out our huge number of OSINT courses including our <strong>FREE</strong> <a target="_blank" href="https://www.myosint.training/courses/introduction-to-osint">Introduction to OSINT</a> course and our <a target="_blank" href="https://www.myosint.training/pages/bundles">bundles of classes.</a></i>
-  </div>
-</body>
+      <i>These tools are provided by the instructors and authors at <a target="_blank" href="https://www.myosint.training">My OSINT Training</a>. Check out our huge number of OSINT courses including our <strong>FREE</strong> <a target="_blank" href="https://www.myosint.training/courses/introduction-to-osint">Introduction to OSINT</a> course and our <a target="_blank" href="https://www.myosint.training/pages/bundles">bundles of classes.</a></i>
+    </div>
+  </body>
+</html>
