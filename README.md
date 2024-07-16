@@ -1,3 +1,4 @@
+<link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-56ee3e445afd11deaa93a33f91cf56d1f274e1c5119c9b12911b31b1c069fc6e.css">
 <div class="header__container">
   <div class="header__wrapper">
     <section class="header__logo header__logo___2909e">
