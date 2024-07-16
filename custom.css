@@ -24,7 +24,7 @@
           position: relative;
           width: 100%;
           margin: 0 auto;
-          background-color: #022447;
+          background-color: #000a19;
           padding-right: 1rem;
           padding-left: 1rem;
           padding: 1.6rem 1rem
@@ -146,7 +146,7 @@
           .header__nav .header__nav-item a,.header__nav .header__nav-item button {
               display: block;
               padding: 8px 16px;
-              color: #022447;
+              color: #fff;
               font-weight: 500;
               text-align: center;
               text-decoration: none
@@ -154,7 +154,7 @@
 
           .header__nav .header__nav-item a:active,.header__nav .header__nav-item a:hover,.header__nav .header__nav-item button:active,.header__nav .header__nav-item button:hover {
               background-color: #00a2e1;
-              color: #022447
+              color: #fff
           }
 
           .header__nav .header__nav-item .dropdown__toggle-button {
@@ -252,7 +252,7 @@
           }
 
           .header__nav-item>a,.header__nav-item>button {
-              color: #022447;
+              color: #000a19;
               font-weight: 500;
               text-decoration: none
           }
@@ -279,7 +279,7 @@
           }
 
           .header__nav-item>a:active:after,.header__nav-item>a:hover:after,.header__nav-item>button:active:after,.header__nav-item>button:hover:after {
-              background-color: #022447
+              background-color: #000a19
           }
       }
       .footer {
