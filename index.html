@@ -204,6 +204,19 @@
                   <tr>
                     <td style="white-space:nowrap;">
                       <div id="div16" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function(){try{var%20e=/userID%22:%22(%5Cd+)%22/,r=document.documentElement.outerHTML.match(e);if(r&&r[1]){var%20t=r[1],url=%22https://www.facebook.com/marketplace/?seller_profile=%22+t;window.open(url,%22_blank%22)}else%20alert(%22Facebook%20ID%20not%20found!%22)}catch(e){alert(%22Error%20processing%20request:%20%22+e.message)}})();">Facebook Marketplace Profile Bookmarklet</a>
+                      </div>
+                    </td>
+                    <td style="word-wrap: break-word;">
+                      This bookmarklet will locate a Facebook user's Marketplace profile, opening it in a new tab.
+                    </td>
+                    <td>
+                      <img src="/images/fb.png">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="white-space:nowrap;">
+                      <div id="div16" ondrop="drop(event)" ondragover="allowDrop(event)">
                         <a class="button-social" draggable="true" ondragstart="drag(event)" href="javascript:(function(){try{var%20e=/userID%22:%22(%5Cd+)%22/,r=document.documentElement.outerHTML.match(e);if(r&&r[1]){var%20t=r[1],n=prompt(%22Search%20for%20content%20about%20userID:%20%22+t+%22%5Cn%5CnEnter%20a%20Search%20term:%22);if(null!==n&&%22%22!==n.trim()){var%20a=encodeURIComponent(n.trim()),c=%22https://facebook.com/profile/%22+t+%22/search/?q=%22+a;window.open(c,%22_blank%22)}else%20alert(%22No%20search%20term%20provided.%22)}else%20alert(%22Facebook%20ID%20not%20found!%22)}catch(e){alert(%22Error%20processing%20request:%20%22+e.message)}})();">Facebook Profile Search Bookmarklet</a>
                       </div>
                     </td>
@@ -318,62 +331,63 @@
     </div>
 
 <!-- test section for footer-->
-<div class="container-lg">
-  <div class="row">
-    <div class="col">
-      <i>These tools are provided as-is by the instructors and authors at <a target="_blank" href="https://www.myosint.training">My OSINT Training</a>.</i>
-      <ul class="footer__nav-site">
-        <li class="footer__nav-item">
-          <a href="https://www.myosint.training/" target="_self">Home</a>
+<div class="header__container">
+  <div class="header__wrapper">
+    <section class="header__logo header__logo___2909e">
+        <a href="/">
+          <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive" loading="lazy">
+          <h1 class="sr-only">
+            My OSINT Tools
+          </h1>
+        </a>
+    </section>
+    <nav class="header__nav hidden-print">
+      <ul>
+        <li class="header__nav-item">
+          <a href="https://www.myosint.training/" target="_self">MOT Home</a>
         </li>
-        <li class="footer__nav-item">
+        <li class="header__nav-item">
           <a href="https://www.myosint.training/collections" target="_self">All Courses</a>
         </li>
-        <li class="footer__nav-item">
+        <li class="header__nav-item">
           <a href="https://www.myosint.training/pages/privacy" target="_self">Privacy Policy</a>
         </li>
-        <li class="footer__nav-item">
+        <li class="header__nav-item">
           <a href="https://www.myosint.training/pages/terms" target="_self">TERMS OF USE</a>
         </li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul class="footer__nav-social text-right">
-        <li class="footer__nav-item">
+        <li class="header__nav-item">
           <a href="https://twitter.com/myosinttrainer" target="_blank">
-              <span class="sr-only">Twitter Account (Open in a new window)
-              </span>
+            <span class="sr-only">Twitter Account (Open in a new window)
+            </span>
             <i class="fa fa-twitter" aria-hidden=""></i>
-          </a>
+         </a>
         </li>
-        <li class="footer__nav-item">
+        <li class="header__nav-item header__nav-sign-in">
           <a href="https://www.linkedin.com/company/my-osint-training/" target="_blank">
-              <span class="sr-only">LinkedIn Account (Open in a new window)
-              </span>
+            <span class="sr-only">LinkedIn Account (Open in a new window)
+            </span>
             <i class="fa fa-linkedin" aria-hidden=""></i>
           </a>
         </li>
-        <li class="footer__nav-item">
+        <li class="header__nav-item header__nav-sign-in">
           <a href="https://infosec.exchange/@myosinttraining" target="_blank">
-              <span class="sr-only">Mastodon (Open in a new window)
-              </span>
-            <i class="fa fa-star" aria-hidden=""></i>
-            </a>
+            <span class="sr-only">Mastodon (Open in a new window)
+            </span>
+          <i class="fa fa-star" aria-hidden=""></i>
+          </a>
         </li>
       </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <span class="section__divide"></span>
-      <div class="footer__copyright text-center">
-        © Copyright My OSINT Training - All Rights Reserved
+    </nav>
+    <div class="row">
+      <div class="col">
+        <span class="section__divide"></span>
+        <div class="footer__copyright text-center">
+          © Copyright My OSINT Training - All Rights Reserved
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 
       <footer class="footer hidden-print" data-preview-item="footer" data-section-uid="footer">
@@ -383,7 +397,7 @@
               <i>These tools are provided as-is by the instructors and authors at <a target="_blank" href="https://www.myosint.training">My OSINT Training</a>.</i>
               <ul class="footer__nav-site">
                 <li class="footer__nav-item">
-                  <a href="https://www.myosint.training/" target="_self">Home</a>
+                  <a href="https://www.myosint.training/" target="_self">MOT Home</a>
                 </li>
                 <li class="footer__nav-item">
                   <a href="https://www.myosint.training/collections" target="_self">All Courses</a>
