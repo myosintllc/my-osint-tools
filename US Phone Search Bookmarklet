@@ -2,9 +2,10 @@
 
 Originally from https://hatless1der.com/4-simple-useful-osint-search-bookmarklets/
 
-It pops up 3 windows in succession asking you to input the area code, then prefix,
-then the last 4 of the number you’re searching. It queries different phone search
-sites in one click. (some sites default to the search page when no result is found)
+This bookmark pops up 3 windows in succession asking you to input the area code,
+then prefix, then the last 4 of the number of the United States phone number you
+are searching. It queries different phone search sites in one click.
+(Some sites default to the search page when no result is found)
 
 Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
 Want some OSINT learning? https://www.myosint.training has courses for you.
