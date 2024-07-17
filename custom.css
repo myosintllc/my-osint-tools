@@ -1,7 +1,7 @@
-.th-general,.button-generl {
+.button-general {
     font: bold Roboto;
     text-decoration: none;
-    background-color: #EEEEEE;
+    background-color: #ff0000;
     color: #333333;
     padding: 3px 7px 3px 7px;
     border-top: 1px solid #CCCCCC;
@@ -12,7 +12,7 @@
     -moz-border-radius: 10px;
      border-radius: 10px;
   }
-  .th-social,.button-social {
+  .button-social {
     font: bold Roboto;
     text-decoration: none;
     background-color: #4d015c;
@@ -26,7 +26,7 @@
     -moz-border-radius: 10px;
      border-radius: 10px;
   }
-  .th-country,.button-country {
+  .button-country {
     font: bold Roboto;
     text-decoration: none;
     background-color: #006812;
@@ -39,6 +39,23 @@
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
      border-radius: 10px;
+  }
+  .th-general {
+    font: bold Roboto;
+    background-color: #ff0000;
+    color: #333333;
+  }
+  .th-social {
+    font: bold Roboto;
+    text-decoration: none;
+    background-color: #4d015c;
+    color: #fff;
+  }
+  .th-country {
+    font: bold Roboto;
+    text-decoration: none;
+    background-color: #006812;
+    color: #fff;
   }
   .anchor-link {
     padding: 0 .175rem;
