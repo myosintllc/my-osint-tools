@@ -1,0 +1,20 @@
+/*
+
+This bookmarklet is used on Facebook user profile pages to extract Facebook IDs
+and display in a pop-up window.
+
+Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
+Want some OSINT learning? https://www.myosint.training has courses for you.
+
+*/
+
+// Copy and paste the data below
+
+javascript:(function(){try{var%20e=/userID%22:%22(%5Cd+)%22/,r=document.documentElement.outerHTML.match(e);if(r&&r[1]){var%20t=r[1],n=prompt(%22Search%20for%20content%20about%20userID:%20%22+t+%22%5Cn%5CnEnter%20a%20Search
+
+
+// Do not copy the raw javascript below. It is for understanding what is happening.
+
+var regexp = /userID.\:.[0-9]+/;
+var indexreg = document.documentElement.outerHTML.match(regexp);
+alert('Facebook ID: ' + indexreg[0].split(':')[1].replace(/\"/g, ''));
