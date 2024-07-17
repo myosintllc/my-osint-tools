@@ -1,5 +1,5 @@
 .button {
-    font: bold Arial;
+    font: bold Roboto;
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
@@ -13,7 +13,7 @@
      border-radius: 10px;
   }
   .button-social {
-    font: bold Arial;
+    font: bold Roboto;
     text-decoration: none;
     background-color: #022447;
     color: #fff;
@@ -27,7 +27,7 @@
      border-radius: 10px;
   }
   .button-country {
-    font: bold Arial;
+    font: bold Roboto;
     text-decoration: none;
     background-color: #006812;
     color: #fff;
