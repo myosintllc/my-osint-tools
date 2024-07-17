@@ -1,5 +1,5 @@
 .button {
-    font: bold 16px Arial;
+    font: bold Arial;
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
@@ -13,20 +13,30 @@
      border-radius: 10px;
   }
   .button-social {
+    font: bold Arial;
+    text-decoration: none;
     background-color: #022447;
     color: #fff;
     border-top: 1px solid #008bc4;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #008bc4;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+     border-radius: 10px;
   }
   .button-country {
+    font: bold Arial;
+    text-decoration: none;
     background-color: #470081;
     color: #fff;
     border-top: 1px solid #bbb;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #bbb;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+     border-radius: 10px;
   }
   .anchor-link {
     padding: 0 .175rem;
