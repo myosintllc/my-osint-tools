@@ -43,17 +43,15 @@
   .th-general {
     font: bold Roboto;
     background-color: #1900ff;
-    color: #333333;
+    color: #fff;
   }
   .th-social {
     font: bold Roboto;
-    text-decoration: none;
     background-color: #4d015c;
     color: #fff;
   }
   .th-country {
     font: bold Roboto;
-    text-decoration: none;
     background-color: #006812;
     color: #fff;
   }
