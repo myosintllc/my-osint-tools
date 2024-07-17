@@ -1,7 +1,7 @@
 .button-general {
     font: bold Roboto;
     text-decoration: none;
-    background-color: #ff0000;
+    background-color: #1900ff;
     color: #333333;
     padding: 3px 7px 3px 7px;
     border-top: 1px solid #CCCCCC;
@@ -42,7 +42,7 @@
   }
   .th-general {
     font: bold Roboto;
-    background-color: #ff0000;
+    background-color: #1900ff;
     color: #333333;
   }
   .th-social {
