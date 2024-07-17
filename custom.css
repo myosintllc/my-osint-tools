@@ -1,4 +1,4 @@
-.button {
+.th-general,.button-generl {
     font: bold Roboto;
     text-decoration: none;
     background-color: #EEEEEE;
@@ -12,10 +12,10 @@
     -moz-border-radius: 10px;
      border-radius: 10px;
   }
-  .button-social {
+  .th-social,.button-social {
     font: bold Roboto;
     text-decoration: none;
-    background-color: #022447;
+    background-color: #4d015c;
     color: #fff;
     padding: 3px 7px 3px 7px;
     border-top: 1px solid #008bc4;
@@ -26,7 +26,7 @@
     -moz-border-radius: 10px;
      border-radius: 10px;
   }
-  .button-country {
+  .th-country,.button-country {
     font: bold Roboto;
     text-decoration: none;
     background-color: #006812;
