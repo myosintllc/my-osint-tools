@@ -12,9 +12,17 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%2CTRUM%3D%22https%3A%2F%2Fapi.trumail.io%2Fv2%2Flookups%2Fjson%3Femail%3D%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%2Cwindow.open(TRUM%2C%22_blank%22)%7D)()
+javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%7D)()
 
 
 // Do not copy the raw javascript below. It is for understanding what is happening.
 
-var EMAIL=prompt("Enter EMAIL: "),TT="https://thatsthem.com/email/"+EMAIL,SPY="https://www.spytox.com/email-search/"+EMAIL,GOOG="https://www.google.com/search?q=%22"+EMAIL+"%22",EMREP="https://emailrep.io/query/"+EMAIL,TRUM="https://api.trumail.io/v2/lookups/json?email="+EMAIL;window.open(TT,"_blank"),window.open(SPY,"_blank"),window.open(GOOG,"_blank"),window.open(EMREP,"_blank"),window.open(TRUM,"_blank");
+var EMAIL=prompt("Enter EMAIL: "),
+TT="https://thatsthem.com/email/"+EMAIL,
+SPY="https://www.spytox.com/email-search/"+EMAIL,
+GOOG="https://www.google.com/search?q=%22"+EMAIL+"%22",
+EMREP="https://emailrep.io/query/"+EMAIL;
+window.open(TT,"_blank"),
+window.open(SPY,"_blank"),
+window.open(GOOG,"_blank"),
+window.open(EMREP,"_blank");
