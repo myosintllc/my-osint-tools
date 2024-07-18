@@ -1,5 +1,11 @@
+.html, .body {
+    font-family: "Roboto", sans-serif;
+}
+.h1 {
+    font-family: "Roboto Slab", sans-serif;
+}
 .button-general {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
     background-color: #1900ff;
     color: #fff;
@@ -13,7 +19,7 @@
      border-radius: 10px;
   }
   .button-social {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
     background-color: #4d015c;
     color: #fff;
@@ -27,7 +33,7 @@
      border-radius: 10px;
   }
   .button-country {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
     background-color: #006812;
     color: #fff;
@@ -41,19 +47,22 @@
      border-radius: 10px;
   }
   .th-general {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     background-color: #1900ff;
     color: #fff;
+    font-weight: bold;
   }
   .th-social {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     background-color: #4d015c;
     color: #fff;
+    font-weight: bold;
   }
   .th-country {
-    font: bold Roboto;
+    font-family: "Roboto", sans-serif;
     background-color: #006812;
     color: #fff;
+    font-weight: bold;
   }
   .anchor-link {
     padding: 0 .175rem;
@@ -525,6 +534,3 @@
         color: #fff;
         text-decoration: none
     }
-    .container {
-        font: bold Roboto;
-}
