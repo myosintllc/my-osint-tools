@@ -76,7 +76,7 @@
     },
     {
         "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function(){var newUrl=window.location.href+'media/?size=l';var newWindow=window.open();newWindow.document.write(%60<html><head><title>Image Viewer</title><style>body{display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background-color:#f0f0f0;}img{max-width:100%;max-height:100%;border:1px solid #ccc;box-shadow:0 4px 8px rgba(0,0,0,0.1);}.message{position:fixed;top:10px;left:50%;transform:translateX(-50%);background-color:white;border:1px solid black;padding:10px;z-index:10000;}</style></head><body><img src='${newUrl}' alt='Image' /><div class='message'>Right click on the image to save it</div></body></html>%60);newWindow.document.close();})();'>Instagram Save Single Image Bookmarklet</a></div>",
-        "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.",
-        "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, id</p>"
+      "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.",
+      "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, image</p>"
     }
   ]
