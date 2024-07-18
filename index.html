@@ -38,7 +38,7 @@
       });
 
       function loadTable(){
-          fetch("https://myosintllc.github.io/myosinttools-dev/bookmarklets.json")
+          fetch("https://tools.myosint.training/bookmarklets.json")
           .then(res => res.json())
           .then(data => {
               $.fn.dataTable.ext.errMode = 'none';
