@@ -47,16 +47,14 @@
                   "info": true,
                   "lengthChange": true,
                   "processing": true,
-                  "pageLength": 10,
+                  "pageLength": 20,
                   "pagingType": "full_numbers",
                   "lengthMenu": [10, 25, 50],
                   "return": true,
                   "columns": [
                             { "data": "bookmarklet" },
                             { "data": "description" },
-                            { "data": "image" },
-                            { "data": "category" },
-                            { "data": "use_on_page" }
+                            { "data": "tags" }
                         ],
                   deferRender: true,
                   fixedHeader: { header: true, footer: false },
@@ -113,7 +111,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <img src="https://tools.myosint.training/images/osinttools.png" class="mx-auto d-block" alt="My OSINT Tools Logo">
+          <img src="https://tools.myosint.training/images/osinttools.png" width="242" class="mx-auto d-block" alt="My OSINT Tools Logo">
         </div>
       </div>
       <!-- Bookmarklets General-->
@@ -123,11 +121,9 @@
             <table id="collectiontable" class="display cell-border">
               <thead>
                   <tr>
-                      <th class="text-center">To use:<br><p class="text-danger">Drag button to your bookmarks bar</p></th>
-                      <th class="text-center">Description</th>
-                      <th class="text-center">Image</th>
-                      <th class="text-center">Category</th>
-                      <th class="text-center">Use on page?</th>
+                      <th class="text-center align-bottom">To use:<br><p class="text-danger">Drag button to your bookmarks bar</p></th>
+                      <th class="text-center align-bottom">Description</th>
+                      <th class="text-center align-bottom">Tags</th>
                   </tr>
               </thead>
             </table>
@@ -167,7 +163,7 @@
                       <ol class="list-group list-group-numbered">
                         <li class="list-group-item">Find the bookmarklet you want</li>
                         <li class="list-group-item">Click and drag the bookmarklet's name (left column in table above) it into your bookmarks bar.</li>
-                        <li class="list-group-item">Click that bookmark to use the tool</li>
+                        <li class="list-group-item">Click that bookmark to use the tool. ⚠You will need to allow popups in your browser!⚠</li>
                         <li class="list-group-item">Done!</li>
                       </ol>
                     </div>
@@ -176,8 +172,7 @@
                 <div class="card">
                   <div class="card-header">
                     <a class="collapsed btn btn-secondary" data-bs-toggle="collapse" href="#collapseTwo">
-                      🔨The "More Manual Method"🔧
-                    </a>
+                      🔨The "More Manual Method"🔧</a><p class="small">Click to expand</p>
                   </div>
                   <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                     <div class="card-body">
