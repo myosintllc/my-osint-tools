@@ -44,28 +44,25 @@
               $.fn.dataTable.ext.errMode = 'none';
               $('#collectiontable').DataTable({
                   "autoWidth": true,
-                  "info": true,
                   "lengthChange": true,
-                  "processing": true,
                   "pageLength": 20,
                   "pagingType": "full_numbers",
                   "lengthMenu": [10, 20, 40],
-                  "return": true,
                   "layout": {
                       "top2Start": "pageLength",
                       "top2End": "search",
                       "topStart": "info",
-                      "topEnd": "paging"
+                      "topEnd": "paging",
+                      "bottomStart": "info",
+                      "bottom": "paging"
                   },
                   "columns": [
                             { "data": "bookmarklet" },
                             { "data": "description" },
                             { "data": "tag_data" }
                         ],
-                  deferRender: true,
                   fixedHeader: { header: true, footer: false },
                   data: data,
-
               }
               );
           })
