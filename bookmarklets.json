@@ -71,7 +71,7 @@
     },
     {
       "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function(){try{function findProfilePicLargeUri(obj){if(obj&&typeof obj==='object'){for(var key in obj){if(key==='profilePicLarge'&&obj[key].uri){return obj[key].uri;}var result=findProfilePicLargeUri(obj[key]);if(result){return result;}}}return null;}var scripts=document.querySelectorAll('script');var profilePicUrl=null;scripts.forEach(function(script){var content=script.textContent;var json;try{var jsonStart=content.indexOf('{');var jsonEnd=content.lastIndexOf('}')+1;if(jsonStart!==-1&&jsonEnd!==-1){json=JSON.parse(content.substring(jsonStart,jsonEnd));var result=findProfilePicLargeUri(json);if(result){profilePicUrl=result;}}}catch(e){return;}});if(profilePicUrl){var decodedUrl=profilePicUrl.replace(/\\u0026/g,'&');window.open(decodedUrl,'_blank');}else{alert('Profile picture URL not found!');}}catch(e){alert('Error processing request: '+e.message);}})();'>Facebook Locked Profile Image Bookmarklet</a></div>",
-      "description": "This bookmarklet locates and displays the highest resolution version of the profile photo on a 'locked' user's page in a new window.",
+      "description": "This bookmarklet locates and displays the highest resolution version of the profile photo on a 'locked' user's page in a new window. ",
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, image, profile</p>"
     }
   ]
