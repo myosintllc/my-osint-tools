@@ -4,9 +4,8 @@ about: Submit your bookmarklet to the site.
 title: "[SUBMISSION]: "
 labels: submission-new
 assignees: WebBreacher
-
 body:
-  - type: markdown
+  - type: yaml
     attributes:
       value: |
         Thanks for taking the time to fill out this submission. We will review it and get back to you via the email you provided.
