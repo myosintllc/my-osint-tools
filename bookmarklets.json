@@ -21,7 +21,7 @@
     },
     {
       "bookmarklet": "Cash.app Profile Bookmarklet",
-      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.⚠<br><p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.⚠<br><p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ca.png'><p class='text-center'>CashApp, social, user, profile, image</p>"
     },
     {
@@ -51,7 +51,7 @@
     },
     {
       "bookmarklet": "Threads User Bookmarklet",
-      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.⚠<br><p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.⚠<br><p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Threads icon' src='https://tools.myosint.training/images/th.png'><p class='text-center'>Threads, social, user, profile, id</p>"
     },
     {
