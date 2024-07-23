@@ -50,7 +50,7 @@
       "tag_data": "<img class='mx-auto d-block' alt='TikTok icon' src='https://tools.myosint.training/images/tt.png'><p class='text-center'>TikTok, social, user, profile, id, image</p>"
     },
     {
-      "bookmarklet": "Threads User Bookmarklet",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>Threads User Bookmarklet</a>",
       "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.⚠<br><p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Threads icon' src='https://tools.myosint.training/images/th.png'><p class='text-center'>Threads, social, user, profile, id</p>"
     },
