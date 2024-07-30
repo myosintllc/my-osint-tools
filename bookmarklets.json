@@ -16,7 +16,7 @@
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>Cash.app Profile Bookmarklet</a>",
-      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ca.png'><p class='text-center'>CashApp, social, user, profile, image</p>"
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>Threads User Bookmarklet</a>",
-      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Threads icon' src='https://tools.myosint.training/images/th.png'><p class='text-center'>Threads, social, user, profile, id</p>"
     },
     {
@@ -71,12 +71,12 @@
     },
     {
       "bookmarklet": "<a class='btn btn-primary' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>JSON Revealer Bookmarklet</a>",
-      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/json.png'><p class='text-center'>JSON, website</p>"
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>Instagram Save Single Image Bookmarklet</a>",
-      "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, image</p>"
     }
   ]
