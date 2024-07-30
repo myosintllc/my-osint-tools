@@ -70,8 +70,8 @@
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, image, profile</p>"
     },
     {
-      "bookmarklet": "<a class='btn btn-primary' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet%20Bookmarklet' target='_blank'>JSON Revealer Bookmarklet</a>",
-      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "bookmarklet": "<a class='btn btn-primary' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>JSON Revealer Bookmarklet</a>",
+      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br>⚠<p class='text-danger'>Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/json.png'><p class='text-center'>JSON, website</p>"
     },
     {
