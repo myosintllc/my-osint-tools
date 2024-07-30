@@ -78,5 +78,13 @@
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>Instagram Save Single Image Bookmarklet</a>",
       "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, image</p>"
+    },
+    {
+      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bjavascript%3A(function()%7Bvar%20url%20%3D%20window.location.href%3Bif%20(url.indexOf('instagram.com%2Fp%2F')%20!%3D%3D%20-1)%20%7Bvar%20newUrl%20%3D%20url%20%2B%20(url.indexOf('%2Fmedia')%20%3D%3D%3D%20-1%20%3F%20'media%3Fsize%3Dl'%20%3A%20'media%3Fsize%3Dl')%3Bwindow.open(newUrl%2C%20'_blank')%3B%7D%20else%20%7Balert('This%20is%20not%20an%20Instagram%20post%20URL.')%3B%7D%7D)()%7D)();'>Instagram: Display Profile Photo</a></div>",
+      "description": "This bookmarklet is used to view the full size profile image of an Instagram profile in a new tab.",
+      "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, image, profile</p>"
     }
   ]
+
+
+
