@@ -194,8 +194,15 @@
 
                   <td>2024-07-31</td>
                 </tr>
+                <tr>
+                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" href="javascript:(function(){try{function findProfileInfo(){var profileIdRegex=/%22profile_id%22:%22(\d+)%22/;var titleRegex=/<title>([^<]+?)\s\(@([^)]+)\)/;var profileIdMatch=document.documentElement.outerHTML.match(profileIdRegex);var titleMatch=document.documentElement.innerHTML.match(titleRegex);var profileId=profileIdMatch?profileIdMatch[1]:null;var displayName=titleMatch?titleMatch[1]:null;var username=titleMatch?titleMatch[2]:null;if(profileId&&displayName&&username){return{profileId:profileId,displayName:displayName,username:username};}return null;}var profileInfo=findProfileInfo();if(profileInfo){var info=%22Profile ID: %22+profileInfo.profileId+%22\nDisplay Name: %22+profileInfo.displayName+%22\nUsername: @%22+profileInfo.username;var infoHtml=%22Profile ID: %22+profileInfo.profileId+%22<br>Display Name: %22+profileInfo.displayName+%22<br>Username: @%22+profileInfo.username;var modal=document.createElement('div');modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.textAlign='center';modal.innerHTML='<div style=%22font-family: Arial, sans-serif; white-space: pre-wrap;%22>'+infoHtml+'</div>';var closeBtn=document.createElement('button');closeBtn.innerText='Close';closeBtn.style.marginTop='10px';closeBtn.style.padding='5px 10px';closeBtn.style.backgroundColor='#fff';closeBtn.style.color='#333';closeBtn.style.border='none';closeBtn.style.cursor='pointer';closeBtn.style.borderRadius='5px';closeBtn.onclick=function(){document.body.removeChild(modal);};modal.appendChild(closeBtn);document.body.appendChild(modal);}else{alert(%22Profile ID, display name, or username not found!%22);}}catch(e){alert('Error processing request: '+e.message);}})();">Instagram User ID Bookmarklet</a></td>
 
+                  <td>This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a modal box.</td>
 
+                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, profile, id</p></td>
+
+                  <td>2024-07-31</td>
+                </tr>
 
 
 
