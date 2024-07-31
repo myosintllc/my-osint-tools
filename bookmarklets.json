@@ -10,13 +10,13 @@
       "tag_data": "<img class='mx-auto d-block' alt='Email icon' src='https://tools.myosint.training/images/email.png'><p class='text-center'>email, person, user</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()'>Facebook ID Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet' target='_blank'>Facebook ID Bookmarklet</a>",
+      "description": "This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, id</p>"
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>Cash.app Profile Bookmarklet</a>",
-      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$inserttheusernamehere</code>) to extract profile data and profile image and display in an overlay.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20CashApp%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ca.png'><p class='text-center'>CashApp, social, user, profile, image</p>"
     },
     {
@@ -30,8 +30,8 @@
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, search</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert('Profile%20ID%3A%20'%20%2B%20e)%20%3A%20alert('No%20profile_id%20found%20on%20the%20current%20page.')%7D)()'>Instagram User ID Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>Instagram User ID Bookmarklet</a>",
+      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, id</p>"
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>Threads User Bookmarklet</a>",
-      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay (have to due to the secure writing of data.) And example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br>⚠You may need to SHIFT - RELOAD the Threads page for it to work.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Threads%20User%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Threads icon' src='https://tools.myosint.training/images/th.png'><p class='text-center'>Threads, social, user, profile, id</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()'>Telegram Revealer Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a '...' at the bottom. This script extracts user data and displays in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Telegram%20Revealer%20Bookmarklet' target='_blank'>Telegram Revealer Bookmarklet</a></div>",
+      "description": "This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a '...' at the bottom. This script extracts user data and displays in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Telegram%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Telegram icon' src='https://tools.myosint.training/images/tg.png'><p class='text-center'>Telegram, social, user, profile</p>"
     },
     {
@@ -71,12 +71,20 @@
     },
     {
       "bookmarklet": "<a class='btn btn-primary' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>JSON Revealer Bookmarklet</a>",
-      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/General%20-%20JSON%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/json.png'><p class='text-center'>JSON, website</p>"
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>Instagram Save Single Image Bookmarklet</a>",
-      "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.<br><br><p class='text-danger'>⚠Unfortunately, due to the complexity of the code, to use this bookmarklet, please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Save%20Single%20Image%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='CashApp icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, image</p>"
+    },
+    {
+      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bjavascript%3A(function()%7Bvar%20url%20%3D%20window.location.href%3Bif%20(url.indexOf('instagram.com%2Fp%2F')%20!%3D%3D%20-1)%20%7Bvar%20newUrl%20%3D%20url%20%2B%20(url.indexOf('%2Fmedia')%20%3D%3D%3D%20-1%20%3F%20'media%3Fsize%3Dl'%20%3A%20'media%3Fsize%3Dl')%3Bwindow.open(newUrl%2C%20'_blank')%3B%7D%20else%20%7Balert('This%20is%20not%20an%20Instagram%20post%20URL.')%3B%7D%7D)()%7D)();'>Instagram: Display Profile Photo</a></div>",
+      "description": "This bookmarklet is used to view the full size image from an Instagram post in a new tab.",
+      "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, image, profile</p>"
     }
   ]
+
+
+
