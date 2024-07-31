@@ -50,8 +50,8 @@
       "tag_data": "<img class='mx-auto d-block' alt='Threads icon' src='https://tools.myosint.training/images/th.png'><p class='text-center'>Threads, social, user, profile, id</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20a%20%3D%20document.getElementsByClassName('tgme_page_description')%5B0%5D%3B%20alert(a.innerText)%7D)()'>Telegram Revealer Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a '...' at the bottom. This script extracts user data and displays in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Telegram%20Revealer%20Bookmarklet' target='_blank'>Telegram Revealer Bookmarklet</a></div>",
+      "description": "This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a '...' at the bottom. This script extracts user data and displays in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Telegram%20Revealer%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Telegram icon' src='https://tools.myosint.training/images/tg.png'><p class='text-center'>Telegram, social, user, profile</p>"
     },
     {
