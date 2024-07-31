@@ -37,7 +37,7 @@
     },
     {
       "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>Instagram User ID Bookmarklet</a>",
-      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.<br><br><a class='btn btn-danger' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>⚠Please visit the raw bookmarklet</a> and use the <a class='btn btn-secondary' role='button' href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a modal box.<br><br><a class='btn btn-danger' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>⚠Please visit the raw bookmarklet</a> and use the <a class='btn btn-secondary' role='button' href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, id</p>",
       "last_update": "2024-07-31"
     },
