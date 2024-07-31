@@ -106,6 +106,12 @@
       "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) and will open the profile picture in a new window for easy saving.<br><br><a class='btn btn-danger' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20Profile%20Picture%20Bookmarklet' target='_blank'>⚠Please visit the raw bookmarklet</a> and use the <a class='btn btn-secondary' role='button' href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, image</p>",
       "last_update": "2024-07-31"
+    },
+    {
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20Public%20Content%20Search%20Bookmarklet' target='_blank'>Facebook Public Content Search</a>",
+      "description": "This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) and will enable the 'Search' feature if there is no button on the profile page.<br><br><a class='btn btn-danger' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20Public%20Content%20Search%20Bookmarklet' target='_blank'>⚠Please visit the raw bookmarklet</a> and use the <a class='btn btn-secondary' role='button'class='btn btn-secondary' role='button' href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
+      "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, search</p>",
+      "last_update": "2024-07-31"
     }
   ]
 
