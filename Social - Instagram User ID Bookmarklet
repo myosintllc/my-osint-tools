@@ -2,7 +2,7 @@
 
 This bookmarklet is used on Instagram user profile pages (for example:
 https://instagram.com/not.a.real.username/) to extract user
-data and display in a pop-up window.
+data and display in a modal box.
 
 Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
 Want some OSINT learning? https://www.myosint.training has courses for you.
@@ -11,4 +11,4 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert(%27Profile%20ID%3A%20%27%20%2B%20e)%20%3A%20alert(%27No%20profile_id%20found%20on%20the%20current%20page.%27)%7D)()
+javascript:(function(){try{function findProfileInfo(){var profileIdRegex=/"profile_id":"(\d+)"/;var titleRegex=/<title>([^<]+?)\s\(@([^)]+)\)/;var profileIdMatch=document.documentElement.outerHTML.match(profileIdRegex);var titleMatch=document.documentElement.innerHTML.match(titleRegex);var profileId=profileIdMatch?profileIdMatch[1]:null;var displayName=titleMatch?titleMatch[1]:null;var username=titleMatch?titleMatch[2]:null;if(profileId&&displayName&&username){return{profileId:profileId,displayName:displayName,username:username};}return null;}var profileInfo=findProfileInfo();if(profileInfo){var info="Profile ID: "+profileInfo.profileId+"\nDisplay Name: "+profileInfo.displayName+"\nUsername: @"+profileInfo.username;var infoHtml="Profile ID: "+profileInfo.profileId+"<br>Display Name: "+profileInfo.displayName+"<br>Username: @"+profileInfo.username;var modal=document.createElement('div');modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.textAlign='center';modal.innerHTML='<div style="font-family: Arial, sans-serif; white-space: pre-wrap;">'+infoHtml+'</div>';var closeBtn=document.createElement('button');closeBtn.innerText='Close';closeBtn.style.marginTop='10px';closeBtn.style.padding='5px 10px';closeBtn.style.backgroundColor='#fff';closeBtn.style.color='#333';closeBtn.style.border='none';closeBtn.style.cursor='pointer';closeBtn.style.borderRadius='5px';closeBtn.onclick=function(){document.body.removeChild(modal);};modal.appendChild(closeBtn);document.body.appendChild(modal);}else{alert("Profile ID, display name, or username not found!");}}catch(e){alert('Error processing request: '+e.message);}})();
