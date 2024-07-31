@@ -4,11 +4,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://tools.myosint.training/custom.css">
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-
     <meta property="og:title" content="MOT Bookmarklets">
     <meta property="og:locale" content="en_US">
     <meta name="description" content="Great place for free OSINT tools made by My OSINT Training people!">
@@ -32,34 +27,6 @@
         ev.target.appendChild(document.getElementById(data));
       }
     </script>
-    <script>
-      $(document).ready(function () {
-          loadTable();
-      });
-
-      function loadTable(){
-          fetch("/bookmarklets.json")
-          .then(res => res.json())
-          .then(data => {
-              $.fn.dataTable.ext.errMode = 'none';
-              $('#collectiontable').DataTable({
-                  "autoWidth": true,
-                  "lengthChange": true,
-                  "pageLength": 20,
-                  "pagingType": "full_numbers",
-                  "lengthMenu": [10, 20, 40],
-                  "columns": [
-                            { "data": "bookmarklet" },
-                            { "data": "description" },
-                            { "data": "tag_data" },
-                            { "data": "last_update" }
-                        ],
-                  data: data,
-              }
-              );
-          })
-      }
-  </script>
   </head>
   <body>
     <div class="header__container">
@@ -124,6 +91,53 @@
                       <th class="text-center align-bottom">Last updated</th>
                   </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20DOMAIN%3Dprompt(%22Enter%20DOMAIN-%20no%20www%3A%20%22)%2CWHO%3D%22https%3A%2F%2Fwhoisology.com%2F%22%2BDOMAIN%2CBW%3D%22https%3A%2F%2Fbuiltwith.com%2F%22%2BDOMAIN%2CDNSL%3D%22https%3A%2F%2Fdnslytics.com%2Fdomain%2F%22%2BDOMAIN%2CHOST%3D%22https%3A%2F%2Fhost.io%2F%22%2BDOMAIN%2CDT%3D%22https%3A%2F%2Fwhois.domaintools.com%2F%22%2BDOMAIN%2CVDNS%3D%22https%3A%2F%2Fviewdns.info%2Fwhois%2F%3Fdomain%3D%22%2BDOMAIN%2CREVIP%3D%22https%3A%2F%2Fviewdns.info%2Freverseip%2F%3Fhost%3D%22%2BDOMAIN%2B%22%26t%3D1%22%2CIPHIS%3D%22https%3A%2F%2Fviewdns.info%2Fiphistory%2F%3Fdomain%3D%22%2BDOMAIN%3Bwindow.open(WHO%2C%22_blank%22)%2Cwindow.open(BW%2C%22_blank%22)%2Cwindow.open(DNSL%2C%22_blank%22)%2Cwindow.open(HOST%2C%22_blank%22)%2Cwindow.open(DT%2C%22_blank%22)%2Cwindow.open(VDNS%2C%22_blank%22)%2Cwindow.open(REVIP%2C%22_blank%22)%2Cwindow.open(IPHIS%2C%22_blank%22)%7D)()">Domain Search Bookmarklet</a></div>
+                  </td>
+                  <td>
+                    Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.
+                  </td>
+                  <td>
+                    <img class="mx-auto d-block" alt="Domain icon" src="https://tools.myosint.training/images/domain.png"><p class="text-center">domain, website</p>
+                  </td>
+                  <td>
+                    2024-07-31
+                  </td>
+                </tr>
+                <tr>
+                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" draggable="true" ondragstart="drag(event)" href="javascript:(function()%7Bvar%20EMAIL%3Dprompt(%22Enter%20EMAIL%3A%20%22)%2CTT%3D%22https%3A%2F%2Fthatsthem.com%2Femail%2F%22%2BEMAIL%2CSPY%3D%22https%3A%2F%2Fwww.spytox.com%2Femail-search%2F%22%2BEMAIL%2CGOOG%3D%22https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%2522%22%2BEMAIL%2B%22%2522%22%2CEMREP%3D%22https%3A%2F%2Femailrep.io%2Fquery%2F%22%2BEMAIL%3Bwindow.open(TT%2C%22_blank%22)%2Cwindow.open(SPY%2C%22_blank%22)%2Cwindow.open(GOOG%2C%22_blank%22)%2Cwindow.open(EMREP%2C%22_blank%22)%7D)()">Email Search Bookmarklet</a></div></td>
+                  <td>This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.</td>
+
+                  <td><img class="mx-auto d-block" alt="Email icon" src="https://tools.myosint.training/images/email.png"><p class="text-center">email, person, user</p></td>
+
+                  <td>2024-07-31</td>
+                </tr>
+                <tr>
+                  <td><a class="btn btn-success" role="button" href="https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet' target='_blank">Facebook ID Bookmarklet</a></td>
+
+                  <td>This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display name and then display in a modal box.<br><br><a class="btn btn-danger" role="button" href="https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet" target="_blank">⚠Please visit the raw bookmarklet</a> and use the <a class="btn btn-secondary" role="button" href="#how-do-i-use-this">"More Manual Method" shown on this page.</a></td>
+
+                  <td><img class="mx-auto d-block" alt="Facebook icon" src="https://tools.myosint.training/images/fb.png"><p class="text-center">Facebook, social, user, id</p></td>
+
+                  <td>2024-07-31</td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </tbody>
             </table>
           </div>
         </div>
