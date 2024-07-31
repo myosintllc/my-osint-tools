@@ -2,7 +2,7 @@
 
 This bookmarklet is used on Facebook user profile pages (for example:
 https://facebook.com/not.a.real.username) to extract a Facebook ID
-and display in a pop-up window.
+and display name and then display in a modal box.
 
 Like it? Visit https://github.com/myosintllc/mot-osint-tools/ for more!
 Want some OSINT learning? https://www.myosint.training has courses for you.
@@ -11,4 +11,4 @@ Want some OSINT learning? https://www.myosint.training has courses for you.
 
 // Copy and paste the data below
 
-javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()
+javascript:(function(){try{var userIdRegex=/"userID":"(\d+)"/;var userIdMatch=document.documentElement.outerHTML.match(userIdRegex);var nameRegex=/"name":"([^"]+)","__isEntity":"User"/;var nameMatch=document.documentElement.outerHTML.match(nameRegex);if(userIdMatch&&userIdMatch[1]&&nameMatch&&nameMatch[1]){var userId=userIdMatch[1];var userName=nameMatch[1];var info="Facebook ID: "+userId+"\nProfile Name: "+userName;var infoHtml="Facebook ID: "+userId+"<br>Profile Name: "+userName;var modal=document.createElement('div');modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.textAlign='center';modal.innerHTML='<div style="font-family: Arial, sans-serif; white-space: pre-wrap;">'+infoHtml+'</div>';var closeBtn=document.createElement('button');closeBtn.innerText='Close';closeBtn.style.marginTop='10px';closeBtn.style.padding='5px 10px';closeBtn.style.backgroundColor='#fff';closeBtn.style.color='#333';closeBtn.style.border='none';closeBtn.style.cursor='pointer';closeBtn.style.borderRadius='5px';closeBtn.onclick=function(){document.body.removeChild(modal);};modal.appendChild(closeBtn);document.body.appendChild(modal);}else{alert("Facebook ID or name not found!");}}catch(e){alert('Error processing request: '+e.message);}})();
