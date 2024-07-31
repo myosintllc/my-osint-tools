@@ -10,8 +10,8 @@
       "tag_data": "<img class='mx-auto d-block' alt='Email icon' src='https://tools.myosint.training/images/email.png'><p class='text-center'>email, person, user</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20regexp%20%3D%20%2FuserID.%5C%3A.%5B0-9%5D%2B%2F%3Bvar%20indexreg%20%3D%20document.documentElement.outerHTML.match(regexp)%3Balert('Facebook%20ID%3A%20'%20%2B%20indexreg%5B0%5D.split('%3A')%5B1%5D.replace(%2F%5C%22%2Fg%2C%20''))%7D)()'>Facebook ID Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet' target='_blank'>Facebook ID Bookmarklet</a>",
+      "description": "This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Facebook%20User%20ID%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, id</p>"
     },
     {
@@ -30,8 +30,8 @@
       "tag_data": "<img class='mx-auto d-block' alt='Facebook icon' src='https://tools.myosint.training/images/fb.png'><p class='text-center'>Facebook, social, user, search</p>"
     },
     {
-      "bookmarklet": "<div ondrop='drop(event)' ondragover='allowDrop(event)'><a class='btn btn-success' role='button' draggable='true' ondragstart='drag(event)' href='javascript:(function()%7Bvar%20e%20%3D%20null%2C%20t%20%3D%20%2F%22profile_id%22%3A%22(%5Cd%2B)%22%2F.exec(document.documentElement.innerHTML)%3Bt%20%26%26%20(e%20%3D%20t%5B1%5D)%2C%20null%20!%3D%3D%20e%20%3F%20alert(%27Profile%20ID%3A%20%27%20%2B%20e)%20%3A%20alert(%27No%20profile_id%20found%20on%20the%20current%20page.%27)%7D)()'>Instagram User ID Bookmarklet</a></div>",
-      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.",
+      "bookmarklet": "<a class='btn btn-success' role='button' href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>Instagram User ID Bookmarklet</a>",
+      "description": "This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a pop-up window.<br><br><p class='text-danger'>⚠Please visit <a href='https://github.com/myosintllc/my-osint-tools/blob/main/Social%20-%20Instagram%20User%20ID%20Bookmarklet' target='_blank'>the raw bookmarklet</a> and use the <a href='#how-do-i-use-this'>'More Manual Method' shown on this page.</a></p>",
       "tag_data": "<img class='mx-auto d-block' alt='Instagram icon' src='https://tools.myosint.training/images/ig.png'><p class='text-center'>Instagram, social, user, profile, id</p>"
     },
     {
