@@ -4,6 +4,9 @@
 .h1 {
     font-family: "Roboto Slab", sans-serif;
 }
+.btn {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6) !important;
+}
 .button-general {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
