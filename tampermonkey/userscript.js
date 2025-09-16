@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         My OSINT Training
 // @namespace    http://tampermonkey.net/
-// @version      1.0.6
+// @version      1.0.7
 // @description  Tamper before bookmarklets
 // @match        *://*/*
 // @grant        GM_registerMenuCommand
@@ -159,9 +159,9 @@ const bookmarkletsJSON = [
     domain: "t.me",
   },
   {
-    title: "ThatsThem Deblurring Bookmarklet",
+    title: "ThatsThem (and Others) Deblurring Bookmarklet",
     js: TM_thatsthemDeblur,
-    domain: "thatsthem.com",
+    domain: "*",
   },
   {
     title: "Threads from Instagram Profile",
