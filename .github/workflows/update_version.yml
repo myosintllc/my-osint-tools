@@ -1,0 +1,64 @@
+name: update userscript.js when index.html changes
+
+on:
+  push:
+    paths:
+      - "index.html"
+
+jobs:
+  bump: # name of job
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # enable commit to repo
+
+    steps:
+      # Check out the repo
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Bump patch version
+      - name: Bump patch version
+        working-directory: tampermonkey
+        shell: bash
+        run: |
+          set -x
+          current=$(cat VERSION)
+          major=$(echo $current | cut -d'.' -f1)
+          minor=$(echo $current | cut -d'.' -f2)
+          patch=$(echo $current | cut -d'.' -f3)
+          echo "Current version: $major.$minor.$patch"
+
+          # increase patch
+          patch=$((patch+1))
+          new="$major.$minor.$patch"
+
+          echo "$new" > VERSION
+          echo "New version stored: $new"
+
+      # install dependencies
+      - name: Install Python dependencies
+        shell: bash
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install requests bs4
+
+      # run the build script
+      - name: Generate a new userscript.js based on the updates in index.html 
+        working-directory: tampermonkey
+        shell: bash
+        run: |
+          python3 build_userscript.py
+
+      # commit and push changes
+      - name: Commit & push changes
+        working-directory: tampermonkey
+        shell: bash
+        run: |
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            git add VERSION userscript.js
+            git commit -m "update userscript.js" || echo "No changes"
+            git push

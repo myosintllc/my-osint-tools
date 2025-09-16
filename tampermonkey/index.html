@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF5BDSXRMG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CF5BDSXRMG');
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://tools.myosint.training/custom.css">
+    <meta property="og:title" content="MOT Bookmarklets: Tampermonkey">
+    <meta property="og:locale" content="en_US">
+    <meta name="description" content="Great place for free OSINT tools made by My OSINT Training people!">
+    <meta property="og:description" content="Great place for free OSINT tools made by My OSINT Training people!">
+    <link rel="canonical" href="https://tools.myosint.training/">
+    <meta property="og:url" content="https://tools.myosint.training/">
+    <meta property="og:site_name" content="MOT Bookmarklets: Tampermonkey">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOT Bookmarklets: Tampermonkey</title>
+</head>
+<body>
+    <div class="header__container">
+      <div class="header__wrapper">
+        <section class="header__logo header__logo___2909e">
+            <a href="/">
+              <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive">
+            </a>
+        </section>
+        <nav class="header__nav hidden-print">
+          <ul>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/courses" target="_self">All Courses</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/bundles" target="_self">Bundles</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/group-trainings-and-events" target="_self">For Groups</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/instructors" target="_self">Instructors</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://www.myosint.training/pages/free-resources" target="_self">Free Resources</a>
+            </li>
+            <li class="header__nav-item header__nav-sign-in">
+              <a href="https://www.myosint.training/users/sign_in" target="_self"> Sign In</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Body -->
+    <div class="container-lg px-2 my-5 markdown-body">
+      <div class="row">
+        <div class="col-lg-8 align-middle">
+          <div class="card text-bg-primary mb-5 shadow rounded">
+            <h1 class="card-header">Welcome to My OSINT Tools: Tampermonkey</h1>
+            <div class="card-body">
+              <p class="card-text">Bookmarklets are powerful tools for automating tedious OSINT tasks. While individual bookmarklets work well and allow analysts to be flexible in how they are used, managing 30+ bookmarklets quickly clutters your browser bookmark toolbar. This guide shows how to use <strong>Tampermonkey</strong> to install and auto-update all bookmarklets in one step.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <img src="https://tools.myosint.training/images/osinttools.png" height="250" class="mx-auto d-block shadow p-3 mb-5 rounded" alt="My OSINT Tools Logo">
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-lg-auto">
+                    <h1>Tampermonkey OSINT Bookmarklets Guide</h1>
+                    <div class="alert alert-success border-start border-success border-4 shadow-sm">
+                        <strong>Optional Enhancement:</strong> Using the Tampermonkey extension/add-on is a more advanced method of using the bookmarklets and is 100% OPTIONAL. It takes a little setup and some trust but does make it easy to use and update the bookmarklets. Choose your own adventure here....use or do not. You decide.
+                    </div>
+                    <br><br>
+
+                    <h2>What is Tampermonkey?</h2>
+                    <p><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> is a cross-browser extension that lets you create custom browser modifications using JavaScript. Think of it as building browser extensions without the complexity. Tampermonkey handles the technical setup while you focus on the functionality.</p>
+
+                    <div class="alert alert-warning border-start border-warning border-4 shadow-sm">
+                        <strong>WARNING: Browser extensions can be awesome, but they can also be malicious.</strong> Some extensions can read (and alter) all requests your browser makes, take screenshots, and transmit that data to someone else without you knowing about it. As an example, recently, an extension that provided a "Free VPN" service was discovered to secretly screenshot all pages users visited and send those images to the creator. That's seriously bad.
+                        <br><br>
+                        We do our best to ensure that bookmarklets hosted on My OSINT Training do nothing malicious. We review all code and have several AIs also review code submitted by third parties to ensure that you can trust our tools. But please do not just take our word for it, do your own analyses of our bookmarklets to make sure you are comfortable with them.
+                    </div>
+                    <br>
+
+                    <h2>Installation of Tampermonkey</h2>
+                    <h3>1. Install Tampermonkey Extension</h3>
+                    <ul>
+                        <li>Download from your browser's extension store</li>
+                        <li><strong>For Chromium browsers:</strong> You must do an additional step of enabling Developer Mode in the browser (the extension will tell you how)</li>
+                        <li><strong>For Brave:</strong> You must do an additional step: Go to Extensions → Tampermonkey Details → Enable "Allow User Scripts"</li>
+                    </ul>
+                    <br>
+                    <h3>2. Add the Userscript</h3>
+                    <p>Choose one of these methods:</p>
+
+                    <h4>Method 1: Manual Installation</h4>
+                    <div class="alert alert-info border-start border-info border-4 shadow-sm">
+                        <strong>NOTE:</strong> By using this method, you will periodically need to check for updates in the bookmarklets manually and then update the content in your browser. No auto-updating happens with this method.
+                    </div>
+                    <ol>
+                        <li>Open Tampermonkey and click the '+' symbol</li>
+                        <li>Delete the boilerplate code</li>
+                        <li>Copy/paste content from <a href="/tampermonkey/userscript.js" target="_blank">userscript.js</a></li>
+                        <li>Save the script</li>
+                    </ol>
+
+                    <h4>Method 2: Auto-Update Installation</h4>
+                    <div class="alert alert-warning border-start border-warning border-4 shadow-sm">
+                        <strong>WARNING:</strong> This method automatically will update your tools as we update our tools; keeping your browser in sync. It also could be a security risk if you do not trust our tools and review process.
+                    </div>
+                    <ol>
+                        <li>Click "Raw" button on <a href="/tampermonkey/userscript.js" target="_blank">userscript.js</a> in GitHub</li>
+                        <li>Copy the URL</li>
+                        <li>In Tampermonkey → Utilities → paste URL in "Import from URL"</li>
+                        <li>Click "Install"</li>
+                    </ol>
+                    <br>
+
+                    <h2>Usage</h2>
+                    <p>Once installed, access bookmarklets by <strong>Right-clicking</strong> on any webpage to see context menu options like in the image below.</p>
+                    <img src="assets/tiktok2.png" alt="Context Menu method of using Tampermonkey" class="img-fluid mb-3 shadow">
+
+                    <p>Or you can <strong>click the Tampermonkey extension icon</strong> for "less-quick" access. The scripts will automatically show relevant bookmarklets based on the current website domain like in the image below.</p>
+                    <img src="assets/tiktok.png" alt="Tampermonkey icon click method of using Tampermonkey" class="img-fluid mb-3 shadow">
+                    <br>
+                </div>
+            </div>
+        </div>
+      </div>
+
+   <!-- Thanks Section -->
+   <div class="container-lg mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+          <!-- Gradient Header -->
+          <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #022447 0%, #1900ff 50%, #008bc4 100%);">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <i class="bi bi-heart-fill me-3" style="font-size: 2rem;"></i>
+              <h2 class="mb-0 fw-bold">Our Heartfelt Thanks</h2>
+              <i class="bi bi-heart-fill ms-3" style="font-size: 2rem;"></i>
+            </div>
+            <div class="mt-2">
+              <i class="bi bi-star-fill mx-1"></i>
+              <i class="bi bi-star-fill mx-1"></i>
+              <i class="bi bi-star-fill mx-1"></i>
+              <i class="bi bi-star-fill mx-1"></i>
+              <i class="bi bi-star-fill mx-1"></i>
+            </div>
+          </div>
+
+          <!-- Card Body with Quote -->
+          <div class="card-body p-5 bg-light">
+            <div class="row align-items-center">
+              <div class="col-md-2 text-center mb-3 mb-md-0">
+                <i class="bi bi-quote text-muted" style="font-size: 4rem;"></i>
+              </div>
+              <div class="col-md-8">
+                <blockquote class="blockquote mb-0">
+                  <p class="lead text-dark mb-3" style="font-style: italic; line-height: 1.6;">
+                    We would like to extend their sincerest thanks to the OSINT community member that created the Tampermonkey integration and integrated it into our tools. This person is very well known to Micah and Griffin and wishes to remain anonymous. We appreciate their ideas and contribution to this project.
+                  </p>
+                  <footer class="blockquote-footer mt-3">
+                    <cite title="Source Title" class="fw-bold text-primary">The My OSINT Training Team</cite>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="col-md-2 text-center">
+                <div class="bg-white rounded-circle p-3 shadow-sm d-inline-block">
+                  <i class="bi bi-people-fill text-primary" style="font-size: 2.5rem;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <div class="header__container">
+        <div class="header__wrapper">
+          <section class="header__logo header__logo___2909e">
+              <a href="/">
+                <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive">
+              </a>
+          </section>
+          <nav class="header__nav hidden-print">
+            <ul>
+              <li class="header__nav-item">
+                <a href="https://www.myosint.training/" target="_self">MOT Home</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="https://www.myosint.training/collections" target="_self">All Courses</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="https://www.myosint.training/pages/privacy" target="_self">Privacy Policy</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="https://github.com/myosintllc/my-osint-tools/blob/main/LICENSE" target="_self">Tool License</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="https://www.myosint.training/pages/terms" target="_self">Site Terms of Use</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span class="section__divide"></span>
+            <div class="text-center">
+              <p style="color: #fff">© Copyright My OSINT Training - All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
