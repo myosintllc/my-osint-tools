@@ -7,10 +7,10 @@ def get_bookmarklets_from_website():
     print("Retrieving HTML with definitions for bookmarklets from ../index.html")
     with open("../index.html", "r", encoding="utf-8") as f:
         html = f.read()
-    
+
     soup = BeautifulSoup(html, "html.parser")
     bookmarklets = soup.select("tr a[data-name]")
-    print(f"{len(bookmarklets} possible bookmarklets retrieved")
+    print(f"{len(bookmarklets)} possible bookmarklets retrieved")
     expected_keys = {
         "domain": "data-domain",
         "name": "data-name",
@@ -34,7 +34,7 @@ def get_bookmarklets_from_website():
         if not all([bml[key] for key in ["name", "domain", "js", "title"]]):
             print(f"Tag does not have all required keys: {bml}")
             continue
-        
+
         bookmarklet_definitions.append(bml)
     print(f"{len(bookmarklet_definitions)} valid definitions for bookmarklets extracted from index.html")
     return bookmarklet_definitions
@@ -49,7 +49,7 @@ def generate_js_bookmarklets(bookmarklets):
 
         lines.append("  {")
         lines.append(f'    title: "{title}",')
-        lines.append(f'    js: {js_func},')  # uden citationstegn
+        lines.append(f'    js: {js_func},')
         lines.append(f'    domain: "{domain}",')
         lines.append("  },")
     lines.append("];")
