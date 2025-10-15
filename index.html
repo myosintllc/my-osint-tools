@@ -14,6 +14,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://tools.myosint.training/custom.css">
     <meta property="og:title" content="MOT Bookmarklets">
     <meta property="og:locale" content="en_US">
@@ -22,6 +23,9 @@
     <link rel="canonical" href="https://tools.myosint.training/">
     <meta property="og:url" content="https://tools.myosint.training/">
     <meta property="og:site_name" content="My OSINT Training's Tools">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="My OSINT Training">
+    <meta name="keywords" content="OSINT, bookmarklets, social media tools, Facebook, Instagram, TikTok, Twitter">
     <title>My OSINT Training's Tools</title>
     <script>
       function allowDrop(ev) {
@@ -99,7 +103,7 @@
                       <th class="text-center align-bottom text-danger">Drag button to your bookmarks bar</th>
                       <th class="text-center align-bottom">Description</th>
                       <th class="text-center align-bottom">Tags</th>
-                      <th class="text-center align-bottom">Last updated</th>
+                      <th class="text-center align-bottom" style="width: 12ch;" title="NEW tag will show if the bookmarklet was updated in the past 14 days.">Last updated</th>
                   </tr>
               </thead>
               <tbody>
@@ -108,7 +112,10 @@
 
                   <td>This bookmarklet is used on any page to extract JSON data. You can try it social media and other pages like https://wikipedia.org/wiki/Bookmarklet. It will display the JSON (if there is any) in an 800x800 pixel window.</td>
 
-                  <td><img class="mx-auto d-block" alt="JSON icon" src="https://tools.myosint.training/images/json.png"><p class="text-center">JSON, website</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-code fa-2x"></i><br>
+                      JSON, website</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -120,7 +127,9 @@
                     Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.
                   </td>
                   <td>
-                    <img class="mx-auto d-block" alt="Domain icon" src="https://tools.myosint.training/images/domain.png"><p class="text-center">domain, website</p>
+                    <p class="text-center">
+                      <i class="fa-solid fa-link fa-2x"></i><br>
+                      domain, website</p>
                   </td>
                   <td>
                     2024-07-31
@@ -130,7 +139,10 @@
                   <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_emailSearch" data-domain="*" data-replace-open="true" href="javascript:(function(){var EMAIL=prompt('Enter EMAIL: ');let sites=[`https://thatsthem.com/email/${EMAIL}`,`https://www.google.com/search?q='${EMAIL}'`,`https://emailrep.io/query/${EMAIL}`];if(EMAIL&&EMAIL.trim()!==''){for(let site of sites){window.open(site,'_blank')}}})();">Email Search Bookmarklet</a></div></td>
                   <td>This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.</td>
 
-                  <td><img class="mx-auto d-block" alt="Email icon" src="https://tools.myosint.training/images/email.png"><p class="text-center">email, person, user</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-envelope fa-2x"></i><br>
+                      email, person, user</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -139,7 +151,9 @@
 
                   <td>This bookmarklet is used to extract profile information from BandLab user profiles (for example: <code>https://bandlab.com/USERNAME</code>). It extracts the userid, creation, and modification dates along with links to other profiles.</td>
 
-                  <td><img class="mx-auto d-block" alt="BandLab icon" src="https://tools.myosint.training/images/bl.png"><p class="text-center">BandLab, social, user, profile, id</p></td>
+                  <td>
+                    <img class="mx-auto d-block" alt="BandLab icon" src="https://tools.myosint.training/images/bl.png">
+                    <p class="text-center">BandLab, social, user, profile, id</p></td>
 
                   <td>2025-07-22</td>
                 </tr>
@@ -148,7 +162,10 @@
 
                   <td>This bookmarklet is used to find the profile page based upon a Bluesky user's ID (for example: <code>https://bsky.app/profile/did:plc:inserttheuseridhere</code>).</td>
 
-                  <td><img class="mx-auto d-block" alt="Bluesky icon" src="https://tools.myosint.training/images/bs.png"><p class="text-center">Bluesky, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-bluesky fa-2x"></i><br>
+                      Bluesky, social, user, profile, id</p></td>
 
                   <td>2024-11-18</td>
                 </tr>
@@ -157,7 +174,10 @@
 
                   <td>This bookmarklet is used on Bluesky user profile pages (for example: <code>https://bsky.app/profile/inserttheusernamehere</code>) to extract user ID, display name, and handle, then display in an overlay.</td>
 
-                  <td><img class="mx-auto d-block" alt="Bluesky icon" src="https://tools.myosint.training/images/bs.png"><p class="text-center">Bluesky, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-bluesky fa-2x"></i><br>
+                      Bluesky, social, user, profile, id</p></td>
 
                   <td>2024-11-18</td>
                 </tr>
@@ -166,24 +186,32 @@
 
                   <td>This bookmarklet is used on Cash.app user profile pages (for example: <code>https://cash.app/$jane</code>) to extract profile data and profile image and display in an overlay.</td>
 
-                  <td><img class="mx-auto d-block" alt="CashApp icon" src="https://tools.myosint.training/images/ca.png"><p class="text-center">CashApp, social, user, profile, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-cash-app fa-2x"></i><br>
+                      CashApp, social, user, profile, image</p></td>
 
                   <td>2025-08-27</td>
                 </tr>
                 <tr>
-                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_facebookID" data-domain="facebook.com" href="javascript:(function(){const findProfileInfo=()=>{const profileIdRegex=/&quot;userID&quot;:&quot;(\d+)&quot;/;const profileIdMatch=document.documentElement.outerHTML.match(profileIdRegex);const profileId=profileIdMatch?profileIdMatch[1]:'Not present in page';const displayRegex=/data':\{'name':'([^']+)'/;const displayMatch=document.documentElement.innerHTML.match(displayRegex);const displayName=displayMatch?displayMatch[1]:'Not present in page';return{profileId:profileId,displayName:displayName}};const profileInfo=findProfileInfo();if(profileInfo){const infoHtml='Display Name: '+profileInfo.displayName+'<br>'+'Facebook ID: '+profileInfo.profileId+'<br>'+'Current URL: '+document.URL;const modal=document.createElement('div');modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.textAlign='left';const closeBtn=document.createElement('button');closeBtn.innerText='Close';closeBtn.style.marginTop='10px';closeBtn.style.padding='5px 10px';closeBtn.style.backgroundColor='#fff';closeBtn.style.color='#333';closeBtn.style.border='none';closeBtn.style.cursor='pointer';closeBtn.style.borderRadius='5px';closeBtn.onclick=()=>document.body.removeChild(modal);modal.innerHTML=`<div style='font-family: Arial, sans-serif; white-space: pre-wrap;'>${infoHtml}</div>`;modal.appendChild(closeBtn);document.body.appendChild(modal)}else{alert('Profile ID, display name, or username not found!')}})();">Facebook User ID Bookmarklet</a></div></td>
+                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_facebookID" data-domain="facebook.com" href="javascript:(function()%7Bconst%20findProfileInfo%20%3D%20()%20%3D%3E%20%7Bconst%20profileIdRegex%20%3D%20%2F%22userID%22%3A%22(%5Cd%2B)%22%2F%3Bconst%20profileIdMatch%20%3D%20document.documentElement.outerHTML.match(profileIdRegex)%3Bconst%20profileId%20%3D%20profileIdMatch%20%3F%20profileIdMatch%5B1%5D%20%3A%20%22Not%20present%20in%20page%22%3Bconst%20displayRegex%20%3D%20%2F__isProfile%22%3A%22User%22%2C%22name%22%3A%22(%5B%5E%22%5D%2B)%22%2F%3Bconst%20displayMatch%20%3D%20document.documentElement.innerHTML.match(displayRegex)%3Bconst%20displayName%20%3D%20displayMatch%20%3F%20displayMatch%5B1%5D%20%3A%20%22Not%20present%20in%20page%22%3Breturn%20%7BprofileId%3A%20profileId%2CdisplayName%3A%20displayName%7D%7D%3Bconst%20profileInfo%20%3D%20findProfileInfo()%3Bif%20(profileInfo)%20%7Bconst%20infoHtml%20%3D%20%22Display%20Name%3A%20%22%20%2B%20profileInfo.displayName%20%2B%20%22%3Cbr%3E%22%20%2B%20%22Facebook%20ID%3A%20%22%20%2B%20profileInfo.profileId%20%2B%22%3Cbr%3E%22%20%2B%20%22Current%20URL%3A%20%22%20%2B%20document.URL%3Bconst%20modal%20%3D%20document.createElement(%22div%22)%3Bmodal.style.position%20%3D%20%22fixed%22%3Bmodal.style.top%20%3D%20%2250%25%22%3Bmodal.style.left%20%3D%20%2250%25%22%3Bmodal.style.transform%20%3D%20%22translate(-50%25%2C%20-50%25)%22%3Bmodal.style.backgroundColor%20%3D%20%22%23333%22%3Bmodal.style.color%20%3D%20%22%23fff%22%3Bmodal.style.padding%20%3D%20%2220px%22%3Bmodal.style.border%20%3D%20%222px%20solid%20%23fff%22%3Bmodal.style.borderRadius%20%3D%20%2210px%22%3Bmodal.style.zIndex%20%3D%20%2210000%22%3Bmodal.style.maxWidth%20%3D%20%2280%25%22%3Bmodal.style.textAlign%20%3D%20%22left%22%3Bconst%20closeBtn%20%3D%20document.createElement(%22button%22)%3BcloseBtn.innerText%20%3D%20%22Close%22%3BcloseBtn.style.marginTop%20%3D%20%2210px%22%3BcloseBtn.style.padding%20%3D%20%225px%2010px%22%3BcloseBtn.style.backgroundColor%20%3D%20%22%23fff%22%3BcloseBtn.style.color%20%3D%20%22%23333%22%3BcloseBtn.style.border%20%3D%20%22none%22%3BcloseBtn.style.cursor%20%3D%20%22pointer%22%3BcloseBtn.style.borderRadius%20%3D%20%225px%22%3BcloseBtn.onclick%20%3D%20()%20%3D%3E%20document.body.removeChild(modal)%3Bmodal.innerHTML%20%3D%20%60%3Cdiv%20style%3D%22font-family%3A%20Arial%2C%20sans-serif%3B%20white-space%3A%20pre-wrap%3B%22%3E%24%7BinfoHtml%7D%3C%2Fdiv%3E%60%3Bmodal.appendChild(closeBtn)%3Bdocument.body.appendChild(modal)%7D%20else%20%7Balert(%22Profile%20ID%2C%20display%20name%2C%20or%20username%20not%20found!%22)%3B%7D%7D)()">Facebook User ID Bookmarklet</a></div></td>
                   <td>This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) to extract a Facebook ID and display name and then display in a modal box.</td>
 
-                  <td><img class="mx-auto d-block" alt="Facebook icon" src="https://tools.myosint.training/images/fb.png"><p class="text-center">Facebook, social, user, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-facebook fa-2x"></i><br>
+                      Facebook, social, user, id</p></td>
 
-                  <td>2025-02-13</td>
+                  <td>2025-10-15</td>
                 </tr>
                 <tr>
                   <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_facebookMarket" data-domain="facebook.com" href="javascript:(function(){try{const regex=/userID&quot;:&quot;(\d+)&quot;/;const match=document.documentElement.outerHTML.match(regex);if(match&&match[1]){const profileId=match[1];const url=`https://www.facebook.com/marketplace/?seller_profile=${profileId}`;window.open(url,'_blank')}else{alert('Facebook ID not found!')}}catch(e){alert('Error processing request: '+e.message)}})();">Facebook Marketplace Profile Bookmarklet</a></div></td>
 
                   <td>This bookmarklet will locate a Facebook user's Marketplace profile, opening it in a new tab.</td>
 
-                  <td><img class="mx-auto d-block" alt="Facebook icon" src="https://tools.myosint.training/images/fb.png"><p class="text-center">Facebook, social, user</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-facebook fa-2x"></i><br>Facebook, social, user</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -192,7 +220,10 @@
 
                   <td>This bookmarklet locates and displays the highest resolution version of the profile photo on a 'locked' user's page in a new window.</td>
 
-                  <td><img class="mx-auto d-block" alt="Facebook icon" src="https://tools.myosint.training/images/fb.png"><p class="text-center">Facebook, social, user, image, profile</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-facebook fa-2x"></i><br>
+                      Facebook, social, user, image, profile</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -201,7 +232,10 @@
 
                   <td>This bookmarklet is used on Facebook user profile pages (for example: <code>https://facebook.com/not.a.real.username</code>) and will enable the 'Search' feature if there is no button on the profile page.</td>
 
-                  <td><img class="mx-auto d-block" alt="Facebook icon" src="https://tools.myosint.training/images/fb.png"><p class="text-center">Facebook, social, user, search</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-facebook fa-2x"></i><br>
+                      Facebook, social, user, search</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -210,7 +244,10 @@
 
                   <td>Ever get that 'Something Went Wrong' error when visiting an Instagram user profile page (for example: <code>https://instagram.com/not.a.real.username/</code>) and not logged in to their site? This bookmarklet will extract user data and display in an overlay when you get this message.</td>
 
-                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-instagram fa-2x"></i><br>
+                      Instagram, social, user, profile, id</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -219,7 +256,10 @@
 
                   <td>This bookmarklet is used to view the full size image from an Instagram post in a new tab.</td>
 
-                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, image, profile</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-instagram fa-2x"></i><br>
+                      Instagram, social, user, image, profile</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -229,7 +269,10 @@
 
                   <td>This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) to extract user data and display in a modal box.</td>
 
-                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-instagram fa-2x"></i><br>
+                      Instagram, social, user, profile, id</p></td>
 
                   <td>2025-08-08</td>
                 </tr>
@@ -238,7 +281,10 @@
 
                   <td>This bookmarklet is used on Instagram user profile pages (for example: <code>https://instagram.com/not.a.real.username/</code>) and will open the profile picture in a new window for easy saving.</td>
 
-                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, profile, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-instagram fa-2x"></i><br>
+                      Instagram, social, user, profile, image</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -247,7 +293,10 @@
 
                   <td>This bookmarklet is used when you are on an Instagram post with a single image and would like to save that image.</td>
 
-                  <td><img class="mx-auto d-block" alt="Instagram icon" src="https://tools.myosint.training/images/ig.png"><p class="text-center">Instagram, social, user, profile, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-instagram fa-2x"></i><br>
+                      Instagram, social, user, profile, image</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -266,9 +315,18 @@
                       }
                     </script></div></td>
 
-                  <td>This bookmarklet is used on LinkedIn user profile pages (for example: <code>https://linkedin.com/in/not.a.real.username/</code>) and will extract a variety of rendered and hidden profile data. <br><br><strong>This is a different bookmarklet and you need to press the button to copy it and then make a new bookmark in your bookmark bar and then paste this into the URL field. This is due to double quotes (") in the bookmarklet. Sorry.</strong></td>
+                  <td>
+                    This bookmarklet is used on LinkedIn user profile pages (for example: <code>https://linkedin.com/in/not.a.real.username/</code>) and will extract a variety of rendered and hidden profile data. <br><br>
 
-                  <td><img class="mx-auto d-block" alt="LinkedIn icon" src="https://tools.myosint.training/images/li.png"><p class="text-center">LinkedIn, social, user, profile, image</p></td>
+                    <span class="badge bg-warning text-dark"><i class="fas fa-triangle-exclamation"></i>NOTE:</span>This is a different bookmarklet and you need to press the button to copy it and then make a new bookmark in your bookmark bar and then paste this into the URL field. This is due to double quotes (") in the bookmarklet. Sorry.<br><br>
+
+                    <span class="badge bg-danger text-light"><i class="fas fa-circle-exclamation"></i>Offensive Script:</span> This script makes 1 additional request to the web site to check various files.
+                  </td>
+
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-linkedin fa-2x"></i><br>
+                      LinkedIn, social, user, profile, image</p></td>
 
                   <td>2025-08-04</td>
                 </tr>
@@ -277,7 +335,10 @@
 
                   <td>This bookmarklet is used on Snapchat user profile pages like <code>https://snapchat.com/add/creatorwill</code>. This script extracts user data and displays in a pop-up window.</td>
 
-                  <td><img class="mx-auto d-block" alt="Snapchat icon" src="https://tools.myosint.training/images/sc.png"><p class="text-center">Snapchat, social, user, profile</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-snapchat fa-2x"></i><br>
+                      Snapchat, social, user, profile</p></td>
 
                   <td>2025-02-26</td>
                 </tr>
@@ -286,7 +347,9 @@
 
                   <td>This bookmarklet is used on Smule user profile pages like <code>https://smule.com/jvke</code> to extract hidden data about the profile. This script extracts user data and displays in a pop-up window.</td>
 
-                  <td><img class="mx-auto d-block" alt="Smule icon" src="https://tools.myosint.training/images/sm.png"><p class="text-center">Smule, social, user, profile</p></td>
+                  <td>
+                    <img class="mx-auto d-block" alt="Smule icon" src="https://tools.myosint.training/images/sm.png">
+                    <p class="text-center">Smule, social, user, profile</p></td>
 
                   <td>2025-08-04</td>
                 </tr>
@@ -295,7 +358,10 @@
 
                   <td>This bookmarklet is used on Telegram user profile pages like <code>https://t.me/khanglobalstudies</code> when that page shows a '...' at the bottom. This script extracts user data and displays in a pop-up window.</td>
 
-                  <td><img class="mx-auto d-block" alt="Telegram icon" src="https://tools.myosint.training/images/tg.png"><p class="text-center">Telegram, social, user, profile</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-telegram fa-2x"></i><br>
+                      Telegram, social, user, profile</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -313,7 +379,10 @@
 
                   <td>Griffin found and reported (<a target="_blank" href="https://hatless1der.com/threads-net-is-hiding-some-osint-secrets-you-definitely-need-to-know/">here</a>) that people with Instagram profiles can have Threads accounts using that same username but not linked to their Instagram account (so you won't have a Threads link on the Instagram profile page to click). In these cases, just navigate to the Instagram profile of your target and click this bookmarklet and it will try to visit a Threads profile for the same username. An example (even though there IS a Threads link on the Instagram page) URL to try it on is <code>https://www.instagram.com/vancityreynolds/</code>.</td>
 
-                  <td><img class="mx-auto d-block" alt="Threads icon" src="https://tools.myosint.training/images/th.png"><p class="text-center">Threads, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-threads fa-2x"></i><br>
+                      Threads, social, user, profile, id</p></td>
 
                   <td>2024-10-11</td>
                 </tr>
@@ -322,25 +391,34 @@
 
                   <td>This bookmarklet is used on Threads.net user profile pages to extract Threads user data and display in an overlay. An example URL to try it on is <code>https://www.threads.net/@techchatchelsea</code>.<br><br><i>⚠ You may need to RELOAD the Threads page for it to work. ⚠</i></td>
 
-                  <td><img class="mx-auto d-block" alt="Threads icon" src="https://tools.myosint.training/images/th.png"><p class="text-center">Threads, social, user, profile, id</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-threads fa-2x"></i><br>
+                      Threads, social, user, profile, id</p></td>
 
                   <td>2025-02-20</td>
                 </tr>
                 <tr>
-                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_tiktokUserID" data-domain="tiktok.com" href="javascript:(function(){function formatEpochTimestamp(epochTimestamp){const date=new Date(epochTimestamp*1e3);const year=date.getFullYear();const month=String(date.getMonth()+1).padStart(2,'0');const day=String(date.getDate()).padStart(2,'0');const hours=String(date.getHours()).padStart(2,'0');const minutes=String(date.getMinutes()).padStart(2,'0');const seconds=String(date.getSeconds()).padStart(2,'0');return`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`}var scriptElement=document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__');var jsonData=JSON.parse(scriptElement.text);var userInfo=jsonData.__DEFAULT_SCOPE__&&jsonData.__DEFAULT_SCOPE__['webapp.user-detail']&&jsonData.__DEFAULT_SCOPE__['webapp.user-detail'].userInfo&&jsonData.__DEFAULT_SCOPE__['webapp.user-detail'].userInfo.user;var uniqueId=userInfo.uniqueId;var nickname=userInfo.nickname;var id=userInfo.id;var avatarLarger=userInfo.avatarLarger;var createdTimestamp=userInfo.createTime;var formattedCreateDate=formatEpochTimestamp(createdTimestamp);var nickModTime=userInfo.nickNameModifyTime;var formattedNickMod=formatEpochTimestamp(nickModTime);var sig=userInfo.signature;var modal=document.createElement('div');var infoHtml=`<h2>TikTok User Data</h2><br>Username: ${uniqueId}<br>Display Name: ${nickname}<br>TikTok ID: ${id}<br>Created On: ${formattedCreateDate}<br>Nickname Changed: ${formattedNickMod}<br>Bio/Signature: ${sig}<br>Current URL: ${document.URL}`;modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.textAlign='left';modal.innerHTML=`<div style='font-family: Arial, sans-serif; white-space: pre-wrap;'>${infoHtml}</div>`;var closeBtn=document.createElement('button');closeBtn.innerText='Close';closeBtn.style.marginTop='10px';closeBtn.style.padding='5px 10px';closeBtn.style.backgroundColor='#fff';closeBtn.style.color='#333';closeBtn.style.border='none';closeBtn.style.cursor='pointer';closeBtn.style.borderRadius='5px';closeBtn.onclick=function(){document.body.removeChild(modal)};modal.appendChild(closeBtn);document.body.appendChild(modal)})();">TikTok User ID Bookmarklet</a></div></td>
+                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_tiktokUserID" data-domain="tiktok.com" href="javascript:(function()%7Bfunction%20formatEpochTimestamp(e)%7Bconst%20t%3Dnew%20Date(1e3*e)%3Breturn%60%24%7Bt.getFullYear()%7D-%24%7BString(t.getMonth()%2B1).padStart(2%2C%220%22)%7D-%24%7BString(t.getDate()).padStart(2%2C%220%22)%7D%20%24%7BString(t.getHours()).padStart(2%2C%220%22)%7D%3A%24%7BString(t.getMinutes()).padStart(2%2C%220%22)%7D%3A%24%7BString(t.getSeconds()).padStart(2%2C%220%22)%7D%60%7Dvar%20scriptElement%3Ddocument.getElementById(%22__UNIVERSAL_DATA_FOR_REHYDRATION__%22)%2CjsonData%3DJSON.parse(scriptElement.text)%2CuserInfo%3DjsonData.__DEFAULT_SCOPE__%26%26jsonData.__DEFAULT_SCOPE__%5B%22webapp.user-detail%22%5D%26%26jsonData.__DEFAULT_SCOPE__%5B%22webapp.user-detail%22%5D.userInfo%26%26jsonData.__DEFAULT_SCOPE__%5B%22webapp.user-detail%22%5D.userInfo.user%2CuniqueId%3DuserInfo.uniqueId%2Cnickname%3DuserInfo.nickname%2Cregion%3DuserInfo.region%2Cid%3DuserInfo.id%2CavatarLarger%3DuserInfo.avatarLarger%2CcreatedTimestamp%3DuserInfo.createTime%2CformattedCreateDate%3DformatEpochTimestamp(createdTimestamp)%3Bif(userInfo.nickNameModifyTime%3E0)var%20formattedNickMod%3DformatEpochTimestamp(userInfo.nickNameModifyTime)%3Belse%20formattedNickMod%3D%22Nickname%20not%20ever%20changed%22%3Bvar%20sig%3DuserInfo.signature%2Cmodal%3Ddocument.createElement(%22div%22)%2CinfoHtml%3D%60%3Ch2%3ETikTok%20User%20Data%3C%2Fh2%3E%3Cbr%3EUsername%3A%20%24%7BuniqueId%7D%3Cbr%3EDisplay%20Name%3A%20%24%7Bnickname%7D%3Cbr%3ETikTok%20ID%3A%20%24%7Bid%7D%3Cbr%3ECreated%20On%3A%20%24%7BformattedCreateDate%7D%3Cbr%3ENickname%20Changed%3A%20%24%7BformattedNickMod%7D%3Cbr%3EBio%2FSignature%3A%20%24%7Bsig%7D%3Cbr%3ECurrent%20URL%3A%20%24%7Bdocument.URL%7D%60%3Bmodal.style.position%3D%22fixed%22%2Cmodal.style.top%3D%2250%25%22%2Cmodal.style.left%3D%2250%25%22%2Cmodal.style.transform%3D%22translate(-50%25%2C%20-50%25)%22%2Cmodal.style.backgroundColor%3D%22%23333%22%2Cmodal.style.color%3D%22%23fff%22%2Cmodal.style.padding%3D%2220px%22%2Cmodal.style.border%3D%222px%20solid%20%23fff%22%2Cmodal.style.borderRadius%3D%2210px%22%2Cmodal.style.zIndex%3D%2210000%22%2Cmodal.style.maxWidth%3D%2280%25%22%2Cmodal.style.textAlign%3D%22left%22%2Cmodal.innerHTML%3D%60%3Cdiv%20style%3D'font-family%3A%20Arial%2C%20sans-serif%3B%20white-space%3A%20pre-wrap%3B'%3E%24%7BinfoHtml%7D%3C%2Fdiv%3E%60%3Bvar%20closeBtn%3Ddocument.createElement(%22button%22)%3BcloseBtn.innerText%3D%22Close%22%2CcloseBtn.style.marginTop%3D%2210px%22%2CcloseBtn.style.padding%3D%225px%2010px%22%2CcloseBtn.style.backgroundColor%3D%22%23fff%22%2CcloseBtn.style.color%3D%22%23333%22%2CcloseBtn.style.border%3D%22none%22%2CcloseBtn.style.cursor%3D%22pointer%22%2CcloseBtn.style.borderRadius%3D%225px%22%2CcloseBtn.onclick%3Dfunction()%7Bdocument.body.removeChild(modal)%7D%2Cmodal.appendChild(closeBtn)%2Cdocument.body.appendChild(modal)%7D)();">TikTok User ID Bookmarklet</a></div></td>
 
-                  <td>This bookmarklet is used on TikTok user profile pages like <code>https://www.tiktok.com/@mrbeast</code> to extract user profile data and display in a pop-up window. It will reveal the creation date, nickname modification date, and other important data.</td>
+                  <td>This bookmarklet is used on TikTok user profile pages like <code>https://www.tiktok.com/@therock</code> to extract user profile data and display in a pop-up window. It will reveal the creation date, nickname modification date, and other important data.</td>
 
-                  <td><img class="mx-auto d-block" alt="TikTok icon" src="https://tools.myosint.training/images/tt.png"><p class="text-center">TikTok, social, user, profile, id, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-tiktok fa-2x"></i><br>
+                      TikTok, social, user, profile, id, image</p></td>
 
-                  <td>2025-02-13</td>
+                  <td>2025-10-15</td>
                 </tr>
                 <tr>
                   <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_tiktokURLDecode" data-domain="tiktok.com" href="javascript:(function(){function extractUnixTimestamp(vidId){const asBinary=BigInt(vidId).toString(2);const first31Chars=asBinary.slice(0,31);const timestamp=parseInt(first31Chars,2);return timestamp}function formatDate(timestamp){const date=new Date(timestamp*1e3);return date.toUTCString()}const url=window.location.href;const vidIdMatch=url.match(/\/(\d+)$/);if(vidIdMatch){const vidId=vidIdMatch[1];const timestamp=extractUnixTimestamp(vidId);const humanReadableDate=formatDate(timestamp);alert(`Extracted Unix Timestamp: ${timestamp}\nHuman Readable Date: ${humanReadableDate}`)}else{alert('Invalid URL. Please make sure it is a TikTok URL with a large number at the end.')}})();">TikTok URL Date Decoder Bookmarklet</a></div></td>
 
                   <td>This bookmarklet is used on TikTok URLs that contain large numbers (photo and video URLs mostly) like <code>https://www.tiktok.com/@clicksafeintelligence/photo/7525285380443196686</code>. It will convert the number at the end of the URL into a date and time. Thanks to the Bellincat tool (https://bellingcat.github.io/tiktok-timestamp/) for the idea. Click the bookmarklet and an alert box will pop up with the EPOCH/Unix date and the decoded, human date and time.</td>
 
-                  <td><img class="mx-auto d-block" alt="TikTok icon" src="https://tools.myosint.training/images/tt.png"><p class="text-center">TikTok, social, date, image, video</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-tiktok fa-2x"></i><br>
+                      TikTok, social, date, image, video</p></td>
 
                   <td>2025-07-21</td>
                 </tr>
@@ -349,7 +427,10 @@
 
                   <td>This bookmarklet is used on TikTok user profile pages like <code>https://www.tiktok.com/@mrbeast</code> or on video pages to extract JSON content and display in a pop-up window.</td>
 
-                  <td><img class="mx-auto d-block" alt="TikTok icon" src="https://tools.myosint.training/images/tt.png"><p class="text-center">TikTok, social, user, profile, id, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-tiktok fa-2x"></i><br>
+                      TikTok, social, user, profile, id, image</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -358,7 +439,10 @@
 
                   <td>This bookmark pops up 3 windows in succession asking you to input the first name, then last name, then a US State you are searching. It queries different people search sites in one click.</td>
 
-                  <td><img class="mx-auto d-block" alt="USA Flag icon" src="https://tools.myosint.training/images/flag-us.png"><p class="text-center">United States (USA), people search, name, state</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-flag-usa fa-2x"></i><br>
+                     United States (USA), people search, name, state</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -367,7 +451,10 @@
 
                   <td>This bookmark pops up 3 windows in succession asking you to input the area code, then prefix, then the last 4 of the number of the United States phone number you are searching. It queries different phone search sites in one click.<br><br><i>⚠ Some sites default to the search page when no result is found. ⚠</i></td>
 
-                  <td><img class="mx-auto d-block" alt="USA Flag icon" src="https://tools.myosint.training/images/flag-us.png"><p class="text-center">United States (USA), people, phone</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-flag-usa fa-2x"></i><br>
+                     United States (USA), people, phone</p></td>
 
                   <td>2024-07-31</td>
                 </tr>
@@ -377,16 +464,47 @@
 
                   <td>This bookmarklet is used on Venmo user profile pages like <code>https://account.venmo.com/u/John-Doe</code> to extract username, display name, Venmo ID and other details and show them in a modal.</td>
 
-                  <td><img class="mx-auto d-block" alt="Venmo icon" src="https://tools.myosint.training/images/venmo.png"><p class="text-center">Venmo, finance, user, profile, id, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-sack-dollar fa-2x"></i><br>
+                     Venmo, finance, user, profile, id, image</p></td>
 
                   <td>2025-02-13</td>
                 </tr>
+
+                <tr>
+                  <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_wordpress" data-domain="*" href="javascript:(async()=>{const showStandbyModal=()=>{let s=document.createElement(&quot;div&quot;);s.id=&quot;wpStandbyModal&quot;,s.style.cssText=&quot;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9998;background:#333;color:#fff;padding:12px 18px;border-radius:8px;font-family:sans-serif;font-size:14px;box-shadow:0 0 10px rgba(0,0,0,0.6);&quot;,s.innerText=&quot;🔍 Checking site... Please standby&quot;,document.body.appendChild(s)};const hideStandbyModal=()=>{let s=document.getElementById(&quot;wpStandbyModal&quot;);s&&s.remove()};const showUserWarningModal=(baseURL)=>{let d=document.createElement(&quot;div&quot;);d.id=&quot;wpUserWarningModal&quot;,d.style.cssText=&quot;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10000;background:#222;color:#fff;padding:20px;border:2px solid #900;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.8);width:360px;font-family:sans-serif;&quot;;d.innerHTML=&quot;%60<div style='font-size:16px;font-weight:bold;margin-bottom:10px;'>⚠%EF%B8%8F Warning</div><div style='font-size:14px;margin-bottom:20px;'>Viewing User Accounts may expose your IP address to the site administrators.</div><div style='text-align:right;'><button id='proceedUserAccounts' style='margin-right:10px;background:#4caf50;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;'>Proceed</button><button id='cancelUserAccounts' style='background:#f44336;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;'>Cancel</button></div>%60&quot;,document.body.appendChild(d);document.getElementById(&quot;cancelUserAccounts&quot;).onclick=()=>{d.remove()};document.getElementById(&quot;proceedUserAccounts&quot;).onclick=()=>{window.open(baseURL+&quot;/wp-json/wp/v2/users&quot;,&quot;_blank&quot;);d.remove()}};showStandbyModal();function e(e){const i={pass:&quot;✓&quot;,fail:&quot;✗&quot;,na:&quot;•&quot;};const c={pass:&quot;limegreen&quot;,fail:&quot;orangered&quot;,na:&quot;gray&quot;};return%60<li style=&quot;margin-bottom:4px;&quot;><span style=&quot;color:${c[e.status]};font-weight:bold;&quot;>${i[e.status]}</span> ${e.label}</li>%60}function t(e,t){try{return e.test(t)}catch(n){return!1}}const n={checks:[],score:0};const o=document.documentElement.innerHTML;n.checks.push({label:&quot;/wp-content/ in HTML&quot;,status:t(/\/wp-content\//i,o)?&quot;pass&quot;:&quot;fail&quot;});n.checks.push({label:&quot;/wp-includes/ in HTML&quot;,status:t(/\/wp-includes\//i,o)?&quot;pass&quot;:&quot;fail&quot;});n.checks.push({label:&quot;wp- scripts/styles&quot;,status:t(/\bwp-(?:embed|emoji|json|includes)\b/i,o)?&quot;pass&quot;:&quot;fail&quot;});const s=document.querySelector('meta[name=&quot;generator&quot;]');n.checks.push({label:&quot;meta generator says WordPress&quot;,status:s&&/wordpress/i.test(s.content)?&quot;pass&quot;:&quot;fail&quot;});const r=Array.from(document.body.classList||[]).filter(c=>/^wp-?/i.test(c)||/^(home|blog|page|archive)$/i.test(c));n.checks.push({label:&quot;Body classes suggest WordPress&quot;,status:r.length?&quot;pass&quot;:&quot;fail&quot;});const i=(document.cookie||&quot;&quot;).split(&quot;;&quot;).map(e=>e.trim()).filter(e=>/^wordpress_|^wp-|^wp-settings-|^wp_/i.test(e));n.checks.push({label:&quot;Cookies suggest WordPress&quot;,status:i.length?&quot;pass&quot;:&quot;fail&quot;});async function a(e){try{const t=await fetch(e,{method:&quot;HEAD&quot;});return t.ok?&quot;pass&quot;:&quot;fail&quot;}catch(e){return&quot;na&quot;}}async function c(e){try{const t=await fetch(e);return t.ok?&quot;pass&quot;:&quot;fail&quot;}catch(e){return&quot;na&quot;}}const l=window.location.origin;n.checks.push({label:&quot;/wp-login.php&quot;,status:await a(l+&quot;/wp-login.php&quot;)});n.checks.push({label:&quot;/wp-admin/&quot;,status:await a(l+&quot;/wp-admin/&quot;)});n.checks.push({label:&quot;/wp-json/ (REST API)&quot;,status:await c(l+&quot;/wp-json/&quot;)});n.checks.push({label:&quot;/xmlrpc.php&quot;,status:await a(l+&quot;/xmlrpc.php&quot;)});n.checks.push({label:&quot;/readme.html&quot;,status:await a(l+&quot;/readme.html&quot;)});n.checks.forEach(e=>{&quot;pass&quot;===e.status&&(n.score+=1)});const d=n.score>=7?&quot;LIKELY WordPress&quot;:n.score>=4?&quot;POSSIBLY WordPress&quot;:&quot;UNLIKELY WordPress&quot;;hideStandbyModal();let m=document.createElement(&quot;div&quot;);m.innerHTML=%60<div id=&quot;wpDetectModal&quot; style=&quot;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;background:#222;color:#fff;padding:20px;border:2px solid #555;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.8);width:360px;font-family:sans-serif;&quot;><div style=&quot;font-size:18px;margin-bottom:8px;font-weight:bold;&quot;>WordPress Detection</div><div style=&quot;margin-bottom:10px;&quot;><strong>Verdict:</strong> <span style=&quot;color:${&quot;LIKELY WordPress&quot;===d?&quot;limegreen&quot;:&quot;POSSIBLY WordPress&quot;===d?&quot;orange&quot;:&quot;orangered&quot;}&quot;>${d}</span><br><strong>Score:</strong> ${n.score}</div><div><strong>Checks:</strong><ul style=&quot;padding-left:18px;margin:0 0 0 10px;font-size:13px;list-style:none;&quot;>${n.checks.map(e).join(&quot;&quot;)}</ul></div><div style=&quot;text-align:right;margin-top:10px;&quot;><button id=&quot;wpDetectClose&quot; style=&quot;background:#444;color:#fff;border:none;padding:6px 10px;border-radius:4px;margin-right:10px;cursor:pointer;&quot;>Close</button><button id=&quot;wpListUsers&quot; style=&quot;background:#21759b;color:#fff;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;&quot;>List User Accounts</button></div></div>%60;document.body.appendChild(m);document.getElementById(&quot;wpDetectClose&quot;).onclick=()=>{document.getElementById(&quot;wpDetectModal&quot;).remove()};document.getElementById(&quot;wpListUsers&quot;).onclick=()=>{showUserWarningModal(l)};})();">WordPress Detection & User Enumerator Bookmarklet</a></div></td>
+
+                  <td>
+                    Checks if a site is running WordPress and shows you the indicators in a pop up box - then gives you an option to view the site's authors if available. Works on sites like <code>https://hatless1der.com</code>.
+                    <br><br>
+
+                    <span class="badge bg-warning text-dark badge-with-icon">
+                      <i class="fas fa-triangle-exclamation"></i>Important Note:</span>
+                    Some WordPress administrators can see visitor activity by IP address, so it is best to run this bookmarklet while your computer is using a VPN or other masking technology.
+                    <br><br>
+
+                    <span class="badge bg-danger text-light badge-with-icon">
+                      <i class="fas fa-circle-exclamation"></i>Offensive Script:</span> This script makes up to 6 additional requests to the web site to check various files.
+                  </td>
+
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-wordpress fa-2x"></i><br>
+                     Wordpress, website</p></td>
+
+                  <td>2025-10-15</td>
+                </tr>
+
                 <tr>
                   <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_xProfileBannerImage" data-domain="x.com" href="javascript:(function(){const banners=document.querySelectorAll('img[src*=\'pbs.twimg.com/profile_banners\']');if(banners.length===0){alert('No X.com banner image found on this page.');return}const url=banners[0].src;const match=url.match(/\/(\d{10})(?=\/)/);let message='Date not found in X.com banner URL.';if(match){const epoch=parseInt(match[1],10);const date=new Date(epoch*1e3);message='X.com Banner Photo Created on:\n'+date.toUTCString()}const modal=document.createElement('div');modal.style.position='fixed';modal.style.top='0';modal.style.left='0';modal.style.width='100%';modal.style.height='100%';modal.style.backgroundColor='rgba(0,0,0,0.85)';modal.style.display='flex';modal.style.alignItems='center';modal.style.justifyContent='center';modal.style.zIndex='99999';const content=document.createElement('div');content.style.backgroundColor='#333';content.style.color='#fff';content.style.padding='20px 30px';content.style.borderRadius='10px';content.style.fontSize='18px';content.style.textAlign='left';content.style.whiteSpace='pre-line';content.textContent=message;modal.appendChild(content);modal.addEventListener('click',()=>document.body.removeChild(modal));document.body.appendChild(modal)})();">X Profile Banner Image Bookmarklet</a></div></td>
 
                   <td>🎉Community Submission!🎉 (<i>This bookmarklet was submitted by an OSINT community member via the <a href="https://github.com/myosintllc/my-osint-tools/issues" target="_blank">submission link</a>. It has been screened for your safety. Thank you to the submitter!</i>) This bookmarklet is used on X (Twitter) user profile pages like <code>https://x.com/myosinttrainer</code>. It examines the URL to the banner image and will extract the date when that image was uploaded to X.com. Inspired by <a href="https://x.com/epieos/status/1934649565753332084" target="_blank">this Epieos post</a>.</td>
 
-                  <td><img class="mx-auto d-block" alt="X icon" src="https://tools.myosint.training/images/x.png"><p class="text-center">X, Twitter, social, user, profile, id, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-x-twitter fa-2x"></i><br>
+                     X, Twitter, social, user, profile, id, image</p></td>
 
                   <td>2025-08-08</td>
                 </tr>
@@ -395,7 +513,10 @@
 
                   <td>🎉Community Submission!🎉 (<i>This bookmarklet was submitted by an OSINT community member, Anthony Lisek. It has been screened for your safety. Thanks Tony!</i>) This bookmarklet is used on X (Twitter) user profile pages like <code>https://x.com/myosinttrainer</code>. It performs a quick, semi-automated extraction of core user profile data including: X ID, profile URL, username, handle, profile create date, banner image URL, and banner upload date (we have a separate bookmarklet that does this separately too!).</td>
 
-                  <td><img class="mx-auto d-block" alt="X icon" src="https://tools.myosint.training/images/x.png"><p class="text-center">X, Twitter, social, user, profile, id, image</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-brands fa-x-twitter fa-2x"></i><br>
+                      X, Twitter, social, user, profile, id, image</p></td>
 
                   <td>2025-10-07</td>
                 </tr>
@@ -404,9 +525,12 @@
 
                   <td>This is one of the most useful bookmarklets on the page. Because sometimes, you just need a fictional character from Kansas to give you some motivation. That's what the <a href="https://en.wikipedia.org/wiki/Ted_Lasso" target="_blank">Ted Lasso Inspirational Bookmarklet</a> is all about. We've loaded it with 50 of the best quotes from the show that our AI tool could discover. Click the bookmarklet to dim the screen and get some truth. Click the screen and, while the truth lingers in your mind, the quote disappears.</td>
 
-                  <td><img class="mx-auto d-block" alt="Ted Lasso icon" src="https://tools.myosint.training/images/ted.png"><p class="text-center">Inspiration, Motivation, Lasso</p></td>
+                  <td>
+                    <p class="text-center">
+                      <i class="fa-solid fa-lightbulb fa-2x"></i><br>
+                      Inspiration, Motivation, Ted Lasso</p></td>
 
-                  <td>2025-07-31</td>
+                  <td class="text-center"><i>Timeless</i></td>
                 </tr>
 
 
@@ -447,7 +571,7 @@
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed btn btn-success" data-bs-toggle="collapse" href="#collapseOne">
-                    ⭐Easy Method⭐
+                    <i class="fa-solid fa-star"></i> Easy Method <i class="fa-solid fa-star"></i>
                   </a>
                 </div>
                 <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
@@ -464,7 +588,7 @@
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed btn btn-secondary" data-bs-toggle="collapse" href="#collapseTwo">
-                    🔨The "More Manual Method"🔧</a><p class="small">Click to expand</p>
+                    <i class="fa-solid fa-hammer"></i> The "More Manual Method" <i class="fa-solid fa-wrench"></i></a><p class="small">Click to expand</p>
                 </div>
                 <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
@@ -485,8 +609,8 @@
               </div>
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed btn btn-warning" data-bs-toggle="collapse" href="#collapseThree">
-                    🐒The "Tampermonkey Automated Method"🐵</a><p class="small">Click to expand</p>
+                  <a class="collapsed btn btn-info text-dark" data-bs-toggle="collapse" href="#collapseThree">
+                    <i class="fa-solid fa-robot"></i> The "Tampermonkey Automated Method" <i class="fa-solid fa-robot"></i></a><p class="small">Click to expand</p>
                 </div>
                 <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
@@ -503,7 +627,7 @@
             <div class="card text-bg-primary mb-5 shadow rounded align-middle">
               <h2 class="card-header">Can I watch you use them?</h2>
               <div class="card-body">
-                <p class="card-text">Of course! Check out this YouTube video which has demos, how to use the bookmarklets and much more!</p>
+                <p class="card-text">Of course! Check out this video which has demos, how to use the bookmarklets and much more!</p>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/yCW5whpeTq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
             </div>
@@ -522,8 +646,8 @@
             <div id="accordion-faq">
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collFaqOne">
-                    ❓ Nothing happened when I used bookmarklet
+                  <a class="collapsed btn bg-warning text-dark" data-bs-toggle="collapse" href="#collFaqOne">
+                    <i class="fa-solid fa-circle-question fa-2x"></i>Nothing happened when I used bookmarklet
                   </a>
                 </div>
                 <div id="collFaqOne" class="collapse" data-bs-parent="#accordion-faq">
@@ -537,8 +661,8 @@
               </div>
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collFaqTwo">
-                    ⚡ I got an error when running the bookmarklet
+                  <a class="collapsed btn bg-danger text-light" data-bs-toggle="collapse" href="#collFaqTwo">
+                    <i class="fa-solid fa-triangle-exclamation fa-2x"></i>I got an error when running the bookmarklet
                   </a>
                 </div>
                 <div id="collFaqTwo" class="collapse" data-bs-parent="#accordion-faq">
@@ -552,8 +676,8 @@
               </div>
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collFaqThree">
-                    😇 I'd like to have you put one of my bookmarklets in here.
+                  <a class="collapsed btn bg-success text-light" data-bs-toggle="collapse" href="#collFaqThree">
+                    <i class="fa-solid fa-handshake fa-2x"></i>I'd like to have you put one of my bookmarklets in here.
                   </a>
                 </div>
                 <div id="collFaqThree" class="collapse" data-bs-parent="#accordion-faq">
@@ -607,5 +731,58 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function highlightRecentUpdates() {
+        // Get today's date
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
+
+        // Calculate the date 14 days ago
+        const fourteenDaysAgo = new Date(today);
+        fourteenDaysAgo.setDate(today.getDate() - 14);
+
+        // Find the table
+        const table = document.getElementById('collectiontable');
+        if (!table) return;
+
+        // Find the index of the "Last updated" column
+        const headers = table.querySelectorAll('thead th');
+        let dateColumnIndex = -1;
+        headers.forEach((header, index) => {
+          if (header.textContent.trim().includes('Last updated')) {
+            dateColumnIndex = index;
+          }
+        });
+
+        if (dateColumnIndex === -1) return;
+
+        // Get all rows in the tbody
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          if (cells.length > dateColumnIndex) {
+            const dateCell = cells[dateColumnIndex];
+            const dateText = dateCell.textContent.trim();
+
+            // Parse the date (format: YYYY-MM-DD)
+            const cellDate = new Date(dateText);
+
+            // Check if the date is valid and within the last 30 days
+            if (!isNaN(cellDate) && cellDate >= fourteenDaysAgo && cellDate <= today) {
+              // Highlight the cell
+              dateCell.style.backgroundColor = '#90EE90'; // Light green
+              dateCell.style.fontWeight = 'bold';
+              // Optional: add a badge or icon
+              dateCell.innerHTML = dateText + '<br><span class="badge bg-success ms-1">NEW</span>';
+            }
+          }
+        });
+      }
+
+      // Run the function when the page loads
+      document.addEventListener('DOMContentLoaded', highlightRecentUpdates);
+    </script>
   </body>
 </html>
