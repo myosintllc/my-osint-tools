@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         My OSINT Training
 // @namespace    http://tampermonkey.net/
-// @version      1.0.13
+// @version      1.0.14
 // @description  Tamper before bookmarklets
 // @match        *://*/*
 // @grant        GM_registerMenuCommand
@@ -28,6 +28,8 @@ const TM_facebookID = (function(){const findProfileInfo=()=>{const e=document.do
 const TM_facebookMarket = (function(){try{const regex=/userID":"(\d+)"/;const match=document.documentElement.outerHTML.match(regex);if(match&&match[1]){const profileId=match[1];const url=`https://www.facebook.com/marketplace/?seller_profile=${profileId}`;window.open(url,'_blank')}else{alert('Facebook ID not found!')}}catch(e){alert('Error processing request: '+e.message)}});
 
 const TM_facebookProfileImage = (function(){try{const findProfilePicLargeUri=obj=>{if(obj&&typeof obj==='object'){for(const key in obj){if(key==='profilePicLarge'&&obj[key].uri){return obj[key].uri}const result=findProfilePicLargeUri(obj[key]);if(result)return result}}return null};const scripts=document.querySelectorAll('script');let profilePicUrl=null;scripts.forEach(script=>{const content=script.textContent;try{const jsonStart=content.indexOf('{');const jsonEnd=content.lastIndexOf('}')+1;if(jsonStart!==-1&&jsonEnd!==-1){const json=JSON.parse(content.substring(jsonStart,jsonEnd));const result=findProfilePicLargeUri(json);if(result)profilePicUrl=result}}catch(e){return}});if(profilePicUrl){const decodedUrl=profilePicUrl.replace(/\\\\u0026/g,'&');window.open(decodedUrl,'_blank')}else{alert('Profile picture URL not found!')}}catch(e){alert('Error processing request: '+e.message)}});
+
+const TM_facebookSearch = (function(){try{function findUserId(){var userIdRegex=/"userID":"(\d+)"/;var userIdMatch=document.documentElement.outerHTML.match(userIdRegex);return userIdMatch?userIdMatch[1]:null}function findUserName(){var nameRegex=/"name":"([^"]+)","__isEntity":"User"/;var nameMatch=document.documentElement.outerHTML.match(nameRegex);return nameMatch?nameMatch[1]:null}var userId=findUserId();var userName=findUserName();if(userId&&userName){var searchTerm=prompt(`Search for content about userID: ${userId} (${userName})\n\nEnter a Search term:`);if(searchTerm!==null&&searchTerm.trim()!==''){var encodedSearchTerm=encodeURIComponent(searchTerm.trim());var searchUrl=`https://facebook.com/profile/${userId}/search/?q=${encodedSearchTerm}`;window.open(searchUrl,'_blank')}else{alert('No search term provided.')}}else{alert('Facebook ID or name not found!')}}catch(e){alert(`Error processing request: ${e.message}`)}});
 
 const TM_instagramUauthUser = (function(){function extractMetaTags(){const metaTags=document.querySelectorAll('meta[property=\'og:title\'], meta[property=\'og:image\'], meta[name=\'description\'], meta[name=\'twitter:description\'], meta[name=\'twitter:title\']');const overlay=document.createElement('div');overlay.style.position='fixed';overlay.style.top='0';overlay.style.left='0';overlay.style.width='100%';overlay.style.height='100%';overlay.style.background='rgba(0, 0, 0, 0.7)';overlay.style.color='#fff';overlay.style.fontFamily='Arial, sans-serif';overlay.style.fontSize='16px';overlay.style.padding='20px';overlay.style.boxSizing='border-box';overlay.style.zIndex='9999';overlay.style.overflow='auto';const closeButton=document.createElement('button');closeButton.textContent='Close';closeButton.style.position='fixed';closeButton.style.top='20px';closeButton.style.right='20px';closeButton.style.padding='10px';closeButton.style.cursor='pointer';closeButton.style.background='#fff';closeButton.style.border='none';closeButton.style.borderRadius='5px';closeButton.style.fontFamily='Arial, sans-serif';closeButton.style.fontSize='16px';closeButton.style.zIndex='10000';closeButton.addEventListener('click',function(){document.body.removeChild(overlay)});overlay.appendChild(closeButton);const metaInfo=document.createElement('div');metaInfo.style.marginBottom='20px';metaInfo.innerHTML='<h2>Meta Tags:</h2>';metaTags.forEach(tag=>{const tagName=tag.getAttribute('property')||tag.getAttribute('name');const tagContent=tag.getAttribute('content');if(tagName==='og:image'){metaInfo.innerHTML+=`<p><strong>${tagName}:</strong> <img src='${tagContent}' alt='Image'></p>`}else{metaInfo.innerHTML+=`<p><strong>${tagName}:</strong> ${tagContent}</p>`}});overlay.appendChild(metaInfo);document.body.appendChild(overlay)}extractMetaTags()});
 
@@ -118,6 +120,11 @@ const bookmarkletsJSON = [
   {
     title: "Facebook Locked Profile Image Bookmarklet",
     js: TM_facebookProfileImage,
+    domain: "facebook.com",
+  },
+  {
+    title: "Facebook Public Content Search",
+    js: TM_facebookSearch,
     domain: "facebook.com",
   },
   {
