@@ -537,3 +537,53 @@
         color: #fff;
         text-decoration: none
     }
+
+/* Pills and nav */
+  /* Tab colors */
+  #tab1-btn.nav-link.active {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+    color: white;
+  }
+  #tab1-btn.nav-link:not(.active) {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+  }
+
+  #tab2-btn.nav-link.active {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: white;
+  }
+  #tab2-btn.nav-link:not(.active) {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+  }
+
+  /* Hover effects */
+  #tab1-btn.nav-link:not(.active):hover {
+    background-color: #5c636a;
+    border-color: #5c636a;
+  }
+  #tab2-btn.nav-link:not(.active):hover {
+    background-color: #5c636a;
+    border-color: #5c636a;
+  }
+
+  /* Smooth transitions */
+  .nav-pills .nav-link {
+    transition: all 0.3s ease;
+  }
+
+  /* Optional: Add some spacing and styling to the heading */
+  h3 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  /* Optional: Add some spacing below the pills */
+  #myPills {
+    margin-bottom: 30px;
+  }
