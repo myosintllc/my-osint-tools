@@ -137,7 +137,7 @@
 
                       <td>
                         <img class="mx-auto d-block" alt="BandLab icon" src="https://tools.myosint.training/images/bl.png">
-                        <p class="text-center">BandLab, social, user, profile, id</p></td>
+                        <p class="text-center">BandLab</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -149,7 +149,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-bluesky fa-2x"></i><br>
-                          Bluesky, social, user, profile, id</p></td>
+                          Bluesky</p></td>
 
                       <td>2024-11-18</td>
                     </tr>
@@ -161,7 +161,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-bluesky fa-2x"></i><br>
-                          Bluesky, social, user, profile, id</p></td>
+                          Bluesky</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -173,7 +173,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-cash-app fa-2x"></i><br>
-                          CashApp, social, user, profile, image</p></td>
+                          CashApp</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -184,7 +184,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-facebook fa-2x"></i><br>
-                          Facebook, social, user, id</p></td>
+                          Facebook</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -195,7 +195,7 @@
 
                       <td>
                         <p class="text-center">
-                          <i class="fa-brands fa-facebook fa-2x"></i><br>Facebook, social, user</p></td>
+                          <i class="fa-brands fa-facebook fa-2x"></i><br>Facebook</p></td>
 
                       <td>2024-07-31</td>
                     </tr>
@@ -207,7 +207,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-facebook fa-2x"></i><br>
-                          Facebook, social, user, image, profile</p></td>
+                          Facebook</p></td>
 
                       <td>2024-07-31</td>
                     </tr>
@@ -219,7 +219,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-facebook fa-2x"></i><br>
-                          Facebook, social, user, search</p></td>
+                          Facebook</p></td>
 
                       <td>2024-07-31</td>
                     </tr>
@@ -231,7 +231,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-instagram fa-2x"></i><br>
-                          Instagram, social, user, image, profile</p></td>
+                          Instagram</p></td>
 
                       <td>2024-07-31</td>
                     </tr>
@@ -243,7 +243,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-instagram fa-2x"></i><br>
-                          Instagram, social, user, profile, id</p></td>
+                          Instagram</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -255,10 +255,11 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-instagram fa-2x"></i><br>
-                          Instagram, social, user, profile, image</p></td>
+                          Instagram</p></td>
 
                       <td>2024-07-31</td>
                     </tr>
+                    <!-- Not working right 2025-11-19
                     <tr>
                       <td><div><a class="btn btn-secondary" role="button" draggable="false" onclick="copyBookmarklet()">Click here to copy the LinkedIn User ID Bookmarklet</a>
 
@@ -285,9 +286,21 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-linkedin fa-2x"></i><br>
-                          LinkedIn, social, user, profile, image</p></td>
+                          LinkedIn</p></td>
 
                       <td>2025-08-04</td>
+                    </tr>-->
+                    <tr>
+                      <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_pinterestUser" data-domain="pinterest.com" href="javascript:(function(){function findData(){const scripts=document.querySelectorAll(&#x27;script&#x27;);for(let script of scripts){const text=script.textContent;if(text.includes(&#x27;initialReduxState&#x27;)){try{const match=text.match(/&quot;initialReduxState&quot;:({.+?}),&quot;isAppShell&quot;/);if(match){return JSON.parse(match[1])}}catch(e){continue}}}return null}function createModal(data){if(!data){alert(&#x27;No Pinterest data found on this page.&#x27;);return}const users=data.users?Object.values(data.users):[];const user=users.length&gt;1?users[1]:users[0];if(!user){alert(&#x27;No user data found.&#x27;);return}const boards=data.boards?Object.values(data.boards):[];const boardData=boards.length&gt;0?boards.map(board=&gt;({name:board.name||&#x27;Untitled&#x27;,board_order_modified_at:board.board_order_modified_at||&#x27;&#x27;,created_at:board.created_at||&#x27;&#x27;})).sort((a,b)=&gt;{const dateA=new Date(a.board_order_modified_at);const dateB=new Date(b.board_order_modified_at);return dateB-dateA}):[];const modal=document.createElement(&#x27;div&#x27;);Object.assign(modal.style,{position:&#x27;fixed&#x27;,top:&#x27;50%&#x27;,left:&#x27;50%&#x27;,transform:&#x27;translate(-50%, -50%)&#x27;,backgroundColor:&#x27;#333&#x27;,color:&#x27;#fff&#x27;,padding:&#x27;20px&#x27;,border:&#x27;2px solid #fff&#x27;,borderRadius:&#x27;10px&#x27;,zIndex:&#x27;10000&#x27;,maxWidth:&#x27;80%&#x27;,maxHeight:&#x27;80vh&#x27;,overflowY:&#x27;auto&#x27;,textAlign:&#x27;left&#x27;,fontFamily:&#x27;Arial, sans-serif&#x27;,cursor:&#x27;move&#x27;});const closeBtn=document.createElement(&#x27;button&#x27;);closeBtn.innerHTML=&#x27;×&#x27;;Object.assign(closeBtn.style,{position:&#x27;absolute&#x27;,top:&#x27;5px&#x27;,right:&#x27;10px&#x27;,background:&#x27;none&#x27;,border:&#x27;none&#x27;,color:&#x27;#fff&#x27;,fontSize:&#x27;28px&#x27;,cursor:&#x27;pointer&#x27;,lineHeight:&#x27;1&#x27;,padding:&#x27;0&#x27;,width:&#x27;30px&#x27;,height:&#x27;30px&#x27;});closeBtn.onmouseover=function(){this.style.opacity=&#x27;0.7&#x27;};closeBtn.onmouseout=function(){this.style.opacity=&#x27;1&#x27;};closeBtn.onclick=function(e){e.stopPropagation();document.body.removeChild(modal);document.onmousemove=null;document.onmouseup=null};const title=document.createElement(&#x27;h2&#x27;);title.innerHTML=&#x27;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#4da6ff&quot; style=&quot;vertical-align:middle;margin-right:10px;&quot;&gt;&lt;path d=&quot;M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z&quot;/&gt;&lt;/svg&gt;Pinterest User Data&#x27;;Object.assign(title.style,{margin:&#x27;0 0 15px 0&#x27;,color:&#x27;#4da6ff&#x27;,borderBottom:&#x27;2px solid #4da6ff&#x27;,paddingBottom:&#x27;10px&#x27;});modal.appendChild(closeBtn);modal.appendChild(title);const content=document.createElement(&#x27;div&#x27;);let html=&#x27;&#x27;;html+=&#x27;&lt;div style=&quot;margin:15px 0;padding:15px;background:#444;border-radius:8px;&quot;&gt;&lt;div style=&quot;font-weight:700;color:#4da6ff;margin-bottom:15px;font-size:16px;&quot;&gt;👤 User Information&lt;/div&gt;&#x27;;if(user.username){html+=`&lt;div style=&quot;padding:8px 0;border-bottom:1px solid #555;color:#bbb;&quot;&gt;Username: &lt;strong style=&quot;color:#fff;font-family:Courier New,monospace;&quot;&gt;${user.username}&lt;/strong&gt;&lt;/div&gt;`}if(user.full_name){html+=`&lt;div style=&quot;padding:8px 0;border-bottom:1px solid #555;color:#bbb;&quot;&gt;Full Name: &lt;strong style=&quot;color:#fff;font-family:Courier New,monospace;&quot;&gt;${user.full_name}&lt;/strong&gt;&lt;/div&gt;`}if(user.id){html+=`&lt;div style=&quot;padding:8px 0;border-bottom:1px solid #555;color:#bbb;&quot;&gt;User ID: &lt;strong style=&quot;color:#fff;font-family:Courier New,monospace;&quot;&gt;${user.id}&lt;/strong&gt;&lt;/div&gt;`}if(user.created_at){html+=`&lt;div style=&quot;padding:8px 0;border-bottom:1px solid #555;color:#bbb;&quot;&gt;Account Created: &lt;strong style=&quot;color:#fff;font-family:Courier New,monospace;&quot;&gt;${user.created_at}&lt;/strong&gt;&lt;/div&gt;`}if(user.last_pin_save_time){html+=`&lt;div style=&quot;padding:8px 0;color:#bbb;&quot;&gt;Last Pin Save: &lt;strong style=&quot;color:#fff;font-family:Courier New,monospace;&quot;&gt;${user.last_pin_save_time}&lt;/strong&gt;&lt;/div&gt;`}html+=&#x27;&lt;/div&gt;&#x27;;if(boardData.length===0){html+=&#x27;&lt;div style=&quot;margin:15px 0;padding:15px;background:#444;border-radius:8px;&quot;&gt;&lt;div style=&quot;font-weight:700;color:#4da6ff;margin-bottom:15px;font-size:16px;&quot;&gt;📌 Boards (most recent 10)&lt;/div&gt;&lt;div style=&quot;color:#999;font-style:italic;padding:10px 0;&quot;&gt;No boards found for this user.&lt;/div&gt;&lt;/div&gt;&#x27;}else{html+=`&lt;div style=&quot;margin:15px 0;padding:15px;background:#444;border-radius:8px;&quot;&gt;&lt;div style=&quot;font-weight:700;color:#4da6ff;margin-bottom:15px;font-size:16px;&quot;&gt;📌 Boards (${boardData.length})&lt;/div&gt;&lt;table style=&quot;width:100%;border-collapse:collapse;font-size:14px;&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;background:#4da6ff;color:white;padding:10px;text-align:left;font-weight:600;border-right:1px solid #fff;&quot;&gt;Board Order Modified At&lt;/th&gt;&lt;th style=&quot;background:#4da6ff;color:white;padding:10px;text-align:left;font-weight:600;border-right:1px solid #fff;&quot;&gt;Created At&lt;/th&gt;&lt;th style=&quot;background:#4da6ff;color:white;padding:10px;text-align:left;font-weight:600;&quot;&gt;Name&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;boardData.forEach(board=&gt;{html+=`&lt;tr style=&quot;border-bottom:1px solid #555;&quot;&gt;&lt;td style=&quot;padding:10px;color:#fff;font-family:Courier New,monospace;border-right:1px solid #555;&quot;&gt;${board.board_order_modified_at}&lt;/td&gt;&lt;td style=&quot;padding:10px;color:#fff;font-family:Courier New,monospace;border-right:1px solid #555;&quot;&gt;${board.created_at}&lt;/td&gt;&lt;td style=&quot;padding:10px;color:#fff;&quot;&gt;&lt;strong&gt;${board.name}&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;`});html+=&#x27;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&#x27;}content.innerHTML=html;modal.appendChild(content);const copyDisplayBtn=document.createElement(&#x27;button&#x27;);copyDisplayBtn.textContent=&#x27;📋 Copy Displayed Data&#x27;;Object.assign(copyDisplayBtn.style,{background:&#x27;#4da6ff&#x27;,color:&#x27;white&#x27;,border:&#x27;none&#x27;,padding:&#x27;10px 20px&#x27;,borderRadius:&#x27;6px&#x27;,cursor:&#x27;pointer&#x27;,fontSize:&#x27;14px&#x27;,marginRight:&#x27;10px&#x27;,fontWeight:&#x27;600&#x27;});copyDisplayBtn.onmouseover=function(){this.style.background=&#x27;#3d8fd9&#x27;};copyDisplayBtn.onmouseout=function(){this.style.background=&#x27;#4da6ff&#x27;};copyDisplayBtn.onclick=function(e){e.stopPropagation();let displayText=&#x27;User Information:\n&#x27;;if(user.username)displayText+=`Username: ${user.username}\n`;if(user.full_name)displayText+=`Full Name: ${user.full_name}\n`;if(user.id)displayText+=`User ID: ${user.id}\n`;if(user.created_at)displayText+=`Account Created: ${user.created_at}\n`;if(user.last_pin_save_time)displayText+=`Last Pin Save: ${user.last_pin_save_time}\n`;if(boardData.length&gt;0){displayText+=`\nBoards (most recent 10):\n`;displayText+=&#x27;Board Order Modified At | Created At | Name\n&#x27;;displayText+=&#x27;------------------------------------------------\n&#x27;;boardData.forEach(board=&gt;{displayText+=`${board.board_order_modified_at} | ${board.created_at} | ${board.name}\n`})}else{displayText+=&#x27;\nBoards: No boards found for this user.\n&#x27;}navigator.clipboard.writeText(displayText).then(()=&gt;{copyDisplayBtn.style.background=&#x27;#4caf50&#x27;;copyDisplayBtn.textContent=&#x27;✓ Copied!&#x27;;setTimeout(()=&gt;{copyDisplayBtn.textContent=&#x27;📋 Copy Displayed Data&#x27;;copyDisplayBtn.style.background=&#x27;#4da6ff&#x27;},1500)}).catch(()=&gt;{const textarea=document.createElement(&#x27;textarea&#x27;);textarea.value=displayText;textarea.style.position=&#x27;fixed&#x27;;textarea.style.opacity=&#x27;0&#x27;;document.body.appendChild(textarea);textarea.select();document.execCommand(&#x27;copy&#x27;);document.body.removeChild(textarea);copyDisplayBtn.style.background=&#x27;#4caf50&#x27;;copyDisplayBtn.textContent=&#x27;✓ Copied!&#x27;;setTimeout(()=&gt;{copyDisplayBtn.textContent=&#x27;📋 Copy Displayed Data&#x27;;copyDisplayBtn.style.background=&#x27;#4da6ff&#x27;},1500)})};const copyBtn=document.createElement(&#x27;button&#x27;);copyBtn.textContent=&#x27;📋 Copy Full JSON&#x27;;Object.assign(copyBtn.style,{background:&#x27;#4da6ff&#x27;,color:&#x27;white&#x27;,border:&#x27;none&#x27;,padding:&#x27;10px 20px&#x27;,borderRadius:&#x27;6px&#x27;,cursor:&#x27;pointer&#x27;,fontSize:&#x27;14px&#x27;,fontWeight:&#x27;600&#x27;});copyBtn.onmouseover=function(){this.style.background=&#x27;#3d8fd9&#x27;};copyBtn.onmouseout=function(){this.style.background=&#x27;#4da6ff&#x27;};copyBtn.onclick=function(e){e.stopPropagation();const jsonStr=JSON.stringify(data,null,2);navigator.clipboard.writeText(jsonStr).then(()=&gt;{copyBtn.textContent=&#x27;✓ Copied!&#x27;;setTimeout(()=&gt;{copyBtn.textContent=&#x27;📋 Copy Full JSON&#x27;},1500)}).catch(()=&gt;{const textarea=document.createElement(&#x27;textarea&#x27;);textarea.value=jsonStr;textarea.style.position=&#x27;fixed&#x27;;textarea.style.opacity=&#x27;0&#x27;;document.body.appendChild(textarea);textarea.select();document.execCommand(&#x27;copy&#x27;);document.body.removeChild(textarea);copyBtn.textContent=&#x27;✓ Copied!&#x27;;setTimeout(()=&gt;{copyBtn.textContent=&#x27;📋 Copy Full JSON&#x27;},1500)})};const buttonContainer=document.createElement(&#x27;div&#x27;);Object.assign(buttonContainer.style,{marginTop:&#x27;15px&#x27;,position:&#x27;relative&#x27;,zIndex:&#x27;1&#x27;});buttonContainer.appendChild(copyDisplayBtn);buttonContainer.appendChild(copyBtn);modal.appendChild(buttonContainer);const dragInfo={isDragging:false,offsetX:0,offsetY:0};modal.onmousedown=function(e){if(e.target===closeBtn||e.target===copyBtn||e.target===copyDisplayBtn)return;dragInfo.isDragging=true;dragInfo.offsetX=e.clientX-modal.offsetLeft;dragInfo.offsetY=e.clientY-modal.offsetTop;modal.style.transform=&#x27;none&#x27;};document.onmousemove=function(e){if(dragInfo.isDragging){modal.style.left=e.clientX-dragInfo.offsetX+&#x27;px&#x27;;modal.style.top=e.clientY-dragInfo.offsetY+&#x27;px&#x27;}};document.onmouseup=function(){dragInfo.isDragging=false};document.body.appendChild(modal)}const reduxData=findData();if(reduxData){createModal(reduxData)}else{alert(&#x27;Could not find Pinterest data on this page. Make sure you are on a Pinterest profile or board page.&#x27;)}})();">Pinterest User Bookmarklet</a></div></td>
+
+                      <td>This bookmarklet is used on Pinterest user profile pages like <code>https://www.pinterest.com/brickyink/</code>. This script extracts user data and then grabs dates and times for each account "board". It then displays a modal with the user data and a table to display most recent board modifications. It also copies the data to your computer's clipboard for easy pasting into your notes.</td>
+
+                      <td>
+                        <p class="text-center">
+                          <i class="fa-brands fa-pinterest fa-2x"></i><br>
+                          Pinterest</p></td>
+
+                      <td>2025-11-19</td>
                     </tr>
                     <tr>
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_poshmarkUserID" data-domain="poshmark.com" href="javascript:(function(){const faLink=document.createElement(&#x27;link&#x27;);faLink.rel=&#x27;stylesheet&#x27;;faLink.href=&#x27;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#x27;;document.head.appendChild(faLink);const excludeKeys=[&#x27;ab_segment&#x27;,&#x27;ab_segment_v2&#x27;,&#x27;ab_segment_v3&#x27;,&#x27;settings&#x27;];const customLabels={fb_info:&#x27;Facebook&#x27;,tw_info:&#x27;X/Twitter&#x27;,tm_info:&#x27;Unknown&#x27;,pn_v2_info:&#x27;Pinterest&#x27;,gp_info:&#x27;Unknown&#x27;,ap_info:&#x27;Unknown&#x27;,ig_info:&#x27;Instagram&#x27;};const platformUrls={fb_info:&#x27;https://www.facebook.com/&#x27;,tw_info:&#x27;https://x.com/&#x27;,pn_v2_info:&#x27;https://www.pinterest.com/&#x27;,ig_info:&#x27;https://www.instagram.com/&#x27;};function toTitleCase(str){if(customLabels[str])return customLabels[str];return str.split(&#x27;_&#x27;).map(word=&gt;word.charAt(0).toUpperCase()+word.slice(1)).join(&#x27; &#x27;)}function findClosetUserInfo(obj,visited=new Set()){if(!obj||typeof obj!==&#x27;object&#x27;||visited.has(obj))return null;visited.add(obj);if(obj.closetUserInfo&amp;&amp;obj.closetUserInfo.data){return obj.closetUserInfo.data}for(let key in obj){try{const result=findClosetUserInfo(obj[key],visited);if(result)return result}catch(e){}}return null}function removeNulls(obj){if(obj===null||obj===undefined||obj===&#x27;&#x27;)return null;if(typeof obj!==&#x27;object&#x27;)return obj;if(Array.isArray(obj)){const filtered=obj.map(removeNulls).filter(item=&gt;item!==null);return filtered.length&gt;0?filtered:null}const result={};for(let key in obj){if(excludeKeys.includes(key))continue;const value=removeNulls(obj[key]);if(value!==null&amp;&amp;value!==&#x27;&#x27;){result[key]=value}}return Object.keys(result).length&gt;0?result:null}function prettyPrintObject(obj,indent=0,parentKey=&#x27;&#x27;){if(typeof obj!==&#x27;object&#x27;||obj===null)return`&lt;strong&gt;${escapeHtml(String(obj))}&lt;/strong&gt;`;const spaces=&#x27;&amp;nbsp;&amp;nbsp;&#x27;.repeat(indent);let result=&#x27;&#x27;;for(let key in obj){const value=obj[key];const currentParent=parentKey||key;if(typeof value===&#x27;object&#x27;&amp;&amp;value!==null&amp;&amp;!Array.isArray(value)){result+=`${spaces}${key}:&lt;br&gt;${prettyPrintObject(value,indent+1,currentParent)}`}else if(Array.isArray(value)){result+=`${spaces}${key}: &lt;strong&gt;${escapeHtml(JSON.stringify(value))}&lt;/strong&gt;&lt;br&gt;`}else{if(key===&#x27;ext_username&#x27;&amp;&amp;platformUrls[parentKey]){const username=String(value);const url=platformUrls[parentKey]+username+(parentKey===&#x27;ig_info&#x27;||parentKey===&#x27;pn_v2_info&#x27;?&#x27;/&#x27;:&#x27;&#x27;);result+=`${spaces}&lt;a href=&quot;${url}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&quot;color:#4da6ff;text-decoration:none;font-weight:700;&quot;&gt;${escapeHtml(username)} &lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;`}else{result+=`${spaces}${key}: &lt;strong&gt;${escapeHtml(String(value))}&lt;/strong&gt;&lt;br&gt;`}}}return result}function escapeHtml(text){const div=document.createElement(&#x27;div&#x27;);div.textContent=text;return div.innerHTML}function extractClosetUserInfo(){if(window.__INITIAL_STATE__){const data=findClosetUserInfo(window.__INITIAL_STATE__);return data?removeNulls(data):null}return null}function copyToClipboard(data){const text=JSON.stringify(data,null,2);navigator.clipboard.writeText(text).then(()=&gt;{console.log(&#x27;Data copied to clipboard&#x27;)}).catch(err=&gt;{console.error(&#x27;Failed to copy:&#x27;,err)})}function displayData(data){copyToClipboard(data);const modal=document.createElement(&#x27;div&#x27;);Object.assign(modal.style,{position:&#x27;fixed&#x27;,top:&#x27;50%&#x27;,left:&#x27;50%&#x27;,transform:&#x27;translate(-50%, -50%)&#x27;,backgroundColor:&#x27;#333&#x27;,color:&#x27;#fff&#x27;,padding:&#x27;20px&#x27;,border:&#x27;2px solid #fff&#x27;,borderRadius:&#x27;10px&#x27;,zIndex:&#x27;10000&#x27;,maxWidth:&#x27;80%&#x27;,maxHeight:&#x27;80vh&#x27;,overflowY:&#x27;auto&#x27;,textAlign:&#x27;left&#x27;,fontFamily:&#x27;Arial, sans-serif&#x27;,cursor:&#x27;move&#x27;});const closeBtn=document.createElement(&#x27;button&#x27;);closeBtn.innerHTML=&#x27;×&#x27;;Object.assign(closeBtn.style,{position:&#x27;absolute&#x27;,top:&#x27;5px&#x27;,right:&#x27;10px&#x27;,background:&#x27;none&#x27;,border:&#x27;none&#x27;,color:&#x27;#fff&#x27;,fontSize:&#x27;28px&#x27;,cursor:&#x27;pointer&#x27;,lineHeight:&#x27;1&#x27;,padding:&#x27;0&#x27;,width:&#x27;30px&#x27;,height:&#x27;30px&#x27;});closeBtn.onmouseover=function(){this.style.opacity=&#x27;0.7&#x27;};closeBtn.onmouseout=function(){this.style.opacity=&#x27;1&#x27;};closeBtn.onclick=function(e){e.stopPropagation();document.body.removeChild(modal);document.onmousemove=null;document.onmouseup=null};const title=document.createElement(&#x27;h2&#x27;);title.textContent=&#x27;Poshmark User Data&#x27;;Object.assign(title.style,{margin:&#x27;0 0 15px 0&#x27;,color:&#x27;#4da6ff&#x27;,borderBottom:&#x27;2px solid #4da6ff&#x27;,paddingBottom:&#x27;10px&#x27;});const copyNotice=document.createElement(&#x27;div&#x27;);copyNotice.textContent=&#x27;✓ Data copied to clipboard!&#x27;;Object.assign(copyNotice.style,{background:&#x27;#4caf50&#x27;,color:&#x27;white&#x27;,padding:&#x27;10px&#x27;,borderRadius:&#x27;5px&#x27;,marginBottom:&#x27;15px&#x27;,textAlign:&#x27;center&#x27;,fontSize:&#x27;14px&#x27;});modal.appendChild(closeBtn);modal.appendChild(title);modal.appendChild(copyNotice);const content=document.createElement(&#x27;div&#x27;);if(!data||Object.keys(data).length===0){content.innerHTML=&#x27;&lt;p style=&quot;text-align:center;color:#999;padding:20px;font-style:italic;&quot;&gt;No data found or all values are null&lt;/p&gt;&#x27;}else{let html=&#x27;&#x27;;for(let key in data){if(data[key]!==null&amp;&amp;data[key]!==undefined&amp;&amp;data[key]!==&#x27;&#x27;){html+=`&lt;div style=&quot;padding:10px 0;border-bottom:1px solid #555;&quot;&gt;&lt;div style=&quot;font-weight:600;color:#bbb;margin-bottom:5px;&quot;&gt;${toTitleCase(key)}&lt;/div&gt;&lt;div style=&quot;color:#fff;word-break:break-word;font-family:Courier New,monospace;&quot;&gt;`;if(typeof data[key]===&#x27;object&#x27;&amp;&amp;!Array.isArray(data[key])){html+=prettyPrintObject(data[key],0,key)}else if(Array.isArray(data[key])){html+=`&lt;strong&gt;${escapeHtml(JSON.stringify(data[key],null,2))}&lt;/strong&gt;`}else{html+=`&lt;strong&gt;${escapeHtml(String(data[key]))}&lt;/strong&gt;`}html+=&#x27;&lt;/div&gt;&lt;/div&gt;&#x27;}}content.innerHTML=html}modal.appendChild(content);const dragInfo={isDragging:false,offsetX:0,offsetY:0};modal.onmousedown=function(e){if(e.target===closeBtn||e.target.tagName===&#x27;A&#x27;)return;dragInfo.isDragging=true;dragInfo.offsetX=e.clientX-modal.offsetLeft;dragInfo.offsetY=e.clientY-modal.offsetTop;modal.style.transform=&#x27;none&#x27;};document.onmousemove=function(e){if(dragInfo.isDragging){modal.style.left=e.clientX-dragInfo.offsetX+&#x27;px&#x27;;modal.style.top=e.clientY-dragInfo.offsetY+&#x27;px&#x27;}};document.onmouseup=function(){dragInfo.isDragging=false};document.body.appendChild(modal)}const userInfo=extractClosetUserInfo();if(userInfo){displayData(userInfo)}else{alert(&#x27;Could not find closetUserInfo data on this page. Make sure you\&#x27;re on a Poshmark user closet page.&#x27;)}})();">Poshmark User ID Bookmarklet</a></div></td>
@@ -300,7 +313,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-shirt fa-2x"></i><br>
-                          Poshmark, social, user, profile</p></td>
+                          Poshmark</p></td>
 
                       <td>2025-11-18</td>
                     </tr>
@@ -312,7 +325,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-snapchat fa-2x"></i><br>
-                          Snapchat, social, user, profile</p></td>
+                          Snapchat</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -323,7 +336,7 @@
 
                       <td>
                         <img class="mx-auto d-block" alt="Smule icon" src="https://tools.myosint.training/images/sm.png">
-                        <p class="text-center">Smule, social, user, profile</p></td>
+                        <p class="text-center">Smule</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -335,7 +348,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-telegram fa-2x"></i><br>
-                          Telegram, social, user, profile</p></td>
+                          Telegram</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -347,7 +360,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-threads fa-2x"></i><br>
-                          Threads, social, user, profile, id</p></td>
+                          Threads</p></td>
 
                       <td>2024-10-11</td>
                     </tr>
@@ -359,7 +372,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-threads fa-2x"></i><br>
-                          Threads, social, user, profile, id</p></td>
+                          Threads</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -371,7 +384,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-tiktok fa-2x"></i><br>
-                          TikTok, social, user, profile, id, image</p></td>
+                          TikTok</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -383,7 +396,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-tiktok fa-2x"></i><br>
-                          TikTok, social, date, image, video</p></td>
+                          TikTok</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -395,7 +408,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-tiktok fa-2x"></i><br>
-                          TikTok, social, user, profile, id, image</p></td>
+                          TikTok</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -407,7 +420,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-sack-dollar fa-2x"></i><br>
-                        Venmo, finance, user, profile, id, image</p></td>
+                        Venmo</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -419,7 +432,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-x-twitter fa-2x"></i><br>
-                        X, Twitter, social, user, profile, id, image</p></td>
+                        X, Twitter</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -431,7 +444,7 @@
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-x-twitter fa-2x"></i><br>
-                          X, Twitter, social, user, profile, id, image</p></td>
+                          X, Twitter</p></td>
 
                       <td>2025-10-20</td>
                     </tr>
@@ -456,6 +469,7 @@
                       </tr>
                   </thead>
                   <tbody>
+
                     <tr>
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" draggable="true" ondragstart="drag(event)" data-name="TM_JSONreveal" data-domain="*" href="javascript:(function(){try{var s=document.querySelectorAll('script'),j=[];for(var i=0;i&lt;s.length;i++){var t=s[i].innerText.trim();if(s[i].type==='application/json'||t.charAt(0)=='{'||t.charAt(0)=='['){try{j.push({index:i,data:JSON.parse(t)})}catch(e){console.warn('Invalid JSON in script',i)}}}if(!j.length){alert('No JSON found.');return;}var modal=document.createElement('div');modal.style.position='fixed';modal.style.top='50%';modal.style.left='50%';modal.style.transform='translate(-50%, -50%)';modal.style.backgroundColor='#333';modal.style.color='#fff';modal.style.padding='20px';modal.style.border='2px solid #fff';modal.style.borderRadius='10px';modal.style.zIndex='10000';modal.style.maxWidth='80%';modal.style.maxHeight='80%';modal.style.textAlign='left';modal.style.fontFamily='Arial, sans-serif';modal.style.cursor='move';modal.style.overflow='auto';var content=document.createElement('div');content.style.fontFamily='Arial, sans-serif';content.style.marginTop='30px';var title=document.createElement('h3');title.textContent='JSON Scripts Found: '+j.length;title.style.marginTop='0';title.style.color='#fff';content.appendChild(title);var sel=document.createElement('select');sel.style.width='100%';sel.style.padding='5px';sel.style.marginBottom='10px';sel.style.fontFamily='Courier New,monospace';sel.style.fontSize='12px';sel.style.background='#222';sel.style.color='#fff';sel.style.border='1px solid #fff';sel.style.borderRadius='5px';j.forEach(function(o,k){var opt=document.createElement('option');opt.value=k;opt.textContent='JSON #'+(k+1)+' (script['+o.index+'])';sel.appendChild(opt)});content.appendChild(sel);var copyBtn=document.createElement('button');copyBtn.textContent='Copy JSON';copyBtn.style.marginTop='10px';copyBtn.style.padding='5px 10px';copyBtn.style.border='1px solid #fff';copyBtn.style.background='#444';copyBtn.style.color='#fff';copyBtn.style.cursor='pointer';copyBtn.style.borderRadius='5px';copyBtn.style.fontSize='12px';content.appendChild(copyBtn);var pre=document.createElement('pre');pre.style.whiteSpace='pre-wrap';pre.style.fontFamily='Courier New,monospace';pre.style.fontSize='12px';pre.style.background='#222';pre.style.padding='10px';pre.style.borderRadius='5px';pre.style.marginTop='10px';pre.style.overflowX='auto';pre.textContent=JSON.stringify(j[0].data,null,2);content.appendChild(pre);sel.onchange=function(){var o=j[parseInt(this.value)];pre.textContent=JSON.stringify(o.data,null,2)};copyBtn.onclick=function(e){e.stopPropagation();navigator.clipboard.writeText(pre.textContent).then(function(){copyBtn.textContent='Copied!';setTimeout(function(){copyBtn.textContent='Copy JSON';},1500)}).catch(function(){alert('Failed to copy to clipboard.')})};modal.appendChild(content);var dragInfo={isDragging:false,offsetX:0,offsetY:0};modal.onmousedown=function(e){if(e.target===closeBtn||e.target===sel||e.target===copyBtn)return;dragInfo.isDragging=true;dragInfo.offsetX=e.clientX-modal.offsetLeft;dragInfo.offsetY=e.clientY-modal.offsetTop;modal.style.transform='none'};document.onmousemove=function(e){if(dragInfo.isDragging){modal.style.left=e.clientX-dragInfo.offsetX+'px';modal.style.top=e.clientY-dragInfo.offsetY+'px'}};document.onmouseup=function(){dragInfo.isDragging=false};var closeBtn=document.createElement('button');closeBtn.innerHTML='×';closeBtn.style.position='absolute';closeBtn.style.top='5px';closeBtn.style.right='10px';closeBtn.style.background='none';closeBtn.style.border='none';closeBtn.style.color='#fff';closeBtn.style.fontSize='28px';closeBtn.style.cursor='pointer';closeBtn.style.lineHeight='1';closeBtn.style.padding='0';closeBtn.style.width='30px';closeBtn.style.height='30px';closeBtn.onmouseover=function(){this.style.opacity='0.7'};closeBtn.onmouseout=function(){this.style.opacity='1'};closeBtn.onclick=function(e){e.stopPropagation();document.body.removeChild(modal);document.onmousemove=null;document.onmouseup=null};modal.appendChild(closeBtn);document.body.appendChild(modal);}catch(e){alert('Script error: '+e.message);console.error(e);}})();">JSON Revealer Bookmarklet</a></div></td>
 
