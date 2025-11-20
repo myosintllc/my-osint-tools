@@ -49,7 +49,7 @@ def generate_js_bookmarklets(bookmarklets):
 
         lines.append("  {")
         lines.append(f'    title: "{title}",')
-        lines.append(f'    js: {js_func},')
+        lines.append(f'    js: {js_func},')  # uden citationstegn
         lines.append(f'    domain: "{domain}",')
         lines.append("  },")
     lines.append("];")
@@ -58,6 +58,10 @@ def generate_js_bookmarklets(bookmarklets):
 def build_js_definitions(bookmarklet_definitions):
     print("Building JS for Tampermonkey based on bookmarklets")
     js_definitions = []
+    global_state_replacers = [
+        "__INITIAL_STATE__"
+    ]
+
     for bml in bookmarklet_definitions:
         js = bml["js"].replace("javascript:","")
         js_definition = f"const {bml['name']} = {js}"
@@ -69,7 +73,14 @@ def build_js_definitions(bookmarklet_definitions):
 
         if bml.get("replace"):
             js_definition = js_definition.replace("window.open", "GM_openInTab")
+
+        # Tampermonkey can't access the global window, but use a sandboxed version, i.e.
+        # window.__INITIAL_STATE__ can't be reached. This needs to be done using
+        # unsafeWindow.__INITIAL_STATE__
+        for state in global_state_replacers:
+            js_definition = js_definition.replace(f"window.{state}", f"unsafeWindow.{state}")
         js_definitions.append(js_definition)
+
     js_def_str = "\n\n".join(js_definitions)
     return js_def_str
 
@@ -94,6 +105,7 @@ HEADER = f"""
 // @match        *://*/*
 // @grant        GM_registerMenuCommand
 // @grant        GM_openInTab
+// @grant        unsafeWindow
 // @noframes
 // ==/UserScript==
 """
