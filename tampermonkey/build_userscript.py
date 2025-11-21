@@ -14,7 +14,8 @@ def get_bookmarklets_from_website():
     expected_keys = {
         "domain": "data-domain",
         "name": "data-name",
-        "replace": "data-replace-open"
+        "replace": "data-replace-open",
+        "window": "data-state"
     }
 
     print("Extracting bookmarklets from HTML")
@@ -58,9 +59,6 @@ def generate_js_bookmarklets(bookmarklets):
 def build_js_definitions(bookmarklet_definitions):
     print("Building JS for Tampermonkey based on bookmarklets")
     js_definitions = []
-    global_state_replacers = [
-        "__INITIAL_STATE__"
-    ]
 
     for bml in bookmarklet_definitions:
         js = bml["js"].replace("javascript:","")
@@ -77,7 +75,8 @@ def build_js_definitions(bookmarklet_definitions):
         # Tampermonkey can't access the global window, but use a sandboxed version, i.e.
         # window.__INITIAL_STATE__ can't be reached. This needs to be done using
         # unsafeWindow.__INITIAL_STATE__
-        for state in global_state_replacers:
+        state = bml.get("window")
+        if state:
             js_definition = js_definition.replace(f"window.{state}", f"unsafeWindow.{state}")
         js_definitions.append(js_definition)
 
