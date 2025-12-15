@@ -605,3 +605,12 @@
   #myPills {
     margin-bottom: 30px;
   }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #d1ecf1; /* Light blue color */
+  }
+
+  /* Optional: Adjust hover color if using table-hover as well */
+  .table-striped tbody tr:nth-of-type(odd):hover {
+    background-color: #bee5eb; /* Slightly darker blue for hover */
+  }
