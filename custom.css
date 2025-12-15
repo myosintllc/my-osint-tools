@@ -606,11 +606,12 @@
     margin-bottom: 30px;
   }
 
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #d1ecf1; /* Light blue color */
+  #collectiontableother.table-striped tbody tr:nth-of-type(odd),
+  #collectiontablesocmint.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #d1ecf1 !important;
   }
 
-  /* Optional: Adjust hover color if using table-hover as well */
-  .table-striped tbody tr:nth-of-type(odd):hover {
-    background-color: #bee5eb; /* Slightly darker blue for hover */
+  #collectiontableother.table-striped tbody tr:nth-of-type(odd):hover,
+  #collectiontablesocmint.table-striped tbody tr:nth-of-type(odd):hover {
+    background-color: #bee5eb !important;
   }
