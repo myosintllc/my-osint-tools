@@ -606,12 +606,7 @@
     margin-bottom: 30px;
   }
 
-  #collectiontableother.table-striped tbody tr:nth-of-type(odd),
-  #collectiontablesocmint.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #d1ecf1 !important;
-  }
-
-  #collectiontableother.table-striped tbody tr:nth-of-type(odd):hover,
-  #collectiontablesocmint.table-striped tbody tr:nth-of-type(odd):hover {
-    background-color: #bee5eb !important;
+  #collectiontableother,
+  #collectiontablesocmint {
+    --bs-table-striped-bg: #d1ecf1;
   }
