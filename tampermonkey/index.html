@@ -64,7 +64,7 @@
           <div class="card text-bg-primary mb-5 shadow rounded">
             <h1 class="card-header">Welcome to My OSINT Tools: Tampermonkey</h1>
             <div class="card-body">
-              <p class="card-text">Bookmarklets are powerful tools for automating tedious OSINT tasks. While individual bookmarklets work well and allow analysts to be flexible in how they are used, managing 30+ bookmarklets quickly clutters your browser bookmark toolbar. This guide shows how to use <strong>Tampermonkey</strong> to install and auto-update all bookmarklets in one step.</p>
+              <p class="card-text">These scripts are no longer being created.</p>
             </div>
           </div>
         </div>
@@ -76,139 +76,24 @@
         <div class="container-lg">
             <div class="row">
                 <div class="col-lg-auto">
-                    <h1>Userscript OSINT Bookmarklets Guide</h1>
-                    <div class="alert alert-success border-start border-success border-4 shadow-sm">
-                        <strong>Optional Enhancement</strong><br><br>
-                        Using the Tampermonkey or Violentmonkey extension/add-on is a more advanced method of using the bookmarklets and is 100% OPTIONAL. It takes a little setup and some trust but does make it easy to use and update the bookmarklets.<br><br>
-                        Choose your own adventure here....use or do not. You decide.
-                    </div>
-                    <p>The URL to our userscript bookmarklets is: <a href="https://tools.myosint.training/tampermonkey/userscript.js" target="_blank">https://tools.myosint.training/tampermonkey/userscript.js</a></p><br>
+                  <h2>Transitioning Away From Userscripts</h2>
+                    <p>We've made the hard decision to discontinue our Tampermonkey and Violentmonkey userscripts as we focus on providing better solutions for our users.</p>
 
-                    <h2>Use at Your Own Risk</h2>
-                    <div class="alert alert-danger border-start border-danger border-4 shadow-sm">
-                      <strong>WARNING: This method makes your browser less secure.</strong><br><br>
-                      Some of our bookmarklets are scoped to only work on certain domains like instagram.com or airbnb.com. But some are scoped to be usable on ANY web page you visit. Why is this important?<br><br>
-                      <strong>Using userscript extensions, like Tampermonkey/Violentmonkey, allows that extension and our code to run on any page. Think about this....banking sites, social media, ANY PAGE!</strong><br><br>
-                      This means that our scripts (and/or code from the extensions) could read and write to any page you visit. While we do not do anything bad in our scripts....you need to know that nothing is private when you use these types of tools.
-                    </div>
-                    <p><strong>Suggestions for safer usage of these userscripts are</strong>:
-                      <ol>
-                        <li>Use in a dedicated web browser that you only use for OSINT work.</li>
-                        <li>Know that every page you visit could be read, tracked, and edited by these bookmarklets.</li>
-                        <li>Only enable the Tampermonkey/Violentmonkey extensions in your browser when you need them.</li>
-                        <li>Never visit financial or other sensitive personal or work sites using a browser with Tampermonkey/ViolentMonkey enabled.</li>
-                      </ol>
-                    </p>
+                    <p>This decision was driven by two important considerations:</p>
 
-                    <h2>What is Tampermonkey?</h2>
-                    <p><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> is a cross-browser extension that lets you create custom browser modifications using JavaScript. Think of it as building browser extensions without the complexity. Tampermonkey handles the technical setup while you focus on the functionality.</p>
-
-                    <div class="alert alert-warning border-start border-warning border-4 shadow-sm">
-                        <strong>WARNING: Browser extensions can be awesome, but they can also be malicious.</strong><br><br>
-                        Some extensions can read (and alter) all requests your browser makes, take screenshots, and transmit that data to someone else without you knowing about it. As an example, recently, an extension that provided a "Free VPN" service was discovered to secretly screenshot all pages users visited and send those images to the creator. That's seriously bad.
-                        <br><br>
-                        We do our best to ensure that bookmarklets hosted on My OSINT Training do nothing malicious. We review all code and have several AIs also review code submitted by third parties to ensure that you can trust our tools. But please do not just take our word for it, do your own analyses of our bookmarklets to make sure you are comfortable with them.
-                    </div>
-                    <br>
-
-                    <h2>Installation of Our Bookmarklets in Tampermonkey</h2>
-                    <p>While Tampermonkey and Violentmonkey (and other) extensions work with our tools, we are only showing how to install the scripts in Tampermonkey.</p>
-                    <h3>1. Install Tampermonkey Extension</h3>
-                    <ul>
-                        <li>Download from your browser's extension store</li>
-                        <li><strong>For Chromium browsers:</strong> You must do an additional step of enabling Developer Mode in the browser (the extension will tell you how)</li>
-                        <li><strong>For Brave:</strong> You must do an additional step: Go to Extensions → Tampermonkey Details → Enable "Allow User Scripts"</li>
-                    </ul>
-                    <br>
-                    <h3>2. Add the Userscript</h3>
-                    <p>Choose one of these methods:</p>
-
-                    <h4>Method 1: Manual Installation</h4>
-                    <div class="alert alert-info border-start border-info border-4 shadow-sm">
-                        <strong>NOTE:</strong> By using this method, you will periodically need to check for updates in the bookmarklets manually and then update the content in your browser. No auto-updating happens with this method.
-                    </div>
                     <ol>
-                        <li>Open Tampermonkey and click the '+' symbol</li>
-                        <li>Delete the boilerplate code</li>
-                        <li>Copy/paste content from <a href="/tampermonkey/userscript.js" target="_blank">userscript.js</a></li>
-                        <li>Save the script</li>
+                        <li><strong>Enhanced Security:</strong> We're committed to protecting your privacy and security. Moving away from userscripts allows us to provide more secure alternatives that better safeguard your browsing experience.</li>
+                        <li><strong>Improved Reliability:</strong> By streamlining our codebase, we can deliver more stable and feature-rich tools that are easier to maintain and enhance over time.</li>
                     </ol>
 
-                    <h4>Method 2: Auto-Update Installation</h4>
-                    <div class="alert alert-warning border-start border-warning border-4 shadow-sm">
-                        <strong>WARNING:</strong> This method automatically will update your tools as we update our tools; keeping your browser in sync. It also could be a security risk if you do not trust our tools and review process.
-                    </div>
-                    <ol>
-                        <li>Right click on this link and "Copy Link Address": <a href="/tampermonkey/userscript.js" target="_blank">userscript.js</a></li>
-                        <li>In Tampermonkey, launch the Dashboard</li>
-                        <li>Then navigate to the Utilities tab</li>
-                        <li>Paste the URL from your clipboard into the "Import from URL" field</li>
-                        <li>Click "Install"</li>
-                        <li>The "Userscript Install" page should pop up and you should click the "Install" button</li>
-                    </ol>
-                    <br>
-
-                    <h2>Usage</h2>
-                    <p>Once installed, access bookmarklets by <strong>Right-clicking</strong> on any webpage to see context menu options like in the image below.</p>
-                    <img src="assets/tiktok2.png" alt="Context Menu method of using Tampermonkey" class="img-fluid mb-3 shadow">
-
-                    <p>Or you can <strong>click the Tampermonkey extension icon</strong> for "less-quick" access. The scripts will automatically show relevant bookmarklets based on the current website domain like in the image below.</p>
-                    <img src="assets/tiktok.png" alt="Tampermonkey icon click method of using Tampermonkey" class="img-fluid mb-3 shadow">
-                    <br>
+                    <p>We appreciate your understanding as we make this change to better serve you.</p>
+                    <br><br>
+                    --- Micah and Griffin
                 </div>
             </div>
-        </div>
-      </div>
-
-   <!-- Thanks Section -->
-   <div class="container-lg mt-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-          <!-- Gradient Header -->
-          <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #022447 0%, #1900ff 50%, #008bc4 100%);">
-            <div class="d-flex align-items-center justify-content-center mb-2">
-              <i class="bi bi-heart-fill me-3" style="font-size: 2rem;"></i>
-              <h2 class="mb-0 fw-bold">Our Heartfelt Thanks</h2>
-              <i class="bi bi-heart-fill ms-3" style="font-size: 2rem;"></i>
-            </div>
-            <div class="mt-2">
-              <i class="bi bi-star-fill mx-1"></i>
-              <i class="bi bi-star-fill mx-1"></i>
-              <i class="bi bi-star-fill mx-1"></i>
-              <i class="bi bi-star-fill mx-1"></i>
-              <i class="bi bi-star-fill mx-1"></i>
-            </div>
-          </div>
-
-          <!-- Card Body with Quote -->
-          <div class="card-body p-5 bg-light">
-            <div class="row align-items-center">
-              <div class="col-md-2 text-center mb-3 mb-md-0">
-                <i class="bi bi-quote text-muted" style="font-size: 4rem;"></i>
-              </div>
-              <div class="col-md-8">
-                <blockquote class="blockquote mb-0">
-                  <p class="lead text-dark mb-3" style="font-style: italic; line-height: 1.6;">
-                    We would like to extend their sincerest thanks to the OSINT community member that created the Tampermonkey integration and integrated it into our tools. This person is very well known to Micah and Griffin and wishes to remain anonymous. We appreciate their ideas and contribution to this project.
-                  </p>
-                  <footer class="blockquote-footer mt-3">
-                    <cite title="Source Title" class="fw-bold text-primary">The My OSINT Training Team</cite>
-                  </footer>
-                </blockquote>
-              </div>
-              <div class="col-md-2 text-center">
-                <div class="bg-white rounded-circle p-3 shadow-sm d-inline-block">
-                  <i class="bi bi-people-fill text-primary" style="font-size: 2.5rem;"></i>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Footer -->
     <div class="header__container">
