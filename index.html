@@ -125,7 +125,9 @@
           <div class="card text-bg-primary mb-5 shadow rounded">
             <h2 class="card-header">Welcome to My OSINT Tools</h2>
             <div class="card-body">
-              <p class="card-text">Tools are essential for efficient open source intelligence work, and they don't always have to come at a cost! At My OSINT Training, we develop custom tools to help you perform tasks faster and more effectively, empowering you to excel! These are some of our favorites and hope they are useful in your work!<br>
+              <p class="card-text">Tools are essential for efficient open source intelligence work, and they don't always have to come at a cost! At My OSINT Training, we develop custom tools to help you perform tasks faster and more effectively, empowering you to excel! These are some of our favorites and hope they are useful in your work!<br><br>
+                We have more detailed descriptions and images of many of these bookmarklets on <a href="https://blog.myosint.training" style="color:cyan;" target="_blank">our blog page</a>.<br>
+
                 <div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-secondary" role="button" draggable="true" ondragstart="drag(event)" href="javascript:(function(){if(window.location.href.includes('myosint.training'))return;const base='https://files.myosint.training/db/';document.querySelectorAll('img').forEach(i=>{const num=Math.floor(Math.random()*7)+1;i.src=base+num+'.png';i.removeAttribute('srcset');i.removeAttribute('sizes');});document.querySelectorAll('[style*=&quot;background-image&quot;]').forEach(e=>{const num=Math.floor(Math.random()*7)+1;e.style.backgroundImage=`url(${base}${num}.png)`;});})();"><i>Micah & Griffin</i></a>
                 </div>
               </p>
