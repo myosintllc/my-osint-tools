@@ -610,3 +610,16 @@
   #collectiontablesocmint {
     --bs-table-striped-bg: #e8f4f8;
   }
+
+  .callout {
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #0d6efd;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+  }
+
+  .callout-info { border-left-color: #0d6efd; }
+  .callout-warning { border-left-color: #ffc107; }
+  .callout-danger { border-left-color: #dc3545; }
+  .callout-success { border-left-color: #198754; }
