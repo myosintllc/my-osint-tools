@@ -212,8 +212,8 @@ class BookmarkletExporter:
 
         # Add version bookmark at the end of the "My OSINT Bookmarklets" folder
         version_bookmark = {
-            'title': f'Version: {iso_datetime}',
-            'code': 'void(0)',
+            'title': f'v{iso_datetime} - Click to go to tools.myosint.training',
+            'code': "window.open('https://tools.myosint.training', '_blank')",
         }
         structure['folders']['My OSINT Bookmarklets']['bookmarklets'].append(version_bookmark)
 
