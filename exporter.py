@@ -166,10 +166,6 @@ class BookmarkletExporter:
 
         add_folder_recursively(structure)
 
-        # Add version bookmark as the very last item (after all folders/bookmarklets)
-        version_bookmark_html = f'    <DT><A HREF="javascript:void(0)">Version: {iso_datetime}</A>'
-        html_parts.append(version_bookmark_html)
-
         html_parts.extend([
             '</DL><p>',
             '</body>',
@@ -214,7 +210,14 @@ class BookmarkletExporter:
         # Wrap under parent folder
         structure = self.wrap_with_parent_folder(structure)
 
-        # Generate HTML (version bookmark is now added at the end inside generate_html)
+        # Add version bookmark at the end of the "My OSINT Bookmarklets" folder
+        version_bookmark = {
+            'title': f'Version: {iso_datetime}',
+            'code': 'void(0)',
+        }
+        structure['folders']['My OSINT Bookmarklets']['bookmarklets'].append(version_bookmark)
+
+        # Generate HTML
         bookmark_html = self.generate_html(structure, iso_datetime)
 
         # Save to file
