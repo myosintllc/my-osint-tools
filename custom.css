@@ -624,6 +624,18 @@
   .callout-danger { border-left-color: #dc3545; }
   .callout-success { border-left-color: #198754; }
 
+  .bm-permalink {
+    display: inline-block;
+    color: #adb5bd;
+    margin-right: 5px;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: color 0.15s ease;
+  }
+  .bm-permalink:hover {
+    color: #0d6efd;
+  }
+
   .badge-active {
     display: inline-block;
     background: #ff6b6b;

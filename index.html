@@ -1164,6 +1164,38 @@
         highlightRecentUpdates('collectiontablespecific');
         highlightRecentUpdates('collectiontablegeneral');
 
+        // Add permalink icons to the start of each bookmarklet description cell
+        document.querySelectorAll('tr[id^="bm-"]').forEach(function(row) {
+          const tds = row.querySelectorAll('td');
+          if (tds.length < 2) return;
+          const descCell = tds[1];
+          const link = document.createElement('a');
+          link.href = '#' + row.id;
+          link.className = 'bm-permalink';
+          link.title = 'Link to this bookmarklet';
+          link.setAttribute('data-bs-toggle', 'tooltip');
+          link.setAttribute('data-bs-placement', 'top');
+          link.innerHTML = '<i class="fas fa-link fa-xs"></i>';
+          new bootstrap.Tooltip(link);
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = window.location.origin + window.location.pathname + '#' + row.id;
+            navigator.clipboard.writeText(url).catch(function() {
+              const ta = document.createElement('textarea');
+              ta.value = url;
+              ta.style.cssText = 'position:fixed;opacity:0;';
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+            });
+            history.pushState(null, null, '#' + row.id);
+            link.innerHTML = '<i class="fas fa-check fa-xs"></i>';
+            setTimeout(function() { link.innerHTML = '<i class="fas fa-link fa-xs"></i>'; }, 1500);
+          });
+          descCell.insertBefore(link, descCell.firstChild);
+        });
+
         // Handle hash-based deep linking to bookmarklet rows (e.g. #bm-tiktok-user-id-bookmarklet)
         const hash = window.location.hash;
         if (hash && hash.startsWith('#bm-')) {
