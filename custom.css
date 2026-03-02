@@ -623,3 +623,23 @@
   .callout-warning { border-left-color: #ffc107; }
   .callout-danger { border-left-color: #dc3545; }
   .callout-success { border-left-color: #198754; }
+
+  .badge-active {
+    display: inline-block;
+    background: #ff6b6b;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .badge-passive {
+    display: inline-block;
+    background: #51cf66;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
