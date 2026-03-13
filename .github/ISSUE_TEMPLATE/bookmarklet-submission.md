@@ -13,6 +13,10 @@ Please provide your name.
 **Your email**
 We will reach out to you to confirm your submission.
 
+**Would you like credit for this or to be refered to as an "Anonymous OSINT Community Member"?**
+
+**If you do want credit, please write your name/handle exactly as you want it on the page,**
+
 **Bookmarklet**
 `Paste your bookmarklet here`
 
@@ -29,7 +33,6 @@ Tell us what this bookmarklet does.
 **Certifications and Disclaimers**
 1. By submitting this issue, you confirm that you own/created this bookmarklet or have explicit permission from its owner for us to use it.
 1. You also agree to be emailed for the purpose of discussing this work.
-1. We will contact you before publishing the bookmarklet.
 1. You understand that, while we appreciate your submission, there may be reasons why we do not use it.
 
 _Please type "I agree"_
