@@ -14,8 +14,13 @@ Please provide your name.
 We will reach out to you to confirm your submission.
 
 **Would you like credit for this or to be refered to as an "Anonymous OSINT Community Member"?**
+Enter "Yes" or "No" here.
 
-**If you do want credit, please write your name/handle exactly as you want it on the page,**
+**If you do want credit, please write your name/handle exactly as you want it on the page.**
+Examples: (One of the following) Micah Hoffman, WebBreacher, Micah "WebBreacher" Hoffman, Micah
+
+**If you would like us to mention you on LinkedIn if we publish this bookmarklet, please provide the URL to your LinkedIn profile below.**
+Example: https://www.linkedin.com/in/micahhoffman
 
 **Bookmarklet**
 `Paste your bookmarklet here`
