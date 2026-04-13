@@ -655,3 +655,164 @@
     font-size: 12px;
     font-weight: bold;
   }
+
+  /* ==========================================================
+   MOT Custom Dropdown Nav
+   Append this entire block to the end of custom.css
+   ========================================================== */
+
+/* Position context for dropdown parents */
+.mot-has-dropdown,
+.mot-more-item {
+  position: relative;
+}
+
+/* Toggle button — inherits the look of a normal nav link */
+.mot-dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  white-space: nowrap;
+  line-height: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.mot-dropdown-toggle:hover,
+.mot-dropdown-toggle:focus {
+  outline: none;
+  opacity: 0.85;
+}
+
+/* Caret arrow */
+.mot-caret {
+  font-size: 0.72em;
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.mot-has-dropdown.mot-open > .mot-dropdown-toggle .mot-caret,
+.mot-more-item.mot-open > button .mot-caret {
+  transform: rotate(180deg);
+}
+
+/* ---- Dropdown panel ---- */
+.mot-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 200px;
+  max-width: 280px;
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  background: #0d2035;
+  border-top: 2px solid #00b4fa;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  z-index: 9000;
+}
+
+.mot-has-dropdown.mot-open > .mot-dropdown-menu,
+.mot-more-item.mot-open > .mot-dropdown-menu {
+  display: block;
+  animation: motFadeIn 0.15s ease;
+}
+
+@keyframes motFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Items inside a dropdown panel ---- */
+.mot-dropdown-item a {
+  display: block;
+  padding: 0.5rem 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.mot-dropdown-item a:hover,
+.mot-dropdown-item a:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+
+/* ---- Items nested inside the More menu ---- */
+.mot-more-menu > li.mot-has-dropdown > .mot-dropdown-menu {
+  position: static;
+  box-shadow: none;
+  border-top: none;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  margin-left: 0.75rem;
+  min-width: 0;
+  animation: none;
+}
+
+.mot-more-menu > li.mot-has-dropdown.mot-open > .mot-dropdown-menu {
+  display: block;
+}
+
+.mot-more-menu > li a,
+.mot-more-menu > li .mot-dropdown-toggle {
+  display: block;
+  padding: 0.5rem 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.mot-more-menu > li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.mot-more-menu > li .mot-dropdown-toggle {
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* ---- Mobile: flatten dropdowns inline ---- */
+@media (max-width: 767px) {
+  .mot-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0 0 0 1rem;
+    min-width: 0;
+    max-width: none;
+    animation: none;
+  }
+  .mot-more-item {
+    display: none !important;
+  }
+}

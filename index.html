@@ -89,26 +89,70 @@
               <img src="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png" srcset="https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/568124%2Fcustom_site_themes%2Fid%2FfAru0CvDRm2i9beQGYHA_myosint-training-light.png?width=384&amp;dpr=3 3x" alt="My OSINT Training Image" class="logo img-responsive">
             </a>
         </section>
+        <!-- Replace the entire <nav class="header__nav hidden-print"> ... </nav> block with this -->
         <nav class="header__nav hidden-print">
           <ul>
-            <li class="header__nav-item">
-              <a href="https://www.myosint.training/courses">All Courses</a>
+            <!-- 1. LEARN (dropdown) -->
+            <li class="header__nav-item mot-nav-top mot-has-dropdown">
+              <button class="mot-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                Learn<i class="fa fa-caret-down mot-caret" aria-hidden="true"></i>
+              </button>
+              <ul class="mot-dropdown-menu" role="menu">
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/courses">All Courses</a>
+                </li>
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/pages/bundles">Bundles</a>
+                </li>
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/pages/group-trainings-and-events">Group Training</a>
+                </li>
+                <li class="mot-dropdown-item">
+                  <a href="https://us14.list-manage.com/survey?u=b1b96b68568aab2206608d59e&id=b224b812e4&attribution=false" target="_blank">Conferences and Speaking</a>
+                </li>
+              </ul>
             </li>
-            <li class="header__nav-item">
-              <a href="https://www.myosint.training/pages/bundles">Bundles</a>
+
+            <!-- 2. OUR TEAM (dropdown) -->
+            <li class="header__nav-item mot-nav-top mot-has-dropdown">
+              <button class="mot-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                Our Team<i class="fa fa-caret-down mot-caret" aria-hidden="true"></i>
+              </button>
+              <ul class="mot-dropdown-menu" role="menu">
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/pages/instructors">Your Authors</a>
+                </li>
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/pages/about-us">About Us</a>
+                </li>
+              </ul>
             </li>
-            <li class="header__nav-item">
-              <a href="https://www.myosint.training/pages/instructors">Your Instructors</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="https://www.myosint.training/pages/free-resources">Free Resources</a>
-            </li>
-            <li class="header__nav-item">
+
+            <!-- 3. BLOG (top-level) -->
+            <li class="header__nav-item mot-nav-top">
               <a href="https://www.myosint.training/pages/blog">Blog</a>
             </li>
-            <li class="header__nav-item header__nav-sign-in">
-              <a href="https://www.myosint.training/users/sign_in"> Sign In</a>
+
+            <!-- 4. FREE OSINT RESOURCES (dropdown) -->
+            <li class="header__nav-item mot-nav-top mot-has-dropdown">
+              <button class="mot-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                Free OSINT Resources<i class="fa fa-caret-down mot-caret" aria-hidden="true"></i>
+              </button>
+              <ul class="mot-dropdown-menu" role="menu">
+                <li class="mot-dropdown-item">
+                  <a href="https://www.myosint.training/pages/free-resources">Free Resources</a>
+                </li>
+                <li class="mot-dropdown-item">
+                  <a href="https://tools.myosint.training">Bookmarklet Tools</a>
+                </li>
+              </ul>
             </li>
+
+            <!-- Sign In (unchanged) -->
+            <li class="header__nav-item header__nav-sign-in">
+              <a href="https://www.myosint.training/users/sign_in">Sign In</a>
+            </li>
+
           </ul>
         </nav>
       </div>
@@ -1285,5 +1329,143 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- MOT Dropdown Nav — add this block just before </body> -->
+    <script>
+      (function () {
+        'use strict';
+
+        // ---- Close all open MOT dropdowns ----
+        function closeAllMotDropdowns() {
+          document.querySelectorAll('.mot-open').forEach(function (el) {
+            el.classList.remove('mot-open');
+          });
+          document.querySelectorAll('.mot-dropdown-toggle[aria-expanded="true"]').forEach(function (btn) {
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        // ---- Open/close on toggle click (event delegation) ----
+        document.addEventListener('click', function (e) {
+          var toggle = e.target.closest('.mot-dropdown-toggle');
+          if (toggle) {
+            e.stopPropagation();
+            var parent = toggle.closest('.mot-has-dropdown, .mot-more-item');
+            var isOpen = parent.classList.contains('mot-open');
+            closeAllMotDropdowns();
+            if (!isOpen) {
+              parent.classList.add('mot-open');
+              toggle.setAttribute('aria-expanded', 'true');
+            }
+            return;
+          }
+          // Click outside closes all
+          if (!e.target.closest('.mot-has-dropdown, .mot-more-item')) {
+            closeAllMotDropdowns();
+          }
+        });
+
+        // ---- Close on Escape ----
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { closeAllMotDropdowns(); }
+        });
+
+        // ============================================================
+        // More overflow menu
+        // Collects nav items that don't fit into a More dropdown.
+        // Recalculates on resize.
+        // ============================================================
+        function buildMoreMenu() {
+          var nav = document.querySelector('.header__nav > ul');
+          if (!nav) return;
+
+          // Remove any existing More item so we measure cleanly
+          var existingMore = nav.querySelector('.mot-more-item');
+          if (existingMore) existingMore.remove();
+
+          // No More menu needed on mobile
+          if (window.innerWidth <= 767) return;
+
+          var topItems = Array.from(nav.querySelectorAll(':scope > li.mot-nav-top'));
+          if (!topItems.length) return;
+
+          // Ensure all items are visible before measuring
+          topItems.forEach(function (li) { li.style.display = ''; });
+
+          // Fixed items (sign-in, etc.) that are never moved to More
+          var fixedItems = Array.from(nav.querySelectorAll(':scope > li:not(.mot-nav-top)'));
+          var fixedWidth = fixedItems.reduce(function (acc, el) {
+            return acc + el.offsetWidth;
+          }, 0);
+
+          var navWidth = nav.offsetWidth;
+          var totalItemsWidth = topItems.reduce(function (acc, el) {
+            return acc + el.offsetWidth;
+          }, 0);
+
+          // Everything fits — nothing to do
+          if (totalItemsWidth + fixedWidth <= navWidth) return;
+
+          // Build and temporarily insert the More item to measure its width
+          var moreItem = document.createElement('li');
+          moreItem.className = 'header__nav-item mot-nav-top mot-more-item';
+          moreItem.innerHTML =
+            '<button class="mot-dropdown-toggle mot-more-toggle" aria-expanded="false" aria-haspopup="true">' +
+              'More <i class="fa fa-caret-down mot-caret" aria-hidden="true"></i>' +
+            '</button>' +
+            '<ul class="mot-dropdown-menu mot-more-menu" role="menu"></ul>';
+
+          if (fixedItems.length) {
+            nav.insertBefore(moreItem, fixedItems[0]);
+          } else {
+            nav.appendChild(moreItem);
+          }
+
+          var moreWidth = moreItem.offsetWidth;
+          var available = navWidth - fixedWidth - moreWidth;
+          var used = 0;
+          var cutIndex = topItems.length;
+
+          topItems.forEach(function (el, i) {
+            used += el.offsetWidth;
+            if (used > available && cutIndex === topItems.length) {
+              cutIndex = i;
+            }
+          });
+
+          // Nothing actually overflows after recalculation
+          if (cutIndex === topItems.length) {
+            moreItem.remove();
+            return;
+          }
+
+          var moreMenu = moreItem.querySelector('.mot-more-menu');
+
+          topItems.forEach(function (el, i) {
+            if (i >= cutIndex) {
+              var clone = el.cloneNode(true);
+              clone.classList.remove('mot-nav-top');
+              moreMenu.appendChild(clone);
+              el.style.display = 'none';
+            }
+          });
+        }
+
+        // Run after DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', buildMoreMenu);
+        } else {
+          buildMoreMenu();
+        }
+
+        // Recalculate on resize
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(buildMoreMenu, 150);
+        });
+
+      })();
+    </script>
   </body>
 </html>
