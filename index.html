@@ -867,13 +867,13 @@
                       <td>2025-11-25</td>
                     </tr>
                     <tr id="bm-deblurring-bookmarklet">
-                      <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" href="javascript:(function() {document.body.innerHTML = document.body.innerHTML.replace(/class=&quot;blur&quot;/g, '');})();">Deblurring Bookmarklet</a></div></td>
+                      <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" href="javascript:(function(){document.querySelectorAll('[class]').forEach(function(el){Array.from(el.classList).forEach(function(c){if(c==='blur'||c.startsWith('blur-')){el.classList.remove(c);}});});})();">Deblurring Bookmarklet</a></div></td>
 
-                      <td>This bookmarklet is used to de-blur content on sites that use the <code>class="blur"</code> technique to obfuscate data in your browser. When you click this bookmarklet, it will remove all those blurring classes and may reveal real data.</td>
+                      <td>This bookmarklet is used to de-blur content on sites that use CSS blur classes (e.g. <code>class="blur"</code>, <code>class="blur-sm"</code>, <code>class="blur-lg"</code>) to obfuscate data in your browser. When you click this bookmarklet, it will remove all <code>blur</code> and <code>blur-*</code> classes and may reveal real data.</td>
 
                       <td><p class="text-center">Deblurring</p></td>
 
-                      <td>2026-04-07</td>
+                      <td>2026-04-14</td>
                     </tr>
                     <tr id="bm-domain-search-bookmarklet">
                       <td>
