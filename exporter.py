@@ -13,7 +13,7 @@ from typing import Dict, List, Tuple
 from urllib.parse import urlparse
 from datetime import datetime
 import json
-import zipfile
+#import zipfile
 
 
 class BookmarkletExporter:
@@ -228,9 +228,9 @@ class BookmarkletExporter:
         #print(f"📁 Saved to: {output_path.absolute()}")
 
         # Create zip file
-        zip_path = output_path.with_suffix('.zip')
-        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            zipf.write(output_path, arcname=output_path.name)
+        #zip_path = output_path.with_suffix('.zip')
+        #with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        #    zipf.write(output_path, arcname=output_path.name)
         #print(f"📦 Created zip: {zip_path.absolute()}")
 
         return str(output_path.absolute())
