@@ -504,66 +504,35 @@
 
 
   /* ----------------------------------------------------------
-     6. Navigation — Tab Pills
+     6. (Tab pills removed — tables merged into single DataTables view)
      ---------------------------------------------------------- */
-  .nav-pills .nav-item { margin-right: 15px; }
 
-  .nav-pills .nav-link { transition: all 0.3s ease; }
 
-  #myPills { margin-bottom: 30px; }
-
-  #tab1-btn.nav-link.active {
-    background-color: #198754 !important;
-    border-color: #198754 !important;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+  /* ----------------------------------------------------------
+     7. Tables — Filter Bar
+     ---------------------------------------------------------- */
+  .bm-filter-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #495057;
+    white-space: nowrap;
   }
 
-  #tab1-btn.nav-link:not(.active) {
-    background-color: #6c757d;
-    color: white;
-    border-color: #6c757d;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
-  }
+  /* Suppress Bootstrap's large button shadow inside the filter card */
+  #bm-filter-bar .btn { box-shadow: none !important; }
 
-  #tab1-btn.nav-link:not(.active):hover {
-    background-color: #5c636a;
-    border-color: #5c636a;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
-    transform: translateY(-1px);
-  }
-
-  #tab2-btn.nav-link.active {
-    background-color: #0d6efd !important;
-    border-color: #0d6efd !important;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-
-  #tab2-btn.nav-link:not(.active) {
-    background-color: #6c757d;
-    color: white;
-    border-color: #6c757d;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
-  }
-
-  #tab2-btn.nav-link:not(.active):hover {
-    background-color: #5c636a;
-    border-color: #5c636a;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
-    transform: translateY(-1px);
+  /* Recently Updated glows green when toggled on */
+  #bm-filter-bar #btn-recent.btn-success {
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.25) !important;
   }
 
 
   /* ----------------------------------------------------------
-     7. Tables — Bookmarklet Collection
+     7b. Tables — Unified Bookmarklet Table
      ---------------------------------------------------------- */
 
   /* Sticky column headers (Bootstrap primary — matches Welcome card) */
-  #collectiontablespecific thead th,
-  #collectiontablegeneral thead th {
+  #bookmarklets-table thead th {
     position: sticky;
     top: 0;
     z-index: 2;
@@ -578,19 +547,25 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   }
 
-  /* Keep header cells white even if Bootstrap text-danger is applied */
-  #collectiontablespecific thead th.text-danger,
-  #collectiontablegeneral thead th.text-danger {
-    color: #fff !important;
-  }
+  /* Keep header cells white even when Bootstrap text-danger is applied */
+  #bookmarklets-table thead th.text-danger { color: #fff !important; }
 
   /* Fixed width for the "Last updated" date column */
   .col-last-updated { width: 12ch; }
 
-  /* Striped row tint for bookmarklet tables */
-  #collectiontableother,
-  #collectiontablesocmint {
-    --bs-table-striped-bg: #e8f4f8;
+  /* DataTables search input — give it a bit more breathing room */
+  #bookmarklets-table_filter label { font-weight: 600; }
+  #bookmarklets-table_filter input { margin-left: 0.5rem; }
+
+  /* Striped row tint */
+  #bookmarklets-table {
+    --bs-table-striped-bg: #eef4fb;
+  }
+
+  /* Mobile: hide the description column to keep the table usable */
+  @media (max-width: 767px) {
+    #bookmarklets-table th:nth-child(2),
+    #bookmarklets-table td:nth-child(2) { display: none; }
   }
 
   /* Script-type badges */

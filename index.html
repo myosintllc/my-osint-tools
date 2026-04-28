@@ -37,8 +37,11 @@
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.datatables.net">
+    <link rel="preconnect" href="https://code.jquery.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha384-rWj9FmWWt3OMqd9vBkWRhFavvVUYalYqGPoMdL1brs/qvvqz88gvLShYa4hKNyqb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css" integrity="sha384-3ptzuE+Rcpo/oIGgcQ40Oz3iGZ2GxGeQ/RZEyYncPivDl3lFBCI4eiS7PZAghYuS" crossorigin="anonymous">
     <link rel="stylesheet" href="/custom.css">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https: data:; connect-src 'self' https:; frame-ancestors 'self';">
     <meta property="og:title" content="My OSINT Training's Tools">
@@ -213,6 +216,11 @@
                 <i class="fa-solid fa-download me-1"></i>Download HTML file
               </a>
               <span class="text-muted hint-text">then import into your Bookmarks Manager</span>
+              <div class="mt-2">
+                <a href="#how-do-i-use-this" class="text-muted hint-text">
+                  <i class="fa-solid fa-circle-question me-1"></i>Need help? See how to install bookmarklets below.
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -220,40 +228,49 @@
 
       <div class="row">
         <div class="col-12">
-          <!-- Pills Navigation -->
-          <h3>Choose the bookmarklets you want to see using the buttons below.</h3>
-          <ul class="nav nav-pills" id="myPills" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="tab1-btn" data-bs-toggle="pill" data-bs-target="#socminttab" type="button">
-                Site-specific Bookmarklets
+          <!-- ── Filter bar ─────────────────────────────────────────────────── -->
+          <div id="bm-filter-bar" class="d-flex flex-wrap align-items-center gap-2 mb-3 px-3 py-2 rounded border bg-light"
+               title="Click any button to filter the table">
+            <span class="bm-filter-label"><i class="fa-solid fa-filter me-1"></i>Category:</span>
+            <div class="d-flex flex-wrap gap-1" id="bm-cat-filters">
+              <button class="btn btn-sm btn-primary" data-cat="all">All</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="social">Social Media</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="finance">Finance</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="research">Research</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="people">People Search</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="misc">Misc</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="adult">Adult</button>
+              <button class="btn btn-sm btn-outline-secondary" data-cat="fun">Fun</button>
+            </div>
+            <div class="vr mx-1"></div>
+            <span class="bm-filter-label">Type:</span>
+            <div class="btn-group" role="group" id="bm-type-filters">
+              <button class="btn btn-sm btn-primary" data-type="all">All</button>
+              <button class="btn btn-sm btn-outline-secondary" data-type="active">
+                <i class="fas fa-cloud-upload-alt"></i> Active
               </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab2-btn" data-bs-toggle="pill" data-bs-target="#othertab" type="button">
-                General Bookmarklets
+              <button class="btn btn-sm btn-outline-secondary" data-type="passive">
+                <i class="fas fa-desktop"></i> Passive
               </button>
-            </li>
-          </ul>
-        </div>
-      </div>
+            </div>
+            <div class="vr mx-1"></div>
+            <button class="btn btn-sm btn-outline-success" id="btn-recent"
+                    title="Show only bookmarklets updated in the last 14 days">
+              <i class="fas fa-certificate me-1"></i>Recently Updated
+            </button>
+          </div>
 
-      <div class="tab-content" id="myPillsContent">
-        <div class="tab-pane fade show active" id="socminttab" role="tabpanel">
-          <!-- Site-specific Bookmarklets -->
-          <div class="container-lg">
-            <div class="row">
-              <div class="col-lg-auto">
-                <table id="collectiontablespecific" class="table table-striped table-hover table-bordered mb-5 shadow rounded">
-                  <thead>
-                      <tr>
-                          <th class="text-center align-bottom text-danger">Drag button to your bookmarks bar</th>
-                          <th class="text-center align-bottom">Description</th>
-                          <th class="text-center align-bottom" title="Passive means that the script only uses data already in your browser. Active means that the bookmarklet makes additional call(s) to the website.">Script Type</th>
-                          <th class="text-center align-bottom">Platform</th>
-                          <th class="text-center align-bottom col-last-updated" title="NEW tag will show if the bookmarklet was updated in the past 14 days.">Last updated</th>
-                      </tr>
-                  </thead>
-                  <tbody>
+          <table id="bookmarklets-table" class="table table-striped table-hover table-bordered mb-5 shadow rounded w-100">
+            <thead>
+              <tr>
+                <th class="text-center align-bottom text-danger">Drag to bookmarks bar</th>
+                <th class="text-center align-bottom">Description</th>
+                <th class="text-center align-bottom" title="Passive: script only uses data already in your browser. Active: bookmarklet makes additional call(s) to the website.">Script Type</th>
+                <th class="text-center align-bottom">Platform / Tags</th>
+                <th class="text-center align-bottom col-last-updated" title="NEW tag will show if the bookmarklet was updated in the past 14 days.">Last updated</th>
+              </tr>
+            </thead>
+            <tbody>
                     <tr id="bm-airbnb-user-bookmarklet">
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-success" role="button" data-folder="Social Media/Misc" draggable="true" ondragstart="drag(event)" href="javascript:void(async function(){ const hostname = window.location.hostname; if(!hostname.includes('airbnb')) { return alert('This bookmarklet only works on Airbnb domains.'); } const p=window.location.pathname, o=p.includes('/users/show/'), n=p.includes('/users/profile/'); if(!o&&!n) return alert('Please navigate to an Airbnb user profile page first.'); const u=p.match(/\/users\/(?:show|profile)\/(\d+)/)?.[1]; if(!u) return alert('Could not extract user ID from URL.'); const baseUrl = window.location.origin; function getApiKey(){ let key=document.querySelector('meta[name=&quot;api-key&quot;]')?.content; if(key)return key; const scripts=Array.from(document.querySelectorAll('script')); for(const s of scripts){ const m=s.textContent.match(/&quot;x-airbnb-api-key&quot;:\s*&quot;([^&quot;]+)&quot;/); if(m)return m[1] } return'd306zoyjsyarp7ifhu67rjxn52tv0t20' } function extractUserId(encodedId){ if(!encodedId)return null; try{ const decoded=atob(encodedId); const match=decoded.match(/\d+/); return match?match[0]:null }catch(e){ const match=encodedId.match(/\d+/); return match?match[0]:null } } async function fetchNew(){ const apiKey=getApiKey(), c=btoa('ContextualUser:'+u), apiUrl=baseUrl+'/api/v3/ContextualPublicProfileQuery/e5be5314e402c6e215ee97b8584e02044115be7978555232e1b9fcaa8ca202cc', r=await fetch(apiUrl+'?operationName=ContextualPublicProfileQuery&locale=en&currency=USD&variables='+encodeURIComponent(JSON.stringify({contextualUserId:c,viewerUserId:&quot;&quot;,isViewerLoggedIn:false}))+'&extensions='+encodeURIComponent(JSON.stringify({persistedQuery:{version:1,sha256Hash:&quot;e5be5314e402c6e215ee97b8584e02044115be7978555232e1b9fcaa8ca202cc&quot;}})),{ credentials:'include', headers:{'x-airbnb-api-key':apiKey} }), d=await r.json(); if(!d.data?.contextualUser) throw Error('No profile data. Error: '+(d.errors?.[0]?.message||'Unknown')); const i=d.data.contextualUser; return{ smartName:i.displayFirstName, userId:u, location:i.location||'N/A', isHomeHost:i.managedListingsTotalCount&gt;0, isSuperhost:i.isSuperHost, profilePictureUrl:i.userRepresentationUrl?.profilePictureUrl, managedListingsTotalCount:i.managedListingsTotalCount||0, reputationStats:[{key:'reviews',labelValue:i.hostRatingStats?.ratingStats?.ratingCount||'0'}], timeAsHost:i.timeAsHost, timeAsUser:i.timeAsUser, reviewsReceivedFromGuests:{reviews:(i.reviewsReceivedFromGuests?.edges||[]).map(e=&gt;({ createdAt:e.node.review.createdAt, reviewer:{ smartName:e.node.review.contextualReviewer?.displayFirstName, id:extractUserId(e.node.review.contextualReviewer?.id), location:e.node.review.contextualReviewer?.location }, respondedAt:e.node.review.respondedAt }))}, reviewsReceivedFromHosts:{reviews:(i.reviewsReceivedFromHosts?.edges||[]).map(e=&gt;({ createdAt:e.node.review.createdAt, reviewer:{ smartName:e.node.review.contextualReviewer?.displayFirstName, id:extractUserId(e.node.review.contextualReviewer?.id), location:e.node.review.contextualReviewer?.location }, respondedAt:e.node.review.respondedAt }))} } } function fetchOld(){ const s=document.querySelector('script#data-injector-instances[type=&quot;application/json&quot;]'); if(!s)throw Error('Could not find Airbnb data on this page.'); let d; try{d=JSON.parse(s.textContent)}catch(e){throw Error('Error parsing: '+e.message)} let up; const c=d[&quot;root &gt; core-guest-spa&quot;]; if(c&&Array.isArray(c)){ for(let i of c){ if(Array.isArray(i)&&i[0]==='NiobeClientToken'&&Array.isArray(i[1])){ for(let ni of i[1]){ if(Array.isArray(ni)&&ni[0]&&typeof ni[0]==='string'&&ni[0].startsWith('UserProfileQuery:')){ up=ni[1]?.data?.presentation?.userProfileContainer?.userProfile; break } } if(up)break } } } if(!up)throw Error('Could not find user profile data.'); return up } async function display(up){ function calcDate(y,m){ const now=new Date(), t=new Date(now.getFullYear()-y,now.getMonth()-m,1), yr=t.getFullYear(), mo=String(t.getMonth()+1).padStart(2,'0'); return yr+'-'+mo } function cleanUrl(url){return url?url.split('?')[0]:'N/A'} function fmtDate(d){ if(!d)return'N/A'; const dt=new Date(d), now=new Date(), diff=Math.floor((now-dt)/(1e3*60*60*24)), fmt=dt.toISOString().replace('T',' ').substring(0,19)+' Z'; return diff&lt;=7?'🚨'+fmt:fmt } const name=up.smartName||'N/A', uid=up.userId||'N/A', loc=up.location||'N/A', host=up.isHomeHost, sh=up.isSuperhost, pic=cleanUrl(up.profilePictureUrl), props=up.managedListingsTotalCount||0; let rev=0; if(up.reputationStats&&Array.isArray(up.reputationStats)){ const rs=up.reputationStats.find(s=&gt;s.key==='reviews'); if(rs&&rs.labelValue)rev=parseInt(rs.labelValue)||0 } const tah=up.timeAsHost, dsh=tah?calcDate(tah.years||0,tah.months||0):'N/A', tau=up.timeAsUser, dsu=tau?calcDate(tau.years||0,tau.months||0):'N/A', gr=(up.reviewsReceivedFromGuests?.reviews||[]).map(r=&gt;({...r,reviewType:'Guest'})), hr=(up.reviewsReceivedFromHosts?.reviews||[]).map(r=&gt;({...r,reviewType:'Host'})), ar=[...gr,...hr].sort((a,b)=&gt;new Date(b.createdAt)-new Date(a.createdAt)), hasResp=ar.some(r=&gt;r.respondedAt); let rows=''; ar.forEach((r,i)=&gt;{ const ca=fmtDate(r.createdAt), rn=r.reviewer?.smartName||'N/A', rid=r.reviewer?.id||'N/A', rl=r.reviewer?.location||'N/A', ra=fmtDate(r.respondedAt), rt=r.reviewType, link=rid!=='N/A'?'&lt;a href=&quot;'+baseUrl+'/users/show/'+rid+'&quot; target=&quot;_blank&quot; style=&quot;color:#00E6F0;text-decoration:none;&quot;&gt;'+rid+'&lt;/a&gt;':rid, bg=i%2===0?'#033556':'#022447'; rows+='&lt;tr style=&quot;background:'+bg+';&quot;&gt;&lt;td style=&quot;padding:8px;color:#FFF;border:1px solid #FFF;&quot;&gt;'+rt+'&lt;/td&gt;&lt;td style=&quot;padding:8px;color:#FFF;font-family:Courier New,monospace;border:1px solid #FFF;&quot;&gt;'+ca+'&lt;/td&gt;&lt;td style=&quot;padding:8px;color:#FFF;border:1px solid #FFF;font-family:Courier New,monospace;&quot;&gt;'+rn+' ('+link+')&lt;/td&gt;&lt;td style=&quot;padding:8px;color:#FFF;font-family:Courier New,monospace;border:1px solid #FFF;&quot;&gt;'+rl+'&lt;/td&gt;'+(hasResp?'&lt;td style=&quot;padding:8px;color:#FFF;font-family:Courier New,monospace;border:1px solid #FFF;&quot;&gt;'+ra+'&lt;/td&gt;':'')+'&lt;/tr&gt;' }); const m=document.createElement('div'); m.id='airbnb-profile-modal-twopane'; Object.assign(m.style,{position:'fixed',top:'50%',left:'50%',transform:'translate(-50%,-50%)',backgroundColor:'#022447',color:'#FFF',padding:'0',border:'2px solid #FFF',borderRadius:'10px',zIndex:'999999',maxWidth:'90%',maxHeight:'90vh',overflowY:'auto',textAlign:'left',fontFamily:'Arial,sans-serif',width:'1000px'}); const dh=document.createElement('div'); Object.assign(dh.style,{background:'#008BC4',color:'#FFF',padding:'10px 20px',borderRadius:'8px 8px 0 0',cursor:'move',fontWeight:'bold',position:'relative',textAlign:'center'}); dh.innerHTML='✋🏼 Click here to move window&lt;div style=&quot;font-size:9px;margin-top:4px;color:#00E6F0;&quot;&gt;Generated by a bookmarklet from https://tools.myosint.training&lt;/div&gt;'; m.appendChild(dh); const cb=document.createElement('button'); cb.innerHTML='×'; Object.assign(cb.style,{position:'absolute',top:'5px',right:'10px',background:'none',border:'none',color:'#FFF',fontSize:'28px',cursor:'pointer',lineHeight:'1',padding:'0',width:'30px',height:'30px'}); const mousemove=function(e){ if(di.isDragging){ m.style.left=e.clientX-di.offsetX+'px'; m.style.top=e.clientY-di.offsetY+'px' } }; const mouseup=function(){di.isDragging=false}; cb.onmouseover=function(){this.style.opacity='0.7'}; cb.onmouseout=function(){this.style.opacity='1'}; cb.onclick=function(e){ e.stopPropagation(); document.body.removeChild(m); document.removeEventListener('mousemove',mousemove); document.removeEventListener('mouseup',mouseup) }; dh.appendChild(cb); const ct=document.createElement('div'); ct.style.padding='20px'; const tpc=document.createElement('div'); tpc.style.cssText='display:flex;gap:20px;margin-bottom:20px;'; const lp=document.createElement('div'); lp.style.cssText='flex:1;'; const hb=host?'&lt;span style=&quot;background:#00E6F0;color:#022447;padding:4px 8px;border-radius:4px;font-weight:bold;font-size:11px;margin-right:6px;&quot;&gt;HOST&lt;/span&gt;':'&lt;span style=&quot;background:#CCC;color:#022447;padding:4px 8px;border-radius:4px;font-weight:bold;font-size:11px;margin-right:6px;opacity:0.5;&quot;&gt;NOT HOST&lt;/span&gt;', shb=sh?'&lt;span style=&quot;background:#00E6F0;color:#022447;padding:4px 8px;border-radius:4px;font-weight:bold;font-size:11px;&quot;&gt;⭐ SUPERHOST&lt;/span&gt;':'', stats='&lt;table style=&quot;width:100%;border-collapse:collapse;margin:8px 0;&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding:10px;border:1px solid #008BC4;text-align:center;background:#033556;&quot;&gt;&lt;div style=&quot;color:#00E6F0;font-size:11px;font-weight:bold;&quot;&gt;PROPERTIES&lt;/div&gt;&lt;div style=&quot;color:#FFF;font-size:20px;font-family:Courier New,monospace;font-weight:bold;margin-top:4px;&quot;&gt;'+props+'&lt;/div&gt;&lt;/td&gt;&lt;td style=&quot;padding:10px;border:1px solid #008BC4;text-align:center;background:#033556;&quot;&gt;&lt;div style=&quot;color:#00E6F0;font-size:11px;font-weight:bold;&quot;&gt;TOTAL REVIEWS&lt;/div&gt;&lt;div style=&quot;color:#FFF;font-size:20px;font-family:Courier New,monospace;font-weight:bold;margin-top:4px;&quot;&gt;'+rev+'&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'; lp.innerHTML='&lt;h2 style=&quot;color:#00E6F0;border-bottom:2px solid #00E6F0;padding-bottom:8px;margin-top:0;margin-bottom:12px;&quot;&gt;Airbnb User Profile&lt;/h2&gt;&lt;div style=&quot;padding:6px 0;border-bottom:1px solid #008BC4;color:#CCC;font-size:13px;&quot;&gt;User Name (ID): &lt;strong style=&quot;color:#FFF;font-family:Courier New,monospace;font-size:15px;&quot;&gt;'+name+'&lt;/strong&gt;&lt;span style=&quot;color:#CCC;font-family:Courier New,monospace;font-size:13px;&quot;&gt; ('+uid+')&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;padding:8px 0;border-bottom:1px solid #008BC4;&quot;&gt;'+hb+shb+'&lt;/div&gt;'+stats+'&lt;div style=&quot;padding:6px 0;border-bottom:1px solid #008BC4;color:#CCC;font-size:13px;&quot;&gt;Location: &lt;strong style=&quot;color:#FFF;font-family:Courier New,monospace;&quot;&gt;'+loc+'&lt;/strong&gt;&lt;/div&gt;&lt;div style=&quot;padding:6px 0;border-bottom:1px solid #008BC4;color:#CCC;font-size:13px;&quot;&gt;Host since: &lt;strong style=&quot;color:#FFF;font-family:Courier New,monospace;&quot;&gt;'+dsh+'&lt;/strong&gt;; User since: &lt;strong style=&quot;color:#FFF;font-family:Courier New,monospace;&quot;&gt;'+dsu+'&lt;/strong&gt;&lt;/div&gt;'; const rp=document.createElement('div'); rp.style.cssText='flex:0 0 400px;display:flex;align-items:flex-start;justify-content:center;'; if(pic!=='N/A'){ const ic=document.createElement('div'); ic.style.cssText='border:3px solid #008BC4;border-radius:8px;overflow:hidden;background:#000;width:100%;'; const im=document.createElement('img'); im.src=pic; im.alt='Profile Picture'; im.style.cssText='width:100%;height:auto;display:block;'; im.onerror=function(){ic.innerHTML='&lt;div style=&quot;padding:80px 20px;color:#CCC;text-align:center;font-size:14px;&quot;&gt;Image not available&lt;/div&gt;'}; ic.appendChild(im); rp.appendChild(ic) }else{ rp.innerHTML='&lt;div style=&quot;padding:80px 20px;color:#CCC;border:2px dashed #008BC4;border-radius:8px;text-align:center;width:100%;&quot;&gt;No profile picture&lt;/div&gt;' } tpc.appendChild(lp); tpc.appendChild(rp); ct.appendChild(tpc); const rs=document.createElement('div'); rs.style.cssText='margin-top:20px;'; rs.innerHTML='&lt;h3 style=&quot;color:#00E6F0;margin-top:0;&quot;&gt;Most recent review highlights ('+ar.length+' total)&lt;/h3&gt;&lt;table style=&quot;width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;border:1px solid #FFF;&quot;&gt;&lt;thead&gt;&lt;tr style=&quot;background:#008BC4;color:#FFF;&quot;&gt;&lt;th style=&quot;padding:8px;text-align:left;border:1px solid #FFF;&quot;&gt;Review Type&lt;/th&gt;&lt;th style=&quot;padding:8px;text-align:left;border:1px solid #FFF;&quot;&gt;Review Creation Dates (Newest First)&lt;/th&gt;&lt;th style=&quot;padding:8px;text-align:left;border:1px solid #FFF;&quot;&gt;Reviewer (ID)&lt;/th&gt;&lt;th style=&quot;padding:8px;text-align:left;border:1px solid #FFF;&quot;&gt;Location&lt;/th&gt;'+(hasResp?'&lt;th style=&quot;padding:8px;text-align:left;border:1px solid #FFF;&quot;&gt;Host Responded At&lt;/th&gt;':'')+'&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;'+rows+'&lt;/tbody&gt;&lt;/table&gt;&lt;div style=&quot;color:#CCC;font-size:12px;margin-top:10px;&quot;&gt;🚨 = Within last 7 days&lt;/div&gt;'; ct.appendChild(rs); m.appendChild(ct); const di={isDragging:false,offsetX:0,offsetY:0}; dh.onmousedown=function(e){ if(e.target===cb||e.target.parentElement===cb)return; const rect=m.getBoundingClientRect(); di.isDragging=true; di.offsetX=e.clientX-rect.left; di.offsetY=e.clientY-rect.top; m.style.transform='none'; m.style.left=rect.left+'px'; m.style.top=rect.top+'px' }; document.addEventListener('mousemove',mousemove); document.addEventListener('mouseup',mouseup); document.body.appendChild(m) } try{ const up=n?await fetchNew():fetchOld(); await display(up) }catch(e){ alert('Error: '+e.message); console.error(e) }}());">Airbnb User Bookmarklet</a></div></td>
 
@@ -880,31 +897,12 @@
 
                       <td>2026-03-03</td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> <!-- END Specific TAB -->
-        <div class="tab-pane fade show" id="othertab" role="tabpanel">
-          <!-- General Bookmarklets -->
-          <div class="container-lg">
-            <div class="row">
-              <div class="col-lg-auto">
-                <table id="collectiontablegeneral" class="table table-striped table-hover table-bordered mb-5 shadow rounded">
-                  <thead>
-                      <tr>
-                          <th class="text-center align-bottom text-danger">Drag button to your bookmarks bar</th>
-                          <th class="text-center align-bottom">Description</th>
-                          <th class="text-center align-bottom">Tags</th>
-                          <th class="text-center align-bottom col-last-updated" title="NEW tag will show if the bookmarklet was updated in the past 14 days.">Last updated</th>
-                      </tr>
-                  </thead>
-                  <tbody>
                     <tr id="bm-deblurring-bookmarklet">
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" href="javascript:(function(){document.querySelectorAll('[class]').forEach(function(el){Array.from(el.classList).forEach(function(c){if(c==='blur'||c.startsWith('blur-')){el.classList.remove(c);}});});})();">Deblurring Bookmarklet</a></div></td>
 
                       <td>This bookmarklet is used to de-blur content on sites that use CSS blur classes (e.g. <code>class="blur"</code>, <code>class="blur-sm"</code>, <code>class="blur-lg"</code>) to obfuscate data in your browser. When you click this bookmarklet, it will remove all <code>blur</code> and <code>blur-*</code> classes and may reveal real data.</td>
+
+                      <td class="text-center"><span class="badge-passive"><i class="fas fa-desktop"></i> Passive</span></td>
 
                       <td><p class="text-center">Deblurring</p></td>
 
@@ -917,6 +915,8 @@
                       <td>
                         Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.
                       </td>
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-link fa-2x"></i><br>
@@ -929,6 +929,8 @@
                     <tr id="bm-email-search-bookmarklet">
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" data-replace-open="true" href="javascript:(function(){var EMAIL=prompt('Enter EMAIL: ');let sites=[`https://thatsthem.com/email/${EMAIL}`,`https://www.google.com/search?q='${EMAIL}'`,`https://emailrep.io/query/${EMAIL}`];if(EMAIL&&EMAIL.trim()!==''){for(let site of sites){window.open(site,'_blank')}}})();">Email Search Bookmarklet</a></div></td>
                       <td>This bookmarklet is for searching for the owner of an email. It pops up 1 window asking you to input the email (include the <code>@domain.com</code> portion in your search). It queries different email search sites in one click.</td>
+
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
 
                       <td>
                         <p class="text-center">
@@ -944,6 +946,8 @@
 
                         This bookmarklet scans the current webpage for all images (including background images, video posters, srcset entries, and YouTube embed thumbnails), then opens a side panel on the right showing each image with a dropdown to reverse-image-search it on Google Lens, Yandex, TinEye, Bing, ImgOps, SauceNAO, IQDB, or Trace.moe. Each image also has a direct URL link to open it in a new tab. It upgrades low-res URLs where possible (like expanding Google user content images to full size).</td>
 
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-image fa-2x"></i><br>
@@ -958,6 +962,8 @@
 
                         This bookmarklet extracts JSON data from the page source and can show you hidden data that is not rendered in your browser. You can try it social media and other pages like <code>https://wikipedia.org/wiki/Bookmarklet</code>. It will display the JSON (if there is any) in modal window and show you how big each JSON block is in bytes. Sometimes more JSON == more OSINT goodness.</td>
 
+                      <td class="text-center"><span class="badge-passive"><i class="fas fa-desktop"></i> Passive</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-code fa-2x"></i><br>
@@ -968,6 +974,8 @@
                     <tr id="bm-table-exporter">
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" data-replace-open="true" href="javascript:(function%20()%20%7B%0A%20%20if%20(document.getElementById('tableexport-modal'))%20%7B%0A%20%20%20%20document.getElementById('tableexport-modal').remove()%3B%0A%20%20%20%20document.getElementById('tableexport-highlight-style')%20%26%26%20document.getElementById('tableexport-highlight-style').remove()%3B%0A%20%20%20%20return%3B%0A%20%20%7D%0A%20%20function%20scoreTables()%20%7B%0A%20%20%20%20const%20tables%20%3D%20Array.from(document.querySelectorAll('table'))%3B%0A%20%20%20%20return%20tables%0A%20%20%20%20%20%20.map(t%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20rows%20%3D%20Array.from(t.querySelectorAll('tr'))%3B%0A%20%20%20%20%20%20%20%20const%20rowCount%20%3D%20rows.length%3B%0A%20%20%20%20%20%20%20%20if%20(rowCount%20%3C%202)%20return%20null%3B%0A%20%20%20%20%20%20%20%20const%20cells%20%3D%20t.querySelectorAll('td%2C%20th')%3B%0A%20%20%20%20%20%20%20%20const%20colCount%20%3D%20rows%5B0%5D%20%3F%20rows%5B0%5D.querySelectorAll('td%2C%20th').length%20%3A%200%3B%0A%20%20%20%20%20%20%20%20if%20(colCount%20%3C%201)%20return%20null%3B%0A%20%20%20%20%20%20%20%20const%20textLen%20%3D%20Array.from(cells).reduce((s%2C%20c)%20%3D%3E%20s%20%2B%20c.innerText.trim().length%2C%200)%3B%0A%20%20%20%20%20%20%20%20const%20density%20%3D%20textLen%20%2F%20(cells.length%20%7C%7C%201)%3B%0A%20%20%20%20%20%20%20%20const%20score%20%3D%20rowCount%20*%20colCount%20*%20Math.log1p(density)%3B%0A%20%20%20%20%20%20%20%20return%20%7B%20table%3A%20t%2C%20score%2C%20rowCount%2C%20colCount%20%7D%3B%0A%20%20%20%20%20%20%7D)%0A%20%20%20%20%20%20.filter(Boolean)%0A%20%20%20%20%20%20.sort((a%2C%20b)%20%3D%3E%20b.score%20-%20a.score)%3B%0A%20%20%7D%0A%20%20function%20getHeaders(table)%20%7B%0A%20%20%20%20const%20thRow%20%3D%20table.querySelector('thead%20tr')%20%7C%7C%20table.querySelector('tr')%3B%0A%20%20%20%20if%20(!thRow)%20return%20%5B%5D%3B%0A%20%20%20%20return%20Array.from(thRow.querySelectorAll('th%2C%20td')).map((c%2C%20i)%20%3D%3E%20(%7B%0A%20%20%20%20%20%20label%3A%20c.innerText.trim()%20%7C%7C%20%60Col%20%24%7Bi%20%2B%201%7D%60%2C%0A%20%20%20%20%20%20index%3A%20i%0A%20%20%20%20%7D))%3B%0A%20%20%7D%0A%20%20function%20getDataRows(table)%20%7B%0A%20%20%20%20const%20rows%20%3D%20Array.from(table.querySelectorAll('tr'))%3B%0A%20%20%20%20const%20startIdx%20%3D%20(rows%5B0%5D%20%26%26%20rows%5B0%5D.querySelectorAll('th').length%20%3E%200)%20%3F%201%20%3A%200%3B%0A%20%20%20%20return%20rows.slice(startIdx).map(r%20%3D%3E%0A%20%20%20%20%20%20Array.from(r.querySelectorAll('td%2C%20th')).map(c%20%3D%3E%20c.innerText.trim())%0A%20%20%20%20).filter(r%20%3D%3E%20r.some(c%20%3D%3E%20c.length))%3B%0A%20%20%7D%0A%20%20function%20escapeCSV(val)%20%7B%0A%20%20%20%20if%20(val%20%3D%3D%20null)%20return%20''%3B%0A%20%20%20%20const%20s%20%3D%20String(val)%3B%0A%20%20%20%20if%20(s.includes('%22')%20%7C%7C%20s.includes('%2C')%20%7C%7C%20s.includes('%5Cn'))%20%7B%0A%20%20%20%20%20%20return%20'%22'%20%2B%20s.replace(%2F%22%2Fg%2C%20'%22%22')%20%2B%20'%22'%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20s%3B%0A%20%20%7D%0A%20%20function%20buildCSV(headers%2C%20rows%2C%20enabledCols)%20%7B%0A%20%20%20%20const%20filteredHeaders%20%3D%20headers.filter(h%20%3D%3E%20enabledCols.has(h.index))%3B%0A%20%20%20%20const%20headerLine%20%3D%20filteredHeaders.map(h%20%3D%3E%20escapeCSV(h.label)).join('%2C')%3B%0A%20%20%20%20const%20dataLines%20%3D%20rows.map(r%20%3D%3E%0A%20%20%20%20%20%20filteredHeaders.map(h%20%3D%3E%20escapeCSV(r%5Bh.index%5D%20%3F%3F%20'')).join('%2C')%0A%20%20%20%20)%3B%0A%20%20%20%20return%20%5BheaderLine%2C%20...dataLines%5D.join('%5Cn')%3B%0A%20%20%7D%0A%20%20function%20downloadCSV(csv)%20%7B%0A%20%20%20%20const%20blob%20%3D%20new%20Blob(%5Bcsv%5D%2C%20%7B%20type%3A%20'text%2Fcsv%3Bcharset%3Dutf-8%3B'%20%7D)%3B%0A%20%20%20%20const%20url%20%3D%20URL.createObjectURL(blob)%3B%0A%20%20%20%20const%20a%20%3D%20document.createElement('a')%3B%0A%20%20%20%20a.href%20%3D%20url%3B%0A%20%20%20%20a.download%20%3D%20'tableexport-export.csv'%3B%0A%20%20%20%20document.body.appendChild(a)%3B%0A%20%20%20%20a.click()%3B%0A%20%20%20%20document.body.removeChild(a)%3B%0A%20%20%20%20URL.revokeObjectURL(url)%3B%0A%20%20%7D%0A%20%20function%20highlightTable(table)%20%7B%0A%20%20%20%20clearHighlight()%3B%0A%20%20%20%20if%20(!table)%20return%3B%0A%20%20%20%20table.setAttribute('data-tableexport-active'%2C%20'1')%3B%0A%20%20%20%20const%20style%20%3D%20document.createElement('style')%3B%0A%20%20%20%20style.id%20%3D%20'tableexport-highlight-style'%3B%0A%20%20%20%20style.textContent%20%3D%20'table%5Bdata-tableexport-active%5D%7Boutline%3A3px%20solid%20%2300E6F0!important%3Boutline-offset%3A2px%3Bbox-shadow%3A0%200%2018px%20%2300E6F088!important%3B%7D'%3B%0A%20%20%20%20document.head.appendChild(style)%3B%0A%20%20%20%20table.scrollIntoView(%7B%20behavior%3A%20'smooth'%2C%20block%3A%20'center'%20%7D)%3B%0A%20%20%7D%0A%20%20function%20clearHighlight()%20%7B%0A%20%20%20%20document.querySelectorAll('%5Bdata-tableexport-active%5D').forEach(el%20%3D%3E%20el.removeAttribute('data-tableexport-active'))%3B%0A%20%20%20%20const%20old%20%3D%20document.getElementById('tableexport-highlight-style')%3B%0A%20%20%20%20if%20(old)%20old.remove()%3B%0A%20%20%7D%0A%20%20const%20candidates%20%3D%20scoreTables()%3B%0A%20%20let%20activeIdx%20%3D%200%3B%0A%20%20let%20headers%20%3D%20%5B%5D%3B%0A%20%20let%20dataRows%20%3D%20%5B%5D%3B%0A%20%20let%20enabledCols%20%3D%20new%20Set()%3B%0A%20%20if%20(!candidates.length)%20%7B%0A%20%20%20%20alert('Table%20Export%3A%20No%20scoreable%20tables%20found%20on%20this%20page.')%3B%0A%20%20%20%20return%3B%0A%20%20%7D%0A%20%20const%20modal%20%3D%20document.createElement('div')%3B%0A%20%20modal.id%20%3D%20'tableexport-modal'%3B%0A%20%20modal.style.cssText%20%3D%20%5B%0A%20%20%20%20'position%3Afixed'%2C%20'top%3A60px'%2C%20'left%3A50%25'%2C%20'transform%3AtranslateX(-50%25)'%2C%0A%20%20%20%20'z-index%3A999999'%2C%20'background%3A%23022447'%2C%20'border%3A2px%20solid%20%23008BC4'%2C%0A%20%20%20%20'border-radius%3A10px'%2C%20'max-width%3A92vw'%2C%20'width%3A720px'%2C%20'max-height%3A92vh'%2C%0A%20%20%20%20'display%3Aflex'%2C%20'flex-direction%3Acolumn'%2C%20'font-family%3AArial%2Csans-serif'%2C%0A%20%20%20%20'font-size%3A13px'%2C%20'color%3A%23FFF'%2C%20'box-shadow%3A0%208px%2040px%20%23000A'%0A%20%20%5D.join('%3B')%3B%0A%20%20const%20header%20%3D%20document.createElement('div')%3B%0A%20%20header.id%20%3D%20'tableexport-header'%3B%0A%20%20header.style.cssText%20%3D%20'background%3A%23008BC4%3Bpadding%3A10px%2014px%3Bborder-radius%3A8px%208px%200%200%3Bcursor%3Agrab%3Buser-select%3Anone%3Bdisplay%3Aflex%3Bflex-direction%3Acolumn%3Balign-items%3Acenter%3Bposition%3Arelative%3Bflex-shrink%3A0%3B'%3B%0A%20%20header.innerHTML%20%3D%20%60%0A%20%20%20%20%3Cdiv%20style%3D%22font-weight%3A600%3Bfont-size%3A15px%3Bletter-spacing%3A1px%3B%22%3E%F0%9F%93%8B%20Table%20Export%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20style%3D%22color%3A%2300E6F0%3Bfont-size%3A9px%3Bmargin-top%3A2px%3B%22%3E%E2%9C%8B%F0%9F%8F%BC%20Click%20here%20to%20move%20window%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20id%3D%22tableexport-close%22%20style%3D%22position%3Aabsolute%3Bright%3A12px%3Btop%3A50%25%3Btransform%3AtranslateY(-50%25)%3Bcursor%3Apointer%3Bfont-size%3A18px%3Bline-height%3A1%3B%22%20title%3D%22Close%22%3E%E2%9C%95%3C%2Fdiv%3E%60%3B%0A%20%20const%20toolbar%20%3D%20document.createElement('div')%3B%0A%20%20toolbar.style.cssText%20%3D%20'display%3Aflex%3Balign-items%3Acenter%3Bgap%3A8px%3Bpadding%3A8px%2014px%3Bbackground%3A%23033556%3Bborder-bottom%3A1px%20solid%20%23008BC4%3Bflex-shrink%3A0%3Bflex-wrap%3Awrap%3B'%3B%0A%20%20const%20tableInfo%20%3D%20document.createElement('span')%3B%0A%20%20tableInfo.id%20%3D%20'tableexport-info'%3B%0A%20%20tableInfo.style.cssText%20%3D%20'color%3A%23CCC%3Bfont-size%3A12px%3Bflex%3A1%3B'%3B%0A%20%20const%20tryBtn%20%3D%20document.createElement('button')%3B%0A%20%20tryBtn.textContent%20%3D%20'%E2%9F%B3%20Try%20Another%20Table'%3B%0A%20%20tryBtn.style.cssText%20%3D%20btnStyle('%23033556'%2C%20'%23008BC4')%3B%0A%20%20const%20exportBtn%20%3D%20document.createElement('button')%3B%0A%20%20exportBtn.textContent%20%3D%20'%E2%AC%87%20Download%20CSV'%3B%0A%20%20exportBtn.style.cssText%20%3D%20btnStyle('%2300E6F0'%2C%20'%23022447')%3B%0A%20%20exportBtn.style.fontWeight%20%3D%20'700'%3B%0A%20%20toolbar.appendChild(tableInfo)%3B%0A%20%20toolbar.appendChild(tryBtn)%3B%0A%20%20toolbar.appendChild(exportBtn)%3B%0A%20%20const%20toggleBar%20%3D%20document.createElement('div')%3B%0A%20%20toggleBar.id%20%3D%20'tableexport-toggles'%3B%0A%20%20toggleBar.style.cssText%20%3D%20'padding%3A8px%2014px%3Bbackground%3A%23022447%3Bborder-bottom%3A1px%20solid%20%231a5276%3Bdisplay%3Aflex%3Bgap%3A8px%3Bflex-wrap%3Awrap%3Bflex-shrink%3A0%3B'%3B%0A%20%20const%20previewWrap%20%3D%20document.createElement('div')%3B%0A%20%20previewWrap.style.cssText%20%3D%20'overflow%3Aauto%3Bflex%3A1%3Bpadding%3A10px%2014px%3B'%3B%0A%20%20const%20previewTable%20%3D%20document.createElement('table')%3B%0A%20%20previewTable.id%20%3D%20'tableexport-preview'%3B%0A%20%20previewTable.style.cssText%20%3D%20'width%3A100%25%3Bborder-collapse%3Acollapse%3Bfont-size%3A12px%3B'%3B%0A%20%20previewWrap.appendChild(previewTable)%3B%0A%20%20const%20footer%20%3D%20document.createElement('div')%3B%0A%20%20footer.style.cssText%20%3D%20'background%3A%23022447%3Bborder-top%3A1px%20solid%20%23008BC4%3Bborder-radius%3A0%200%2010px%2010px%3Bpadding%3A6px%2014px%3Bfont-size%3A10px%3Bcolor%3A%23CCC%3Btext-align%3Acenter%3Bflex-shrink%3A0%3B'%3B%0A%20%20footer.innerHTML%20%3D%20'Table%20Export%20%26bull%3B%20OSINT%20bookmarklet%20suite%20%26bull%3B%20%3Cspan%20style%3D%22color%3A%2300E6F0%22%3Etools.myosint.training%3C%2Fspan%3E'%3B%0A%20%20modal.appendChild(header)%3B%0A%20%20modal.appendChild(toolbar)%3B%0A%20%20modal.appendChild(toggleBar)%3B%0A%20%20modal.appendChild(previewWrap)%3B%0A%20%20modal.appendChild(footer)%3B%0A%20%20document.body.appendChild(modal)%3B%0A%20%20function%20render()%20%7B%0A%20%20%20%20const%20candidate%20%3D%20candidates%5BactiveIdx%5D%3B%0A%20%20%20%20const%20%7B%20table%2C%20rowCount%2C%20colCount%20%7D%20%3D%20candidate%3B%0A%20%20%20%20headers%20%3D%20getHeaders(table)%3B%0A%20%20%20%20dataRows%20%3D%20getDataRows(table)%3B%0A%20%20%20%20enabledCols%20%3D%20new%20Set(headers.map(h%20%3D%3E%20h.index))%3B%0A%20%20%20%20tableInfo.innerHTML%20%3D%20%60%3Cspan%20style%3D%22color%3A%2300E6F0%3Bfont-weight%3A700%3B%22%3E%24%7BrowCount%7D%20rows%20%26times%3B%20%24%7BcolCount%7D%20cols%3C%2Fspan%3E%20%26nbsp%3B%7C%26nbsp%3B%20Table%20%24%7BactiveIdx%20%2B%201%7D%20of%20%24%7Bcandidates.length%7D%60%3B%0A%20%20%20%20highlightTable(table)%3B%0A%20%20%20%20renderToggles()%3B%0A%20%20%20%20renderPreview()%3B%0A%20%20%7D%0A%20%20function%20renderToggles()%20%7B%0A%20%20%20%20toggleBar.innerHTML%20%3D%20'%3Cspan%20style%3D%22color%3A%23CCC%3Bfont-size%3A11px%3Bmargin-right%3A4px%3B%22%3EColumns%3A%3C%2Fspan%3E'%3B%0A%20%20%20%20headers.forEach(h%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20lbl%20%3D%20document.createElement('label')%3B%0A%20%20%20%20%20%20lbl.style.cssText%20%3D%20'display%3Aflex%3Balign-items%3Acenter%3Bgap%3A4px%3Bcursor%3Apointer%3Bcolor%3A%23CCC%3Bfont-size%3A11px%3Bbackground%3A%23033556%3Bpadding%3A3px%208px%3Bborder-radius%3A20px%3Bborder%3A1px%20solid%20%231a5276%3B'%3B%0A%20%20%20%20%20%20const%20cb%20%3D%20document.createElement('input')%3B%0A%20%20%20%20%20%20cb.type%20%3D%20'checkbox'%3B%0A%20%20%20%20%20%20cb.checked%20%3D%20enabledCols.has(h.index)%3B%0A%20%20%20%20%20%20cb.addEventListener('change'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20if%20(cb.checked)%20enabledCols.add(h.index)%3B%20else%20enabledCols.delete(h.index)%3B%0A%20%20%20%20%20%20%20%20renderPreview()%3B%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%20%20lbl.appendChild(cb)%3B%0A%20%20%20%20%20%20lbl.appendChild(document.createTextNode(h.label))%3B%0A%20%20%20%20%20%20toggleBar.appendChild(lbl)%3B%0A%20%20%20%20%7D)%3B%0A%20%20%7D%0A%20%20function%20renderPreview()%20%7B%0A%20%20%20%20previewTable.innerHTML%20%3D%20''%3B%0A%20%20%20%20const%20filteredHeaders%20%3D%20headers.filter(h%20%3D%3E%20enabledCols.has(h.index))%3B%0A%20%20%20%20const%20thead%20%3D%20document.createElement('thead')%3B%0A%20%20%20%20const%20hRow%20%3D%20document.createElement('tr')%3B%0A%20%20%20%20filteredHeaders.forEach(h%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20th%20%3D%20document.createElement('th')%3B%0A%20%20%20%20%20%20th.textContent%20%3D%20h.label%3B%0A%20%20%20%20%20%20th.style.cssText%20%3D%20'background%3A%23008BC4%3Bcolor%3A%23FFF%3Bpadding%3A5px%208px%3Btext-align%3Aleft%3Bposition%3Asticky%3Btop%3A0%3Bwhite-space%3Anowrap%3B'%3B%0A%20%20%20%20%20%20hRow.appendChild(th)%3B%0A%20%20%20%20%7D)%3B%0A%20%20%20%20thead.appendChild(hRow)%3B%0A%20%20%20%20previewTable.appendChild(thead)%3B%0A%20%20%20%20const%20tbody%20%3D%20document.createElement('tbody')%3B%0A%20%20%20%20const%20previewRows%20%3D%20dataRows.slice(0%2C%20200)%3B%0A%20%20%20%20previewRows.forEach((row%2C%20i)%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20tr%20%3D%20document.createElement('tr')%3B%0A%20%20%20%20%20%20tr.style.background%20%3D%20i%20%25%202%20%3D%3D%3D%200%20%3F%20'%23022447'%20%3A%20'%23033556'%3B%0A%20%20%20%20%20%20filteredHeaders.forEach(h%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20td%20%3D%20document.createElement('td')%3B%0A%20%20%20%20%20%20%20%20td.textContent%20%3D%20row%5Bh.index%5D%20%3F%3F%20''%3B%0A%20%20%20%20%20%20%20%20td.style.cssText%20%3D%20'padding%3A4px%208px%3Bborder-bottom%3A1px%20solid%20%231a5276%3Bcolor%3A%23FFF%3Bwhite-space%3Anowrap%3Bmax-width%3A220px%3Boverflow%3Ahidden%3Btext-overflow%3Aellipsis%3B'%3B%0A%20%20%20%20%20%20%20%20tr.appendChild(td)%3B%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%20%20tbody.appendChild(tr)%3B%0A%20%20%20%20%7D)%3B%0A%20%20%20%20previewTable.appendChild(tbody)%3B%0A%20%20%20%20if%20(dataRows.length%20%3E%20200)%20%7B%0A%20%20%20%20%20%20const%20note%20%3D%20document.createElement('div')%3B%0A%20%20%20%20%20%20note.style.cssText%20%3D%20'color%3A%23CCC%3Bfont-size%3A11px%3Bpadding%3A6px%200%3Btext-align%3Acenter%3B'%3B%0A%20%20%20%20%20%20note.textContent%20%3D%20%60Showing%20200%20of%20%24%7BdataRows.length%7D%20rows.%20All%20rows%20will%20be%20in%20the%20CSV%20export.%60%3B%0A%20%20%20%20%20%20previewWrap.appendChild(note)%3B%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20function%20btnStyle(bg%2C%20color)%20%7B%0A%20%20%20%20return%20%60background%3A%24%7Bbg%7D%3Bcolor%3A%24%7Bcolor%7D%3Bborder%3A1px%20solid%20%24%7Bcolor%7D%3Bborder-radius%3A20px%3Bpadding%3A4px%2012px%3Bcursor%3Apointer%3Bfont-size%3A11px%3Bfont-family%3AArial%2Csans-serif%3Bwhite-space%3Anowrap%3B%60%3B%0A%20%20%7D%0A%20%20document.getElementById('tableexport-close').addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20clearHighlight()%3B%0A%20%20%20%20modal.remove()%3B%0A%20%20%7D)%3B%0A%20%20tryBtn.addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20activeIdx%20%3D%20(activeIdx%20%2B%201)%20%25%20candidates.length%3B%0A%20%20%20%20render()%3B%0A%20%20%7D)%3B%0A%20%20exportBtn.addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20const%20csv%20%3D%20buildCSV(headers%2C%20dataRows%2C%20enabledCols)%3B%0A%20%20%20%20downloadCSV(csv)%3B%0A%20%20%7D)%3B%0A%20%20let%20dragging%20%3D%20false%2C%20dragOffX%20%3D%200%2C%20dragOffY%20%3D%200%3B%0A%20%20header.addEventListener('mousedown'%2C%20e%20%3D%3E%20%7B%0A%20%20%20%20dragging%20%3D%20true%3B%0A%20%20%20%20const%20rect%20%3D%20modal.getBoundingClientRect()%3B%0A%20%20%20%20dragOffX%20%3D%20e.clientX%20-%20rect.left%3B%0A%20%20%20%20dragOffY%20%3D%20e.clientY%20-%20rect.top%3B%0A%20%20%20%20modal.style.transform%20%3D%20'none'%3B%0A%20%20%20%20modal.style.left%20%3D%20rect.left%20%2B%20'px'%3B%0A%20%20%20%20modal.style.top%20%3D%20rect.top%20%2B%20'px'%3B%0A%20%20%20%20header.style.cursor%20%3D%20'grabbing'%3B%0A%20%20%7D)%3B%0A%20%20document.addEventListener('mousemove'%2C%20e%20%3D%3E%20%7B%0A%20%20%20%20if%20(!dragging)%20return%3B%0A%20%20%20%20modal.style.left%20%3D%20(e.clientX%20-%20dragOffX)%20%2B%20'px'%3B%0A%20%20%20%20modal.style.top%20%3D%20(e.clientY%20-%20dragOffY)%20%2B%20'px'%3B%0A%20%20%7D)%3B%0A%20%20document.addEventListener('mouseup'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20dragging%20%3D%20false%3B%0A%20%20%20%20header.style.cursor%20%3D%20'grab'%3B%0A%20%20%7D)%3B%0A%20%20render()%3B%0A%7D)()%3B">Table Exporter Bookmarklet</a></div></td>
                       <td>Detects all &gt;table&lt; elements on a page, scores them by row count, column count, and content density, and presents the best candidate in a draggable overlay. Cycle through all detected tables, toggle columns on or off, preview up to 200 rows, and export the full dataset as a CSV file.</td>
+
+                      <td class="text-center"><span class="badge-passive"><i class="fas fa-desktop"></i> Passive</span></td>
 
                       <td>
                         <p class="text-center">
@@ -981,6 +989,8 @@
 
                       <td>This bookmark pops up 3 windows in succession asking you to input the first name, then last name, then a US State you are searching. It queries different people search sites in one click.</td>
 
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-flag-usa fa-2x"></i><br>
@@ -992,6 +1002,8 @@
                       <td><div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-warning" role="button" data-folder="Multi-site" draggable="true" ondragstart="drag(event)" data-replace-open="true" href="javascript:(function(){var AREACODE=prompt('Enter 3 DIGIT AREACODE ONLY: ');var PREFIX=prompt('Enter 3 DIGIT PREFIX ONLY: ');var LAST4=prompt('Enter LAST4 ONLY: ');const sites=[`https://www.truepeoplesearch.com/results?phoneno=(${AREACODE})${PREFIX}-${LAST4}`,`https://www.fastpeoplesearch.com/${AREACODE}-${PREFIX}-${LAST4}`,`https://nuwber.com/search/phone?phone=${AREACODE}${PREFIX}${LAST4}`,`https://www.whoseno.com/US/${AREACODE}${PREFIX}${LAST4}`,`https://www.peoplesearchnow.com/phone/${AREACODE}-${PREFIX}-${LAST4}`,`https://www.revealname.com/${AREACODE}-${PREFIX}-${LAST4}`,`https://www.searchpeoplefree.com/phone-lookup/${AREACODE}-${PREFIX}-${LAST4}`,`https://sync.me/search/?number=1${AREACODE}${PREFIX}${LAST4}`,`https://thatsthem.com/phone/${AREACODE}-${PREFIX}-${LAST4}`,`https://www.advancedbackgroundchecks.com/${AREACODE}-${PREFIX}-${LAST4}`,`https://www.usphonebook.com/${AREACODE}-${PREFIX}-${LAST4}`,`https://www.cyberbackgroundchecks.com/phone/${AREACODE}-${PREFIX}-${LAST4}`];if(AREACODE&&AREACODE.trim()!==''){for(let site of sites){window.open(site,`_blank`)}}})();">United States Phone Bookmarklet</a></div></td>
 
                       <td>This bookmark pops up 3 windows in succession asking you to input the area code, then prefix, then the last 4 of the number of the United States phone number you are searching. It queries different phone search sites in one click.<br><br><i>⚠ Some sites default to the search page when no result is found. ⚠</i></td>
+
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
 
                       <td>
                         <p class="text-center">
@@ -1016,6 +1028,8 @@
                           <i class="fas fa-circle-exclamation"></i>Active Script:</span> This script makes up to 6 additional requests to the web site to check various files.
                       </td>
 
+                      <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-brands fa-wordpress fa-2x"></i><br>
@@ -1028,6 +1042,8 @@
 
                       <td>This is one of the most useful bookmarklets on the page. Because sometimes, you just need a fictional character from Kansas to give you some motivation. That's what the <a href="https://en.wikipedia.org/wiki/Ted_Lasso" target="_blank">Ted Lasso Inspirational Bookmarklet</a> is all about. We've loaded it with 50 of the best quotes from the show that our AI tool could discover. Click the bookmarklet to dim the screen and get some truth. Click the screen and, while the truth lingers in your mind, the quote disappears.</td>
 
+                      <td class="text-center"><span class="badge-passive"><i class="fas fa-desktop"></i> Passive</span></td>
+
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-lightbulb fa-2x"></i><br>
@@ -1036,17 +1052,12 @@
                       <td class="text-center"><i>Timeless</i></td>
                     </tr>
 
-                  </tbody>
-                </table>
-              </div>
-            </div>
-        </div> <!-- Other TAB -->
-      </div>  <!-- Tabs -->
-    </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-      <br>
       <hr>
-      <br>
 
       <!-- What is a bookmarklet -->
       <div class="container-lg">
@@ -1066,78 +1077,61 @@
 
       <!-- How to use this Page -->
       <div class="container-lg mb-5 shadow rounded">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-6">
-            <h2 id="how-do-i-use-this">How do I use these tools?
-            <a class="anchor-link" href="#how-do-i-use-this" aria-label="Link to this section: How do I use these tools"></a></h2>
-              <p>These bookmarks live in your browser (or you can use some of them right on this page!). You use them in certain situations. If you want them in your browser's bookmarks bar, you have 3 ways of adding them:</p>
-            <div id="accordion">
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn btn-success" data-bs-toggle="collapse" href="#collapseOne">
-                    <i class="fa-solid fa-star"></i> Easy Method <i class="fa-solid fa-star"></i>
-                  </a>
-                </div>
-                <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+        <div class="p-4 pb-2">
+          <h2 id="how-do-i-use-this">How do I use these tools?
+          <a class="anchor-link" href="#how-do-i-use-this" aria-label="Link to this section: How do I use these tools"></a></h2>
+          <p class="text-muted mb-0">Bookmarklets live in your browser's bookmarks bar. Pick the method that works best for you:</p>
+        </div>
+
+        <div class="row g-4 p-4">
+          <!-- Left: the two method cards -->
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="card h-100 border-success">
+                  <div class="card-header bg-success text-white d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-hand-pointer fa-lg"></i>
+                    <span class="fw-semibold">One at a Time</span>
+                  </div>
                   <div class="card-body">
-                    <ol class="list-group list-group-numbered">
-                      <li class="list-group-item">Find the bookmarklet you want</li>
-                      <li class="list-group-item">Click and drag the bookmarklet's name (left column in table above) it into your bookmarks bar.</li>
-                      <li class="list-group-item">Click that bookmark to use the tool. ⚠You will need to allow popups in your browser!⚠</li>
-                      <li class="list-group-item">Done!</li>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                      <li class="list-group-item border-0 ps-0">Find the bookmarklet you want in the table above.</li>
+                      <li class="list-group-item border-0 ps-0">Drag its button into your browser's bookmarks bar.</li>
+                      <li class="list-group-item border-0 ps-0">Navigate to the site the bookmarklet works on.</li>
+                      <li class="list-group-item border-0 ps-0">Click the bookmark — done!</li>
                     </ol>
                   </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn btn-secondary" data-bs-toggle="collapse" href="#collapseTwo">
-                    <i class="fa-solid fa-hammer"></i> The "More Manual Method" <i class="fa-solid fa-wrench"></i></a>
-                    <p class="small mt-1">Click to expand</p>
-                </div>
-                <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-                  <div class="card-body">
-                    <ol class="list-group list-group-numbered">
-                      <li class="list-group-item">Visit <a href="https://github.com/myosintllc/my-osint-tools/tree/main/" target="_blank" rel="noopener noreferrer">https://github.com/myosintllc/my-osint-tools/tree/main/</a></li>
-                      <li class="list-group-item">Open the bookmarklet you wish to use.</li>
-                      <li class="list-group-item">Scroll down to the <code>// Copy and paste the data below</code> section.</li>
-                      <li class="list-group-item">Copy the text starting with <code>javascript:</code> and ending with <code>()</code></li>
-                      <li class="list-group-item">Go to your favorite browser and make a new bookmark. We like doing this in our Bookmarks Bar but you can do it wherever.</li>
-                      <li class="list-group-item">Name it whatever you wish.</li>
-                      <li class="list-group-item">In the <code>URL</code> section, paste the code your copied. You need to paste everything from the <code>javascript:</code> all the way to the ending <code>()</code>.</li>
-                      <li class="list-group-item">Save the bookmark/bookmarklet.</li>
-                      <li class="list-group-item">Now you are set to run or use the bookmarklet. Some you need to be on a certain web page to use (like the Facebook ID one needs to be on a Facebook page like <code>https://www.facebook.com/zuck</code>). Navigate to the correct page or, for those that do not need a certain page, just click the bookmark.</li>
-                    </ol>
+              <div class="col-12">
+                <div class="card h-100 border-primary">
+                  <div class="card-header bg-primary text-white d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-file-import fa-lg"></i>
+                    <span class="fw-semibold">All at Once (Bulk Import)</span>
                   </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn btn-primary" data-bs-toggle="collapse" href="#collapseThree">
-                    <i class="fa-solid fa-folder"></i> The "Get Them All" Method <i class="fa-solid fa-bookmark"></i></a>
-                    <p class="small mt-1">Click to expand</p>
-                </div>
-                <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
                   <div class="card-body">
-                    <p>This method allows you to import all the bookmarklets we have in a single process. It also has the benefit of giving you all the bookmarklets in your browser to use when you like.</p>
-                    <ol class="list-group list-group-numbered">
-                      <li class="list-group-item">Download the <a href="/myosint_bookmarklets.html" download>HTML</a> or <a href="/myosint_bookmarklets.zip" download>ZIP</a> version of all our bookmarklets to your system.</li>
-                      <li class="list-group-item">Unzip the Zipped version if you chose that one.</li>
-                      <li class="list-group-item">Go into your browser and import the <code>myosint_bookmarklets.html</code> into your bookmarks bar. This varies per browser but should be in the Bookmarks Manager or something similar.</li>
-                      <li class="list-group-item">In some browsers, you may have an "Imported" folder and in others, you will have our "My OSINT Bookmarklets" folder. The bookmarklets are organized in there.</li>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                      <li class="list-group-item border-0 ps-0"><a href="/myosint_bookmarklets.html" download>Download the HTML file</a> using the card at the top of this page.</li>
+                      <li class="list-group-item border-0 ps-0">Open your browser's Bookmarks Manager and import the file.</li>
+                      <li class="list-group-item border-0 ps-0">All bookmarklets are added in organised folders — ready to use.</li>
                     </ol>
-                    <br>
-                    <p>These bookmarklets do <strong>NOT</strong> self-update. Each HTML bookmarklet export file has an HTML comment that tells you what date/version of bookmarklets you have. When you want to upgrade/update your My OSINT Bookmarklets, delete the entire folder from your Bookmarks Bar and then download and import the most recent version.</p>
+                    <p class="text-muted small mt-2 mb-0">
+                      <i class="fa-solid fa-rotate me-1"></i>Bookmarklets don't self-update. Re-download and re-import when you want the latest version.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 align-middle">
-            <div class="card text-bg-primary mb-5 shadow rounded align-middle">
-              <h2 class="card-header">Can I watch you use them?</h2>
-              <div class="card-body">
-                <p class="card-text">Of course! Check out this video which has demos, how to use the bookmarklets and much more!</p>
+
+          <!-- Right: YouTube video -->
+          <div class="col-lg-5">
+            <div class="card h-100">
+              <div class="card-header d-flex align-items-center gap-2">
+                <i class="fa-brands fa-youtube text-danger fa-lg"></i>
+                <span class="fw-semibold">Watch a Demo</span>
+              </div>
+              <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe src="https://www.youtube.com/embed/yCW5whpeTq0" title="YouTube video player" class="embed-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -1148,74 +1142,79 @@
       </div>
 
       <!-- FAQ -->
-      <div class="container-lg pb-3 mb-5 shadow rounded">
-        <div class="row">
-          <div class="col-lg-auto">
-            <h2 id="faq">Common Issues and Problems (FAQ)
-            <a class="anchor-link" href="#faq" aria-label="Link to this section: FAQ"></a></h2>
-            <p>Bookmarklet not working correctly for you? Here are some helpful steps you can take. Just click the button below that is closest to your issue.</p>
+      <div class="container-lg pb-4 mb-5 shadow rounded">
+        <div class="p-4 pb-2">
+          <h2 id="faq">FAQ &amp; Troubleshooting
+          <a class="anchor-link" href="#faq" aria-label="Link to this section: FAQ"></a></h2>
+          <p class="text-muted mb-0">Click a question to expand the answer.</p>
+        </div>
 
-            <div id="accordion-faq">
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn bg-warning text-dark" data-bs-toggle="collapse" href="#collFaqOne">
-                    <i class="fa-solid fa-circle-question fa-2x"></i>Nothing happened when I used bookmarklet
-                  </a>
-                </div>
-                <div id="collFaqOne" class="collapse" data-bs-parent="#accordion-faq">
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item">Ensure that popup windows are allowed in the current browser tab.</li>
-                      <li class="list-group-item">Try reloading the page and then using the bookmarklet.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn bg-warning text-dark" data-bs-toggle="collapse" href="#collFaqTwo">
-                    <i class="fa-solid fa-triangle-exclamation fa-2x"></i>I got an error when running the bookmarklet
-                  </a>
-                </div>
-                <div id="collFaqTwo" class="collapse" data-bs-parent="#accordion-faq">
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item">Write down the error and research it on Google.</li>
-                      <li class="list-group-item">Try reloading the page and then using the bookmarklet.</li>
-                      <li class="list-group-item">Still not working? <a href="mailto:support@myosint.training?subject=Bookmarklet%20Issues&body=Hi%2C%20I%20am%20having%20issues%20with%20a%20bookmarklet%20of%20yours.%20Below%20are%20details%3A%0A%0A-%20Bookmarklet%20Name%3A%20XXXXXXX%0A-%20Your%20System%20(Operating%20System%2C%20Browser%2C%20VPN%20status)%3A%20XXXXXXX%0A-%20What%20is%20the%20Problem%3F%20XXXXXXX%0A-%20Give%20us%20the%20Web%20Page%20URL%20You%20Are%20Having%20Issues%20With%3A%20https%3A%2F%2FXXXXXXX%0A-%20Any%20Other%20Comments%3F%20XXXXXXX%0A">Click here to send us an email.</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn bg-secondary text-light" data-bs-toggle="collapse" href="#collFaqThree">
-                    <i class="fa-regular fa-envelope fa-2x"></i>I need to let you know something about one of your bookmarklets
-                  </a>
-                </div>
-                <div id="collFaqThree" class="collapse" data-bs-parent="#accordion-faq">
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item"><a href="mailto:support@myosint.training?subject=Bookmarklet%20Issues&body=Hi%2C%20I%20am%20having%20issues%20with%20a%20bookmarklet%20of%20yours.%20Below%20are%20details%3A%0A%0A-%20Bookmarklet%20Name%3A%20XXXXXXX%0A-%20Your%20System%20(Operating%20System%2C%20Browser%2C%20VPN%20status)%3A%20XXXXXXX%0A-%20What%20is%20the%20Problem%3F%20XXXXXXX%0A-%20Give%20us%20the%20Web%20Page%20URL%20You%20Are%20Having%20Issues%20With%3A%20https%3A%2F%2FXXXXXXX%0A-%20Any%20Other%20Comments%3F%20XXXXXXX%0A">Click here to send us an email</a> and we will review and comment as soon as we can.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed btn bg-success text-light" data-bs-toggle="collapse" href="#collFaqFour">
-                    <i class="fa-solid fa-handshake fa-2x"></i>I'd like you to post one of my bookmarklets.
-                  </a>
-                </div>
-                <div id="collFaqFour" class="collapse" data-bs-parent="#accordion-faq">
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item">Well aren't you nice! Please submit an <a href="https://github.com/myosintllc/mot-osint-tools/issues" target="_blank" rel="noopener noreferrer">issue</a> in our GitHub repository. When you create a new issue, you will be prompted for what we need to review your bookmarklet. We will then send you an email response. And <i>THANK YOU!</i></li>
-                    </ul>
-                  </div>
+        <div class="px-4 pb-2">
+          <div class="accordion" id="accordion-faq">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collFaqOne" aria-expanded="false" aria-controls="collFaqOne">
+                  <i class="fa-solid fa-circle-question me-2 text-warning"></i>
+                  Nothing happened when I used a bookmarklet
+                </button>
+              </h2>
+              <div id="collFaqOne" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                <div class="accordion-body">
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-1"><i class="fa-solid fa-circle-arrow-right me-2 text-muted"></i>Try reloading the page and then clicking the bookmarklet again.</li>
+                    <li><i class="fa-solid fa-circle-arrow-right me-2 text-muted"></i>Make sure pop-up windows are allowed in your browser for this tab.</li>
+                  </ul>
                 </div>
               </div>
             </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collFaqTwo" aria-expanded="false" aria-controls="collFaqTwo">
+                  <i class="fa-solid fa-triangle-exclamation me-2 text-danger"></i>
+                  I got an error when running a bookmarklet
+                </button>
+              </h2>
+              <div id="collFaqTwo" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                <div class="accordion-body">
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-1"><i class="fa-solid fa-circle-arrow-right me-2 text-muted"></i>Note the error message and search for it online.</li>
+                    <li class="mb-1"><i class="fa-solid fa-circle-arrow-right me-2 text-muted"></i>Reload the page and try the bookmarklet again.</li>
+                    <li><i class="fa-solid fa-circle-arrow-right me-2 text-muted"></i>Still stuck? <a href="mailto:support@myosint.training?subject=Bookmarklet%20Issues&body=Hi%2C%20I%20am%20having%20issues%20with%20a%20bookmarklet%20of%20yours.%20Below%20are%20details%3A%0A%0A-%20Bookmarklet%20Name%3A%20XXXXXXX%0A-%20Your%20System%20(Operating%20System%2C%20Browser%2C%20VPN%20status)%3A%20XXXXXXX%0A-%20What%20is%20the%20Problem%3F%20XXXXXXX%0A-%20Give%20us%20the%20Web%20Page%20URL%20You%20Are%20Having%20Issues%20With%3A%20https%3A%2F%2FXXXXXXX%0A-%20Any%20Other%20Comments%3F%20XXXXXXX%0A">Email us with details</a> and we'll take a look.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collFaqThree" aria-expanded="false" aria-controls="collFaqThree">
+                  <i class="fa-regular fa-envelope me-2 text-primary"></i>
+                  I need to report something about a bookmarklet
+                </button>
+              </h2>
+              <div id="collFaqThree" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                <div class="accordion-body">
+                  <p class="mb-0"><a href="mailto:support@myosint.training?subject=Bookmarklet%20Issues&body=Hi%2C%20I%20am%20having%20issues%20with%20a%20bookmarklet%20of%20yours.%20Below%20are%20details%3A%0A%0A-%20Bookmarklet%20Name%3A%20XXXXXXX%0A-%20Your%20System%20(Operating%20System%2C%20Browser%2C%20VPN%20status)%3A%20XXXXXXX%0A-%20What%20is%20the%20Problem%3F%20XXXXXXX%0A-%20Give%20us%20the%20Web%20Page%20URL%20You%20Are%20Having%20Issues%20With%3A%20https%3A%2F%2FXXXXXXX%0A-%20Any%20Other%20Comments%3F%20XXXXXXX%0A">Send us an email</a> and we'll review it as soon as we can.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collFaqFour" aria-expanded="false" aria-controls="collFaqFour">
+                  <i class="fa-solid fa-handshake me-2 text-success"></i>
+                  I'd like to submit one of my bookmarklets
+                </button>
+              </h2>
+              <div id="collFaqFour" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                <div class="accordion-body">
+                  <p class="mb-0">Submit an <a href="https://github.com/myosintllc/mot-osint-tools/issues" target="_blank" rel="noopener noreferrer">issue on GitHub</a> — you'll be prompted for everything we need to review it. We'll reply by email. <em>Thank you!</em></p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1335,56 +1334,42 @@
     </div>
 
     <script>
+      // ── Highlight rows updated in the last 14 days ──────────────────────────
       function highlightRecentUpdates(tableId) {
-        // Get today's date
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
-        // Calculate the date 14 days ago
-        const fourteenDaysAgo = new Date(today);
-        fourteenDaysAgo.setDate(today.getDate() - 14);
-        // Find the table
+        today.setHours(0, 0, 0, 0);
+        const cutoff = new Date(today);
+        cutoff.setDate(today.getDate() - 14);
         const table = document.getElementById(tableId);
         if (!table) return;
-        // Find the index of the "Last updated" column
         const headers = table.querySelectorAll('thead th');
-        let dateColumnIndex = -1;
-        headers.forEach((header, index) => {
-          if (header.textContent.trim().includes('Last updated')) {
-            dateColumnIndex = index;
-          }
+        let dateCol = -1;
+        headers.forEach(function(th, i) {
+          if (th.textContent.trim().includes('Last updated')) dateCol = i;
         });
-        if (dateColumnIndex === -1) return;
-        // Get all rows in the tbody
-        const rows = table.querySelectorAll('tbody tr');
-        rows.forEach(row => {
+        if (dateCol === -1) return;
+        table.querySelectorAll('tbody tr').forEach(function(row) {
           const cells = row.querySelectorAll('td');
-          if (cells.length > dateColumnIndex) {
-            const dateCell = cells[dateColumnIndex];
-            const dateText = dateCell.textContent.trim();
-            // Parse the date (format: YYYY-MM-DD)
-            const cellDate = new Date(dateText);
-            // Check if the date is valid and within the last 14 days
-            if (!isNaN(cellDate) && cellDate >= fourteenDaysAgo && cellDate <= today) {
-              // Highlight the cell
-              dateCell.style.backgroundColor = '#90EE90'; // Light green
-              dateCell.style.fontWeight = 'bold';
-              // Optional: add a badge or icon
-              dateCell.innerHTML = dateText + '<br><span class="badge bg-success ms-1">Updated/New!</span>';
-            }
+          if (cells.length <= dateCol) return;
+          const cell = cells[dateCol];
+          if (cell.querySelector('.badge')) return; // already done on this draw
+          const dateText = cell.textContent.trim();
+          const d = new Date(dateText);
+          if (!isNaN(d) && d >= cutoff && d <= today) {
+            cell.style.backgroundColor = '#90EE90';
+            cell.style.fontWeight = 'bold';
+            cell.innerHTML = dateText + '<br><span class="badge bg-success ms-1">Updated/New!</span>';
           }
         });
       }
 
-      // Run the function for both tables when the page loads
-      document.addEventListener('DOMContentLoaded', function() {
-        highlightRecentUpdates('collectiontablespecific');
-        highlightRecentUpdates('collectiontablegeneral');
-
-        // Add permalink icons to the start of each bookmarklet description cell
+      // ── Permalink icons in description cells ─────────────────────────────────
+      function addPermalinks() {
         document.querySelectorAll('tr[id^="bm-"]').forEach(function(row) {
           const tds = row.querySelectorAll('td');
           if (tds.length < 2) return;
           const descCell = tds[1];
+          if (descCell.querySelector('.bm-permalink')) return; // already present
           const link = document.createElement('a');
           link.href = '#' + row.id;
           link.className = 'bm-permalink';
@@ -1411,14 +1396,12 @@
           });
           descCell.insertBefore(link, descCell.firstChild);
         });
+      }
 
-        // Initialize Bootstrap tooltip on the bookmarklet download link
-        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
-          new bootstrap.Tooltip(el);
-        });
-
-        // Make Active/Passive badges clickable — link to explanation section
+      // ── Wrap Active/Passive badges in anchor links ────────────────────────────
+      function addBadgeLinks() {
         document.querySelectorAll('td .badge-active').forEach(function(badge) {
+          if (badge.closest('a.badge-link')) return;
           var a = document.createElement('a');
           a.href = '#active-script-type';
           a.className = 'badge-link';
@@ -1427,6 +1410,7 @@
           a.appendChild(badge);
         });
         document.querySelectorAll('td .badge-passive').forEach(function(badge) {
+          if (badge.closest('a.badge-link')) return;
           var a = document.createElement('a');
           a.href = '#passive-script-type';
           a.className = 'badge-link';
@@ -1434,34 +1418,128 @@
           badge.parentNode.insertBefore(a, badge);
           a.appendChild(badge);
         });
+      }
 
-        // Handle hash-based deep linking to bookmarklet rows (e.g. #bm-tiktok-user-id-bookmarklet)
-        const hash = window.location.hash;
+      // ── Filter state (shared between custom search fn and click handlers) ──────
+      var filterCat    = 'all';
+      var filterType   = 'all';
+      var filterRecent = false;
+      (function() {
+        var today = new Date(); today.setHours(0, 0, 0, 0);
+        var cutoff = new Date(today); cutoff.setDate(today.getDate() - 14);
+        window._bmRecentCutoff = cutoff;
+        window._bmRecentToday  = today;
+      })();
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // ── DataTables custom search plugin (must register before init) ──────────
+        $.fn.dataTable.ext.search.push(function(settings, searchData, dataIndex) {
+          if (settings.nTable.id !== 'bookmarklets-table') return true;
+          var row = settings.aoData[dataIndex].nTr;
+
+          // Category — read data-folder from the bookmarklet <a> button
+          if (filterCat !== 'all') {
+            var folder = ($(row).find('a[data-folder]').data('folder') || '').toLowerCase();
+            var catMatch = false;
+            if      (filterCat === 'social')   catMatch = folder.startsWith('social media');
+            else if (filterCat === 'finance')  catMatch = folder === 'finance';
+            else if (filterCat === 'research') catMatch = folder === 'research';
+            else if (filterCat === 'people')   catMatch = folder === 'multi-site';
+            else if (filterCat === 'misc')     catMatch = folder === 'misc';
+            else if (filterCat === 'adult')    catMatch = folder === 'sex/nudity sites';
+            else if (filterCat === 'fun')      catMatch = folder === 'fun';
+            if (!catMatch) return false;
+          }
+
+          // Script Type — searchData[2] is the text content of the Script Type cell
+          if (filterType !== 'all') {
+            var typeText = (searchData[2] || '').toLowerCase();
+            if (filterType === 'active'  && typeText.indexOf('active')  === -1) return false;
+            if (filterType === 'passive' && typeText.indexOf('passive') === -1) return false;
+          }
+
+          // Recently Updated — extract YYYY-MM-DD from the last cell and check range
+          if (filterRecent) {
+            var cells = row.querySelectorAll('td');
+            var lastCell = cells[cells.length - 1];
+            var dateMatch = (lastCell ? lastCell.textContent : '').match(/(\d{4}-\d{2}-\d{2})/);
+            if (!dateMatch) return false;
+            var d = new Date(dateMatch[1]);
+            if (isNaN(d) || d < window._bmRecentCutoff || d > window._bmRecentToday) return false;
+          }
+
+          return true;
+        });
+
+        // ── DataTables ──────────────────────────────────────────────────────────
+        var dt = new DataTable('#bookmarklets-table', {
+          pageLength: 50,
+          lengthMenu: [[10, 20, 50, -1], ['10', '20', '50', 'All']],
+          columnDefs: [
+            { targets: 0, orderable: false, searchable: false }
+          ],
+          language: {
+            search: 'Search bookmarklets:',
+            lengthMenu: 'Show _MENU_ rows',
+            info: 'Showing _START_–_END_ of _TOTAL_ bookmarklets',
+            infoFiltered: '(filtered from _MAX_ total)'
+          },
+          drawCallback: function() {
+            highlightRecentUpdates('bookmarklets-table');
+            addPermalinks();
+            addBadgeLinks();
+          }
+        });
+
+        // ── Filter button click handlers ────────────────────────────────────────
+        $('#bm-cat-filters .btn').on('click', function() {
+          $('#bm-cat-filters .btn').removeClass('btn-primary').addClass('btn-outline-secondary');
+          $(this).removeClass('btn-outline-secondary').addClass('btn-primary');
+          filterCat = $(this).data('cat');
+          dt.draw();
+        });
+
+        $('#bm-type-filters .btn').on('click', function() {
+          $('#bm-type-filters .btn').removeClass('btn-primary').addClass('btn-outline-secondary');
+          $(this).removeClass('btn-outline-secondary').addClass('btn-primary');
+          filterType = $(this).data('type');
+          dt.draw();
+        });
+
+        $('#btn-recent').on('click', function() {
+          filterRecent = !filterRecent;
+          $(this).toggleClass('btn-outline-success btn-success');
+          dt.draw();
+        });
+
+        // ── Non-DataTables tooltips (download link, etc.) ───────────────────────
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+          if (!bootstrap.Tooltip.getInstance(el)) new bootstrap.Tooltip(el);
+        });
+
+        // ── Hash deep-linking to a specific bookmarklet row ─────────────────────
+        var hash = window.location.hash;
         if (hash && hash.startsWith('#bm-')) {
-          const target = document.querySelector(hash);
+          var target = document.querySelector(hash);
           if (target) {
-            const scrollToTarget = function() {
-              target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              target.style.outline = '3px solid #0d6efd';
-              setTimeout(function() { target.style.outline = ''; }, 2000);
-            };
-            const pane = target.closest('.tab-pane');
-            if (pane && !pane.classList.contains('active')) {
-              // Target is in a hidden tab — activate the tab first, then scroll
-              const trigger = document.querySelector('[data-bs-target="#' + pane.id + '"]');
-              if (trigger) {
-                trigger.addEventListener('shown.bs.tab', scrollToTarget, { once: true });
-                bootstrap.Tab.getOrCreateInstance(trigger).show();
+            // DataTable may have paginated the row off-screen; search for it first
+            dt.search(target.id.replace('bm-', '').replace(/-bookmarklet$/, '').replace(/-/g, ' ')).draw();
+            setTimeout(function() {
+              target = document.querySelector(hash);
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                target.style.outline = '3px solid #0d6efd';
+                setTimeout(function() { target.style.outline = ''; }, 2000);
               }
-            } else {
-              // Target is already in the active tab — just scroll
-              setTimeout(scrollToTarget, 100);
-            }
+            }, 300);
           }
         }
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" integrity="sha384-MgwUq0TVErv5Lkj/jIAgQpC+iUIqwhwXxJMfrZQVAOhr++1MR02yXH8aXdPc3fk0" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js" integrity="sha384-G85lmdZCo2WkHaZ8U1ZceHekzKcg37sFrs4St2+u/r2UtfvSDQmQrkMsEx4Cgv/W" crossorigin="anonymous"></script>
 
     <!-- MOT Dropdown Nav — add this block just before </body> -->
     <script>
