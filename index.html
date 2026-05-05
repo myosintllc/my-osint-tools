@@ -935,20 +935,20 @@
                     </tr>
                     <tr id="bm-domain-search-bookmarklet">
                       <td>
-                        <div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" data-replace-open="true" href="javascript:(function(){var DOMAIN=prompt('Enter DOMAIN- no www: ');var sites=[`https://whoisology.com/${DOMAIN}`,`https://builtwith.com/${DOMAIN}`,`https://dnslytics.com/domain/${DOMAIN}`,`https://host.io/${DOMAIN}`,`https://whois.domaintools.com/${DOMAIN}`,`https://viewdns.info/whois/?domain=${DOMAIN}`,`https://viewdns.info/reverseip/?host=${DOMAIN}&t=1`,`https://viewdns.info/iphistory/?domain=${DOMAIN}`];if(DOMAIN&&DOMAIN.trim()!==``){for(let site of sites){window.open(site,`_blank`)}}})();">Domain Search Bookmarklet</a></div>
+                        <div ondrop="drop(event)" ondragover="allowDrop(event)"><a class="btn btn-primary" role="button" data-folder="Misc" draggable="true" ondragstart="drag(event)" data-replace-open="true" href="javascript:(function(){var DOMAIN=prompt('Enter DOMAIN- no www: ');var sites=[`https://whoisology.com/${DOMAIN}`,`https://builtwith.com/${DOMAIN}`,`https://search.dnslytics.com/search?d=domains&q=${DOMAIN}`,`https://host.io/${DOMAIN}`,`https://whois.domaintools.com/${DOMAIN}`,`https://viewdns.info/whois/?domain=${DOMAIN}`,`https://viewdns.info/reverseip/?host=${DOMAIN}&t=1`,`https://viewdns.info/iphistory/?domain=${DOMAIN}`];if(DOMAIN&&DOMAIN.trim()!==``){for(let site of sites){window.open(site,`_blank`)}}})();">Domain Search Bookmarklet</a></div>
                       </td>
                       <td>
-                        Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it takes that domain and opens multiple browser tabs and runs searches on different sites.
+                        Have a domain that you need to find other data on? This bookmakrlet pops up 1 window asking you to input the domain (do not include the www or https; just a domain like <code>example.com</code>). Then it opens multiple browser tabs and runs searches on different sites.
                       </td>
                       <td class="text-center"><span class="badge-active"><i class="fas fa-cloud-upload-alt"></i> Active</span></td>
 
                       <td>
                         <p class="text-center">
                           <i class="fa-solid fa-link fa-2x"></i><br>
-                          domain, website</p>
+                          domain, website, dns</p>
                       </td>
                       <td>
-                        2024-07-31
+                        2026-05-05
                       </td>
                     </tr>
                     <tr id="bm-email-search-bookmarklet">
