@@ -223,6 +223,7 @@
             </div>
             <div class="card-body py-3">
               <p class="card-text mb-3 text-muted">Install every bookmarklet in your browser in one step — no dragging required.</p>
+              <p class="card-text mb-2"><small class="text-muted">Bookmarklets last generated: <span id="bm-last-generated" class="bm-version-stamp">checking...</span></small></p>
               <a href="/myosint_bookmarklets.html" download class="btn btn-sm me-2 btn-download" data-bs-toggle="tooltip" data-bs-placement="top" title="Download this HTML file, then open your browser's Bookmarks Manager and import it — all bookmarklets will be added in one step!">
                 <i class="fa-solid fa-download me-1"></i>Download HTML file
               </a>
@@ -1471,6 +1472,26 @@
         var cutoff = new Date(today); cutoff.setDate(today.getDate() - 14);
         window._bmRecentCutoff = cutoff;
         window._bmRecentToday  = today;
+      })();
+
+      // ── Bookmarklets file version display (fetches version.json, re-polls every 5 min) ──
+      (function() {
+        const el = document.getElementById('bm-last-generated');
+        if (!el) return;
+        const pad = n => String(n).padStart(2, '0');
+        function fmtUTC(iso) {
+          const d = new Date(iso);
+          return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate())
+               + ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) + ' UTC';
+        }
+        function fetchVersion() {
+          fetch('/version.json', { cache: 'no-store' })
+            .then(function(r) { return r.json(); })
+            .then(function(data) { el.textContent = fmtUTC(data.built); })
+            .catch(function() { el.textContent = 'unavailable'; });
+        }
+        fetchVersion();
+        setInterval(fetchVersion, 5 * 60 * 1000);
       })();
 
       // ── Recently Updated strip ────────────────────────────────────────────────

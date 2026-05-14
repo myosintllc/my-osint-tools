@@ -9,11 +9,95 @@ import re
 import requests
 from html import unescape
 from pathlib import Path
-from typing import Dict, List, Tuple
-from urllib.parse import urlparse
-from datetime import datetime
+from typing import Dict, List
+from datetime import datetime, timezone
 import json
-#import zipfile
+
+
+# Version-check bookmarklet injected into the generated HTML file.
+# __V__ is replaced with the UTC build timestamp at generation time.
+_VERSION_CHECK_JS = (
+    "(function(){"
+    "var v='__V__';"
+    "function p(n){return String(n).padStart(2,'0')}"
+    "function fmt(s){var d=new Date(s);"
+    "return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())"
+    "+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds())+' UTC'}"
+    "function gone(){var e=document.getElementById('mot-vm');if(e)e.remove()}"
+    "function mkB(t,bg,fg,bc){"
+    "var b=document.createElement('button');b.textContent=t;"
+    "b.style.cssText='background:'+bg+';color:'+fg+';border:1px solid '+bc"
+    "+';padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;';"
+    "return b}"
+    "function show(ok,remote){"
+    "gone();"
+    "var m=document.createElement('div');m.id='mot-vm';"
+    "m.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);"
+    "background:#022447;color:#FFF;padding:0;border:2px solid #008BC4;border-radius:10px;"
+    "z-index:999999;width:420px;max-width:90vw;font-family:Arial,sans-serif;"
+    "box-shadow:0 10px 40px rgba(0,0,0,0.6);';"
+    "var dh=document.createElement('div');"
+    "dh.style.cssText='background:#008BC4;color:#FFF;padding:10px 20px;"
+    "border-radius:8px 8px 0 0;text-align:center;font-weight:bold;font-size:13px;position:relative;';"
+    "dh.innerHTML='\U0001F516 My OSINT Bookmarklets — Version Check"
+    "<div style=\"font-size:9px;color:#00E6F0;margin-top:3px;\">tools.myosint.training</div>';"
+    "var x=document.createElement('button');x.innerHTML='×';"
+    "x.style.cssText='position:absolute;top:4px;right:10px;background:none;border:none;"
+    "color:#FFF;font-size:24px;cursor:pointer;line-height:1;padding:0;';"
+    "x.onclick=function(){m.remove()};dh.appendChild(x);m.appendChild(dh);"
+    "var bd=document.createElement('div');bd.style.padding='20px';"
+    "var ic=document.createElement('div');"
+    "ic.style.cssText='text-align:center;font-size:32px;margin-bottom:10px;';"
+    "ic.textContent=ok?'✅':'⬆️';bd.appendChild(ic);"
+    "var hp=document.createElement('p');"
+    "hp.style.cssText='text-align:center;font-size:15px;font-weight:bold;margin-bottom:14px;"
+    "color:'+(ok?'#00E6F0':'#ffc107')+';';"
+    "hp.textContent=ok?'Your bookmarklets are up to date!':'Updates are available!';bd.appendChild(hp);"
+    "var vb=document.createElement('div');"
+    "vb.style.cssText='background:#033556;border-radius:6px;padding:10px;font-size:12px;color:#CCC;';"
+    "if(ok){vb.innerHTML='Your version:<br>"
+    "<strong style=\"color:#FFF;font-family:Courier New,monospace;\">'+fmt(v)+'</strong>'}"
+    "else{vb.innerHTML='Your version:<br>"
+    "<strong style=\"color:#adb5bd;font-family:Courier New,monospace;\">'+fmt(v)+'</strong>"
+    "<br><br>Latest:<br>"
+    "<strong style=\"color:#00E6F0;font-family:Courier New,monospace;\">'+fmt(remote)+'</strong>'}"
+    "bd.appendChild(vb);"
+    "var br=document.createElement('div');"
+    "br.style.cssText='margin-top:14px;display:flex;gap:10px;justify-content:center;';"
+    "if(!ok){"
+    "var dl=mkB('⬇️ Download Update','#008BC4','#FFF','#008BC4');"
+    "dl.onclick=function(){"
+    "window.open('https://tools.myosint.training/myosint_bookmarklets.html','_blank')};"
+    "br.appendChild(dl)}"
+    "var ob=mkB(ok?'OK':'Not Now','#033556','#CCC','#008BC4');"
+    "ob.onclick=function(){m.remove()};br.appendChild(ob);"
+    "bd.appendChild(br);m.appendChild(bd);document.body.appendChild(m)}"
+    "function err(){"
+    "gone();"
+    "var m=document.createElement('div');m.id='mot-vm';"
+    "m.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);"
+    "background:#022447;color:#FFF;padding:20px;border:2px solid #e04060;border-radius:10px;"
+    "z-index:999999;width:380px;max-width:90vw;font-family:Arial,sans-serif;"
+    "text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.6);';"
+    "var ed=document.createElement('div');"
+    "ed.style.cssText='font-size:28px;margin-bottom:10px;';"
+    "ed.textContent='⚠️';m.appendChild(ed);"
+    "var ep=document.createElement('p');"
+    "ep.style.cssText='color:#ffc107;font-weight:bold;margin-bottom:8px;';"
+    "ep.textContent='Could not check for updates';m.appendChild(ep);"
+    "var es=document.createElement('p');"
+    "es.style.cssText='color:#CCC;font-size:12px;margin-bottom:14px;';"
+    "es.textContent='Visit tools.myosint.training to check manually.';m.appendChild(es);"
+    "var eb=document.createElement('button');eb.textContent='OK';"
+    "eb.style.cssText='background:#033556;color:#CCC;border:1px solid #008BC4;"
+    "padding:6px 16px;border-radius:6px;font-size:13px;cursor:pointer;';"
+    "eb.onclick=function(){m.remove()};m.appendChild(eb);document.body.appendChild(m)}"
+    "fetch('https://tools.myosint.training/version.json',{cache:'no-store'})"
+    ".then(function(r){return r.json()})"
+    ".then(function(d){show(v>=d.built,d.built)})"
+    ".catch(err)"
+    "})()"
+)
 
 
 class BookmarkletExporter:
@@ -23,12 +107,9 @@ class BookmarkletExporter:
 
     def fetch_html(self) -> str:
         """Fetch HTML from the provided URL or file"""
-        # Check if it's a local file path
         if self.url.startswith('/') or self.url.startswith('./') or Path(self.url).exists():
-            #print(f"Reading HTML from {self.url}...")
             return Path(self.url).read_text(encoding='utf-8')
 
-        # Otherwise try to fetch from URL
         print(f"Fetching HTML from {self.url}...")
         response = requests.get(self.url)
         response.raise_for_status()
@@ -38,15 +119,12 @@ class BookmarkletExporter:
         """Extract bookmarklets from HTML with their folders and titles"""
         bookmarklets = []
 
-        # Find all <a> tags that contain data-folder attribute
-        # Use a more lenient pattern that doesn't require specific attribute order
         pattern = r'<a\s+[^>]*?data-folder="([^"]+)"[^>]*?href="([^"]+)"[^>]*?>([^<]+)</a>|<a\s+[^>]*?href="([^"]+)"[^>]*?data-folder="([^"]+)"[^>]*?>([^<]+)</a>'
 
         matches = re.finditer(pattern, html, re.IGNORECASE | re.DOTALL)
 
         for match in matches:
             groups = match.groups()
-            # Handle both possible attribute orderings
             if groups[0]:  # data-folder before href
                 folder_path = groups[0]
                 href = groups[1]
@@ -56,10 +134,8 @@ class BookmarkletExporter:
                 href = groups[3]
                 title = groups[5].strip()
 
-            # Decode HTML entities
             code = unescape(href)
 
-            # Remove javascript: prefix if present
             if code.startswith('javascript:'):
                 code = code[len('javascript:'):]
 
@@ -92,18 +168,15 @@ class BookmarkletExporter:
             parts = folder_path.split('/')
             current = root['folders']
 
-            # Navigate/create nested structure
             for part in parts[:-1]:
                 if part not in current:
                     current[part] = {'folders': {}, 'bookmarklets': []}
                 current = current[part]['folders']
 
-            # Add the final folder
             final_folder = parts[-1]
             if final_folder not in current:
                 current[final_folder] = {'folders': {}, 'bookmarklets': []}
 
-            # Add bookmarklets to this folder
             current[final_folder]['bookmarklets'].extend(bookmarks)
 
         return root
@@ -120,9 +193,7 @@ class BookmarkletExporter:
     def generate_html(self, structure: Dict, iso_datetime: str = None) -> str:
         """Generate browser-importable HTML bookmark file"""
         if iso_datetime is None:
-            now = datetime.now()
-            rounded_now = now.replace(microsecond=0)
-            iso_datetime = rounded_now.isoformat()
+            iso_datetime = datetime.now(timezone.utc).replace(microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ')
 
         html_parts = [
             '<!DOCTYPE NETSCAPE-Bookmark-file-1>',
@@ -138,22 +209,18 @@ class BookmarkletExporter:
         ]
 
         def add_folder_recursively(folder_dict: Dict, indent: int = 1) -> None:
-            """Recursively add folders and bookmarklets to HTML"""
             indent_str = '    ' * indent
 
-            # Add subfolders first
             for folder_name, folder_content in folder_dict['folders'].items():
                 html_parts.append(f'{indent_str}<DT><H3>{self._escape_html(folder_name)}</H3>')
                 html_parts.append(f'{indent_str}<DL><p>')
                 add_folder_recursively(folder_content, indent + 1)
                 html_parts.append(f'{indent_str}</DL><p>')
 
-            # Then add bookmarklets in this folder
             for bookmark in folder_dict['bookmarklets']:
                 escaped_title = self._escape_html(bookmark['title'])
                 escaped_code = self._escape_html(bookmark['code'])
 
-                # Ensure javascript: prefix exists
                 if not bookmark['code'].startswith('javascript:'):
                     href = f"javascript:{escaped_code}"
                 else:
@@ -162,7 +229,7 @@ class BookmarkletExporter:
                 html_parts.append(
                     f'{indent_str}<DT><A HREF="{href}">'
                     f'{escaped_title}</A>'
-                    )
+                )
 
         add_folder_recursively(structure)
 
@@ -178,19 +245,23 @@ class BookmarkletExporter:
     def _escape_html(text: str) -> str:
         """Escape HTML special characters"""
         return (text.replace('&', '&amp;')
-                   .replace('<', '&lt;')
-                   .replace('>', '&gt;')
-                   .replace('"', '&quot;')
-                   .replace("'", '&#39;'))
+                    .replace('<', '&lt;')
+                    .replace('>', '&gt;')
+                    .replace('"', '&quot;')
+                    .replace("'", '&#39;'))
+
+    def write_version_json(self, iso_datetime: str, output_path: Path) -> None:
+        """Write version.json alongside the generated bookmarks file"""
+        version_path = output_path.parent / 'version.json'
+        version_path.write_text(
+            json.dumps({'built': iso_datetime}, indent=2),
+            encoding='utf-8'
+        )
+        print(f"✅ Written version.json: {iso_datetime}")
 
     def export(self, output_file: str = 'bookmarklets.html') -> str:
         """Main export method - orchestrates the entire process"""
-        #print("\n=== My OSINT Bookmarklet Exporter ===\n")
-
-        # Make the time and round to seconds not microseconds
-        now = datetime.now()
-        rounded_now = now.replace(microsecond=0)
-        iso_datetime = rounded_now.isoformat()
+        iso_datetime = datetime.now(timezone.utc).replace(microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ')
 
         # Fetch and parse
         html = self.fetch_html()
@@ -210,28 +281,24 @@ class BookmarkletExporter:
         # Wrap under parent folder
         structure = self.wrap_with_parent_folder(structure)
 
-        # Add version bookmark at the end of the "My OSINT Bookmarklets" folder
+        # Add version-check bookmark at the end of the "My OSINT Bookmarklets" folder
+        version_check_code = _VERSION_CHECK_JS.replace('__V__', iso_datetime)
         version_bookmark = {
-            'title': f'v{iso_datetime} - Click to go to tools.myosint.training',
-            'code': "window.open('https://tools.myosint.training', '_blank')",
+            'title': f'v{iso_datetime} - Check for bookmarklet updates',
+            'code': version_check_code,
         }
         structure['folders']['My OSINT Bookmarklets']['bookmarklets'].append(version_bookmark)
 
         # Generate HTML
         bookmark_html = self.generate_html(structure, iso_datetime)
 
-        # Save to file
+        # Save bookmark HTML
         output_path = Path(output_file)
         output_path.write_text(bookmark_html, encoding='utf-8')
-
         print(f"\n✅ Successfully exported {len(bookmarklets)} bookmarklets")
-        #print(f"📁 Saved to: {output_path.absolute()}")
 
-        # Create zip file
-        #zip_path = output_path.with_suffix('.zip')
-        #with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        #    zipf.write(output_path, arcname=output_path.name)
-        #print(f"📦 Created zip: {zip_path.absolute()}")
+        # Write version.json alongside the HTML
+        self.write_version_json(iso_datetime, output_path)
 
         return str(output_path.absolute())
 
@@ -240,27 +307,14 @@ def main():
     """Main entry point"""
     import sys
 
-    # Use local file by default, or accept URL/path as argument
     if len(sys.argv) > 1:
         input_source = sys.argv[1]
     else:
-        # Default to the hardcoded URL, but could also use local file
         input_source = "index.html"
 
     exporter = BookmarkletExporter(input_source)
-    output_file = exporter.export('myosint_bookmarklets.html')
+    exporter.export('myosint_bookmarklets.html')
 
-    '''if output_file:
-        # Print folder structure for reference
-        print(f"\n📊 Folder Structure:")
-        html = exporter.fetch_html()
-        bookmarklets = exporter.extract_bookmarklets(html)
-        organized = exporter.organize_by_folder(bookmarklets)
-
-        for folder in sorted(organized.keys()):
-            count = len(organized[folder])
-            print(f"   📁 {folder} ({count} bookmarklet{'s' if count != 1 else ''})")
-    '''
 
 if __name__ == '__main__':
     main()
