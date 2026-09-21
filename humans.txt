@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Micah Hoffman
+Developer: Griffin Glynn
+Site: https://www.myosint.training
+
+/* THANKS */
+To: the OSINT community for the feedback, bug reports, and bookmarklet ideas
+
+/* SITE */
+Last update: 2026/09/21
+Standards: HTML5, CSS3
+Software: hand-written, no framework
+
+/* FOUND THIS FILE? */
+Did you just run our own Root .txt Scanner Bookmarklet on us?
+If not, grab it: https://tools.myosint.training/#bm-root-txt-scanner-bookmarklet

@@ -1,0 +1,7 @@
+# carbon.txt for tools.myosint.training
+# https://carbontxt.org/
+
+hosting-provider: GitHub Pages
+hosting-provider-homepage: https://pages.github.com/
+disclosure: GitHub states it has operated at net-zero carbon since July 2019, and that all development on and use of GitHub.com since then has been carbon neutral.
+disclosure-source: https://github.blog/news-insights/company-news/environmental-sustainability-github/

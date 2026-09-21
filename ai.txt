@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Training: disallowed
+
+This site's tool catalog and documentation may be indexed and
+referenced by AI systems, but please do not use this content for
+model training. The bookmarklets themselves run entirely
+client-side in the visitor's own browser and are not affected by
+this file.

@@ -1,0 +1,4 @@
+Contact: mailto:support@myosint.training
+Expires: 2027-09-21T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://tools.myosint.training/.well-known/security.txt

@@ -1,0 +1,11 @@
+# My OSINT Training - Tools Site
+
+> A growing collection of free browser bookmarklets for OSINT investigators. Drag, click, done — no extensions, no accounts required.
+
+## Docs
+- [Tool Catalog](https://tools.myosint.training/): the full bookmarklet list
+- [Blog](https://www.myosint.training/pages/blog): write-ups on new bookmarklets
+- [Courses](https://www.myosint.training): courses and OSINT training
+
+## Notes
+All bookmarklets run entirely client-side in the visitor's own browser — no data is sent to My OSINT Training when they're used.

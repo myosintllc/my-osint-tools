@@ -1,0 +1,6 @@
+This site uses Google Analytics (gtag.js) to collect aggregate visit
+statistics such as page views and referrers. We do not currently
+honor the browser Do Not Track (DNT) signal.
+
+The bookmarklets listed on this site run entirely in your own
+browser and do not send any data to My OSINT Training when used.
