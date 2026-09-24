@@ -7,7 +7,7 @@ Site: https://www.myosint.training
 To: the OSINT community for the feedback, bug reports, and bookmarklet ideas
 
 /* SITE */
-Last update: 2026/09/21
+Last update: 2026/09/24
 Standards: HTML5, CSS3
 Software: hand-written, no framework
 
