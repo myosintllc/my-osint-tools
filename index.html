@@ -257,12 +257,14 @@
             </div>
             <div class="card-body py-3">
               <p class="card-text mb-3 text-muted">Visit our blog for detailed walkthroughs, screenshots, and real-world examples of these tools.</p>
-              <a href="https://blog.myosint.training" target="_blank" rel="noopener noreferrer" class="btn btn-sm me-2 btn-blog">
-                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Visit blog.myosint.training
-              </a>
-              <a href="https://www.youtube.com/watch?v=yCW5whpeTq0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-youtube">
-                <i class="fa-brands fa-youtube me-1"></i>Watch on YouTube
-              </a>
+              <div class="d-flex justify-content-center flex-wrap gap-2">
+                <a href="https://blog.myosint.training" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-blog">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Visit blog.myosint.training
+                </a>
+                <a href="https://www.youtube.com/watch?v=yCW5whpeTq0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-youtube">
+                  <i class="fa-brands fa-youtube me-1"></i>Watch on YouTube
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1715,15 +1717,13 @@
 
         // ── DataTables ──────────────────────────────────────────────────────────
         var dt = new DataTable('#bookmarklets-table', {
-          pageLength: 50,
-          lengthMenu: [[10, 20, 50, -1], ['10', '20', '50', 'All']],
+          paging: false,
           columnDefs: [
             { targets: 0, orderable: false, searchable: false }
           ],
           language: {
             search: 'Search bookmarklets:',
-            lengthMenu: 'Show _MENU_ rows',
-            info: 'Showing _START_–_END_ of _TOTAL_ bookmarklets',
+            info: 'Showing _TOTAL_ bookmarklets',
             infoFiltered: '(filtered from _MAX_ total)'
           },
           drawCallback: function() {
