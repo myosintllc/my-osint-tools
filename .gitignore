@@ -1,2 +1,4 @@
 CNAME
 CNAME
+__pycache__/
+*.pyc

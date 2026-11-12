@@ -1,0 +1,35 @@
+name: Daily Update Digest
+
+on:
+  schedule:
+    # Fires at both possible UTC times for 7am US Eastern (EDT and EST),
+    # since cron here is fixed-UTC. digest.py checks the real America/New_York
+    # hour and only proceeds on whichever firing is actually 7am ET right now —
+    # see digest.py's module docstring for why.
+    - cron: '0 11 * * *'  # 7am EDT (UTC-4, roughly mid-March to early November)
+    - cron: '0 12 * * *'  # 7am EST (UTC-5, roughly early November to mid-March)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run digest
+        env:
+          MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+          MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
+        run: python digest.py
