@@ -96,32 +96,43 @@ def build_campaign_html(rows: list[dict], digest_date: str) -> str:
 </tr>'''
         for r in rows
     )
+    # `bgcolor` (not just CSS `style="background:..."`) on the <body> and the
+    # outer full-width wrapper table — several email clients (Gmail among
+    # them) strip <body> style attributes and won't reliably paint anything
+    # outside the inner 600px table, leaving a dark content box floating on a
+    # white background. `bgcolor` survives that sanitizing.
     return f"""<!DOCTYPE html>
 <html>
-<body style="margin:0;background:#022447;font-family:Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#022447;color:#FFF;">
+<body bgcolor="#022447" style="margin:0;background:#022447;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#022447" style="background:#022447;">
     <tr>
-      <td style="background:#008BC4;padding:20px 24px;text-align:center;">
-        <div style="font-size:18px;font-weight:700;">My OSINT Tools &mdash; Daily Update</div>
-        <div style="color:#00E6F0;font-size:12px;margin-top:4px;">{digest_date}</div>
-      </td>
-    </tr>
-    <tr>
-      <td style="padding:20px 24px;">
-        <p style="color:#CCC;font-size:13px;margin:0 0 10px;">{len(rows)} bookmarklet{'s' if len(rows) != 1 else ''} updated today:</p>
-        <table width="100%" cellpadding="0" cellspacing="0">
-          {items_html}
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#022447" style="max-width:600px;margin:0 auto;background:#022447;color:#FFF;">
+          <tr>
+            <td style="background:#008BC4;padding:20px 24px;text-align:center;">
+              <div style="font-size:18px;font-weight:700;">My OSINT Tools &mdash; Daily Update</div>
+              <div style="color:#00E6F0;font-size:12px;margin-top:4px;">{digest_date}</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 24px;">
+              <p style="color:#CCC;font-size:13px;margin:0 0 10px;">{len(rows)} bookmarklet{'s' if len(rows) != 1 else ''} updated today:</p>
+              <table width="100%" cellpadding="0" cellspacing="0">
+                {items_html}
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 24px;text-align:center;">
+              <a href="{SITE_URL}" style="color:#022447;background:#00E6F0;padding:10px 20px;border-radius:4px;text-decoration:none;font-weight:700;font-size:13px;">View All Bookmarklets</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 24px 20px;text-align:center;color:#888;font-size:11px;">
+              You're receiving this because you subscribed for updates at {SITE_URL}.
+            </td>
+          </tr>
         </table>
-      </td>
-    </tr>
-    <tr>
-      <td style="padding:16px 24px;text-align:center;">
-        <a href="{SITE_URL}" style="color:#022447;background:#00E6F0;padding:10px 20px;border-radius:4px;text-decoration:none;font-weight:700;font-size:13px;">View All Bookmarklets</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="padding:12px 24px 20px;text-align:center;color:#888;font-size:11px;">
-        You're receiving this because you subscribed for updates at {SITE_URL}.
       </td>
     </tr>
   </table>
