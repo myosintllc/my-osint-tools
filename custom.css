@@ -791,6 +791,107 @@ a.badge-link:hover .badge-passive {
 
 .mot-blog-card .btn-youtube:hover { background-color: #a30000; }
 
+/* Subscribe card — same family as download/blog cards above */
+.mot-subscribe-card { border: 1px solid #008BC4; }
+
+.mot-subscribe-card .card-header {
+  background-color: #008BC4;
+  border-bottom: 2px solid #00E6F0;
+}
+
+.mot-subscribe-card .card-header i { color: #fff; }
+
+.mot-subscribe-card .card-header span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mot-subscribe-card .card-text { font-size: 0.85rem; }
+
+/* Reset the Mailchimp classic embed's own inline styling (fixed 600px width,
+   white background, default font) so it sits naturally inside a Bootstrap
+   card instead of looking like a pasted-in widget. Compact layout: email
+   field + Subscribe button share one row to minimize card height. */
+.mot-subscribe-card #mc_embed_signup {
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+}
+.mot-subscribe-card #mc_embed_signup form { padding: 0; }
+/* Mailchimp's own classic.css sets `#mc_embed_signup .mc-field-group {
+   display:grid; width:96%}` and `#mc_embed_signup .mc-field-group input {
+   display:block; width:100%}` with ID-level specificity — matching the
+   `#mc_embed_signup` prefix here (not just .mot-subscribe-card) is required
+   to actually win the cascade and get the email field + button on one row. */
+#mc_embed_signup .mc-field-group.mot-subscribe-row {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+  align-items: stretch;
+  min-height: 0;
+  padding-bottom: 0;
+}
+#mc_embed_signup .mc-field-group input[type="email"] {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  padding: 0.3rem 0.6rem;
+  text-indent: 0;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+}
+/* Mailchimp's own `#mc_embed_signup .mc-field-group` rule (min-height:50px,
+   padding-bottom:3%, width:96%, display:grid) ties this on specificity and,
+   since its stylesheet loads after custom.css, wins ties — so this selector
+   needs the #mc_embed_signup ID prefix too (two IDs > one ID + one class) to
+   actually override it. Same story below for the Subscribe button, which
+   Mailchimp targets directly by its own #mc-embedded-subscribe id. */
+#mc_embed_signup #mergeRow-gdpr {
+  min-height: 0;
+  padding-bottom: 0;
+  width: 100%;
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+.mot-subscribe-card #mergeRow-gdpr .mc_fieldset { border: none; padding: 0; }
+.mot-subscribe-card #mergeRow-gdpr label {
+  font-weight: normal;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 0;
+}
+.mot-subscribe-card #mergeRow-gdpr input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin: 2px 0 0;
+}
+.mot-subscribe-card .content__gdprLegal {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #6c757d;
+  margin-top: 0.3rem;
+  line-height: 1.3;
+}
+.mot-subscribe-card .content__gdprLegal a { color: #006a94; }
+#mc_embed_signup #mc-embedded-subscribe.btn-subscribe {
+  margin: 0;
+}
+.mot-subscribe-card .btn-subscribe {
+  background-color: #008BC4;
+  color: #fff;
+  border: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.mot-subscribe-card .btn-subscribe:hover { background-color: #006a94; }
+
 
 /* ----------------------------------------------------------
    10b. Components — Recently Updated Strip
